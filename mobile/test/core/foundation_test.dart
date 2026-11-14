@@ -22,7 +22,10 @@ void main() {
     expect(AppConfig.apiBaseUrl, endsWith('/api/v1'));
   });
 
-  test('discovery route is the application entry point', () {
-    expect(AppRoutes.discovery, '/');
+  test('splash route is the application entry point', () {
+    expect(AppRoutes.splash, '/');
+    expect(AppRoutes.discovery, '/discovery');
+    expect(AppRoutes.login, '/login');
+    expect(AppRoutes.register, '/register');
   });
 }

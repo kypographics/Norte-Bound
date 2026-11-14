@@ -4,6 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 
+import '../../features/auth/presentation/auth_providers.dart';
+import '../../features/auth/presentation/login_screen.dart';
+import '../../features/auth/presentation/register_screen.dart';
+import '../../features/auth/presentation/splash_screen.dart';
 import '../../features/discovery/presentation/screens/discovery_screen.dart';
 import '../theme/app_colors.dart';
 import 'app_routes.dart';
@@ -11,12 +15,31 @@ import 'app_routes.dart';
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouterProvider = Provider<GoRouter>((ref) {
+  final refreshNotifier = _AuthRefreshNotifier(ref);
+
   final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: AppRoutes.discovery,
+    initialLocation: AppRoutes.splash,
     restorationScopeId: 'norte-bound',
     debugLogDiagnostics: kDebugMode,
+    refreshListenable: refreshNotifier,
+    redirect: (context, state) => _redirect(ref, state),
     routes: [
+      GoRoute(
+        path: AppRoutes.splash,
+        name: AppRoutes.splashName,
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.login,
+        name: AppRoutes.loginName,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.register,
+        name: AppRoutes.registerName,
+        builder: (context, state) => const RegisterScreen(),
+      ),
       GoRoute(
         path: AppRoutes.discovery,
         name: AppRoutes.discoveryName,
@@ -26,10 +49,51 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     errorBuilder: (context, state) => _RouteErrorScreen(error: state.error),
   );
 
-  ref.onDispose(router.dispose);
+  ref.onDispose(() {
+    router.dispose();
+    refreshNotifier.dispose();
+  });
 
   return router;
 });
+
+String? _redirect(Ref ref, GoRouterState state) {
+  final auth = ref.read(authNotifierProvider);
+  final location = state.matchedLocation;
+  final isSplash = location == AppRoutes.splash;
+  final isAuthRoute =
+      location == AppRoutes.login || location == AppRoutes.register;
+
+  if (auth.isLoading) {
+    return isSplash ? null : AppRoutes.splash;
+  }
+
+  if (auth.value == null) {
+    if (isSplash) {
+      return AppRoutes.login;
+    }
+
+    return isAuthRoute ? null : AppRoutes.login;
+  }
+
+  if (isSplash || isAuthRoute) {
+    return AppRoutes.discovery;
+  }
+
+  return null;
+}
+
+class _AuthRefreshNotifier extends ChangeNotifier {
+  _AuthRefreshNotifier(Ref ref) {
+    ref.listen(authNotifierProvider, (previous, next) {
+      final userChanged = previous?.value?.id != next.value?.id;
+
+      if (previous?.isLoading != next.isLoading || userChanged) {
+        notifyListeners();
+      }
+    });
+  }
+}
 
 class _RouteErrorScreen extends StatelessWidget {
   const _RouteErrorScreen({this.error});
