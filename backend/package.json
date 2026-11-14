@@ -1,0 +1,28 @@
+{
+  "name": "norte-bound-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NORTE BOUND API - AI-assisted tourism recommendation and dynamic itinerary planning for Ilocos Norte",
+  "type": "module",
+  "main": "src/app.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
