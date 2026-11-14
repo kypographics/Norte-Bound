@@ -3,14 +3,11 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_colors.dart';
-import '../../features/auth/domain/models/user.dart';
-import '../../features/auth/presentation/auth_providers.dart';
 
-class AppShellScaffold extends ConsumerWidget {
+class AppShellScaffold extends StatelessWidget {
   const AppShellScaffold({super.key, required this.navigationShell});
 
   final StatefulNavigationShell navigationShell;
@@ -20,37 +17,28 @@ class AppShellScaffold extends ConsumerWidget {
   );
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authNotifierProvider).value;
-    final isAdmin = user?.role == UserRole.admin;
-
-    final destinations = <_DockDestination>[
-      const _DockDestination(
+  Widget build(BuildContext context) {
+    const destinations = <_DockDestination>[
+      _DockDestination(
         index: 0,
         icon: CupertinoIcons.compass,
         label: 'Explore',
       ),
-      const _DockDestination(
+      _DockDestination(
         index: 1,
         icon: CupertinoIcons.search,
         label: 'Search',
       ),
-      const _DockDestination(
+      _DockDestination(
         index: 2,
         icon: CupertinoIcons.sparkles,
         label: 'AI Co-Pilot',
       ),
-      const _DockDestination(
+      _DockDestination(
         index: 3,
         icon: CupertinoIcons.person_crop_circle,
         label: 'Profile',
       ),
-      if (isAdmin)
-        const _DockDestination(
-          index: 4,
-          icon: CupertinoIcons.briefcase,
-          label: 'Curator',
-        ),
     ];
 
     return Scaffold(

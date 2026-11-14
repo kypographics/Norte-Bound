@@ -4,16 +4,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 
-import '../../features/admin/presentation/admin_dashboard_screen.dart';
-import '../../features/auth/domain/models/user.dart';
+
 import '../../features/auth/presentation/auth_providers.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/profile_screen.dart';
 import '../../features/auth/presentation/register_screen.dart';
 import '../../features/auth/presentation/splash_screen.dart';
+import '../../features/discovery/domain/destination_summary.dart';
+import '../../features/discovery/presentation/screens/destination_detail_screen.dart';
 import '../../features/discovery/presentation/screens/discovery_screen.dart';
+import '../../features/discovery/presentation/screens/search_screen.dart';
 import '../../features/preferences/presentation/planner_screen.dart';
-import '../../features/search/presentation/search_screen.dart';
 import '../../shared/widgets/app_shell_scaffold.dart';
 import '../theme/app_colors.dart';
 import 'app_routes.dart';
@@ -25,7 +26,6 @@ final _discoveryNavigatorKey = GlobalKey<NavigatorState>(
 final _searchNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'search');
 final _plannerNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'planner');
 final _profileNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
-final _adminNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'admin');
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final refreshNotifier = _AuthRefreshNotifier(ref);
@@ -52,6 +52,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.register,
         name: AppRoutes.registerName,
         builder: (context, state) => const RegisterScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.destinationDetailPath,
+        name: AppRoutes.destinationDetailName,
+        builder: (context, state) {
+          final destination = state.extra;
+
+          return DestinationDetailScreen(
+            slug: state.pathParameters['slug'] ?? '',
+            destination: destination is DestinationSummary ? destination : null,
+          );
+        },
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
@@ -98,16 +110,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-          StatefulShellBranch(
-            navigatorKey: _adminNavigatorKey,
-            routes: [
-              GoRoute(
-                path: AppRoutes.admin,
-                name: AppRoutes.adminName,
-                builder: (context, state) => const AdminDashboardScreen(),
-              ),
-            ],
-          ),
         ],
       ),
     ],
@@ -128,8 +130,6 @@ String? _redirect(Ref ref, GoRouterState state) {
   final isSplash = location == AppRoutes.splash;
   final isAuthRoute =
       location == AppRoutes.login || location == AppRoutes.register;
-  final isAdminRoute =
-      location == AppRoutes.admin || location.startsWith('${AppRoutes.admin}/');
 
   if (auth.isLoading) {
     return isSplash ? null : AppRoutes.splash;
@@ -144,10 +144,6 @@ String? _redirect(Ref ref, GoRouterState state) {
   }
 
   if (isSplash || isAuthRoute) {
-    return AppRoutes.discovery;
-  }
-
-  if (isAdminRoute && auth.value?.role != UserRole.admin) {
     return AppRoutes.discovery;
   }
 

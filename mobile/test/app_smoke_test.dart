@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:norte_bound/app.dart';
 import 'package:norte_bound/features/auth/domain/models/user.dart';
 import 'package:norte_bound/features/auth/presentation/auth_providers.dart';
+import 'package:norte_bound/features/discovery/presentation/discovery_providers.dart';
+
+import 'support/fake_discovery.dart';
 
 class _AuthenticatedAuthNotifier extends AuthNotifier {
   @override
@@ -34,6 +37,7 @@ void main() {
       ProviderScope(
         overrides: [
           authNotifierProvider.overrideWith(_AuthenticatedAuthNotifier.new),
+          exploreFeedProvider.overrideWith((ref) async => fakeExploreFeed),
         ],
         child: const NorteBoundApp(),
       ),
@@ -42,7 +46,7 @@ void main() {
 
     expect(find.text('NORTE BOUND'), findsOneWidget);
     expect(find.text('Find your\nnorth.'), findsOneWidget);
-    expect(find.text('CONTEXT-AWARE PLANNING'), findsOneWidget);
+    expect(find.text('Explore by circuit'), findsOneWidget);
   });
 
   testWidgets('unauthenticated app renders the login screen', (tester) async {

@@ -30,7 +30,6 @@ void main() {
     expect(AppRoutes.search, '/search');
     expect(AppRoutes.planner, '/planner');
     expect(AppRoutes.profile, '/profile');
-    expect(AppRoutes.admin, '/admin');
     expect(AppRoutes.login, '/login');
     expect(AppRoutes.register, '/register');
   });
