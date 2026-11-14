@@ -1,0 +1,6519 @@
+[
+  {
+    "destination_code": "pagudpud-saud-white-beach",
+    "name": "Saud White Beach",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "beach",
+      "family-friendly",
+      "photography",
+      "sunset-spot",
+      "budget-friendly"
+    ],
+    "short_description": "A long stretch of powdery white sand and calm turquoise water along Pagudpud's northern coastline.",
+    "coordinates": {
+      "latitude": 18.5826,
+      "longitude": 120.788
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 50,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 150,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pagudpud-blue-lagoon-maira-ira",
+    "name": "Blue Lagoon (Maira-ira Cove)",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "beach",
+      "photography",
+      "hidden-gem",
+      "family-friendly",
+      "scenic-view"
+    ],
+    "short_description": "A sheltered cove with clear blue water framed by forested cliffs and limestone outcrops.",
+    "coordinates": {
+      "latitude": 18.6067,
+      "longitude": 120.9328
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 50,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 120,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pagudpud-patapat-viaduct",
+    "name": "Patapat Viaduct",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "scenic-view",
+      "motorcycle-scenic-ride",
+      "photography",
+      "free-entry"
+    ],
+    "short_description": "A coastal viaduct hugging the cliffs of the Cordillera foothills with sweeping views of the West Philippine Sea.",
+    "coordinates": {
+      "latitude": 18.6033,
+      "longitude": 120.9277
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pagudpud-kabigan-falls",
+    "name": "Kabigan Falls",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "waterfall",
+      "hiking",
+      "nature-trail",
+      "family-friendly"
+    ],
+    "short_description": "A tall forest waterfall reached through a gentle riverside trek from the village jump-off point.",
+    "coordinates": {
+      "latitude": 18.57,
+      "longitude": 120.856
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 100,
+      "entrance_fee_student_senior": 80,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 120,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pagudpud-bantay-abot-cave",
+    "name": "Bantay Abot Cave",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "beach",
+      "photography",
+      "scenic-view",
+      "hidden-gem"
+    ],
+    "short_description": "A natural rock arch and cave opening onto a rugged coastal shoreline along the Pagudpud road.",
+    "coordinates": {
+      "latitude": 18.5922,
+      "longitude": 120.8497
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pagudpud-agua-grande-river-park",
+    "name": "Agua Grande River Park",
+    "entity_type": "attraction",
+    "lgu_code": "pagudpud",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "family-friendly",
+      "photography",
+      "budget-friendly"
+    ],
+    "short_description": "A river-and-sea meeting point with picnic cottages, shallow pools, and rock formations beside the highway.",
+    "coordinates": {
+      "latitude": 18.5747,
+      "longitude": 120.8385
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bangui-windmills-viewdeck",
+    "name": "Bangui Windmills (Wind Farm Viewdeck)",
+    "entity_type": "attraction",
+    "lgu_code": "bangui",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "wind-farm",
+      "scenic-view",
+      "photography",
+      "family-friendly"
+    ],
+    "short_description": "A row of towering wind turbines arrayed along the Bangui Bay shoreline with a dedicated viewing deck.",
+    "coordinates": {
+      "latitude": 18.5285,
+      "longitude": 120.715
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 30,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bangui-sentinela-hill",
+    "name": "Sentinela Hill Viewpoint",
+    "entity_type": "attraction",
+    "lgu_code": "bangui",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "scenic-view",
+      "photography",
+      "sunset-spot",
+      "wind-farm"
+    ],
+    "short_description": "A hilltop overlook commanding a wide panorama of Bangui Bay, the wind farm, and the northern coastline.",
+    "coordinates": {
+      "latitude": 18.5375,
+      "longitude": 120.783
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bangui-inabel-coastal-cafe",
+    "name": "Bangui Artisan Inabel & Coastal Cafe",
+    "entity_type": "cultural_experience",
+    "lgu_code": "bangui",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "weaving-craft",
+      "coffee-relaxation",
+      "cultural-immersion",
+      "local-food"
+    ],
+    "short_description": "A roadside artisan stop pairing handwoven Abel Iloko textiles with locally roasted coffee and coastal views.",
+    "coordinates": {
+      "latitude": 18.5378,
+      "longitude": 120.7675
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 120,
+      "estimated_meal_cost_max": 300,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": [
+        "merienda"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Bangui Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "burgos-kapurpurawan-rock-formation",
+    "name": "Kapurpurawan Rock Formation",
+    "entity_type": "attraction",
+    "lgu_code": "burgos",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "scenic-view",
+      "photography",
+      "nature-trail",
+      "family-friendly"
+    ],
+    "short_description": "Sculpted white limestone formations overlooking the sea, reached by a short trail through coastal grassland.",
+    "coordinates": {
+      "latitude": 18.5562,
+      "longitude": 120.6427
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 40,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 30,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "burgos-cape-bojeador-lighthouse",
+    "name": "Cape Bojeador Lighthouse (Burgos Lighthouse)",
+    "entity_type": "attraction",
+    "lgu_code": "burgos",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "lighthouse",
+      "historical",
+      "photography",
+      "scenic-view"
+    ],
+    "short_description": "A Spanish-colonial-era lighthouse on a hilltop overlooking the northern coast and West Philippine Sea.",
+    "coordinates": {
+      "latitude": 18.5149,
+      "longitude": 120.6283
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 20,
+      "entrance_fee_student_senior": 10,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "burgos-tanap-avis-falls",
+    "name": "Tanap Avis Falls",
+    "entity_type": "attraction",
+    "lgu_code": "burgos",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "waterfall",
+      "hiking",
+      "nature-trail",
+      "hidden-gem"
+    ],
+    "short_description": "A secluded multi-tiered waterfall in the Burgos uplands reached by a moderate forest trek.",
+    "coordinates": {
+      "latitude": 18.495,
+      "longitude": 120.67
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 150,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Burgos Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "burgos-dragonfruit-farm",
+    "name": "Burgos Dragonfruit Farm",
+    "entity_type": "attraction",
+    "lgu_code": "burgos",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "agro-farm",
+      "nature-trail",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "A working dragonfruit plantation offering farm walks, fruit tasting, and agricultural demonstrations.",
+    "coordinates": {
+      "latitude": 18.525,
+      "longitude": 120.64
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Burgos Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pasuquin-salt-making-stalls",
+    "name": "Pasuquin Salt-Making Stalls (Salinas)",
+    "entity_type": "cultural_experience",
+    "lgu_code": "pasuquin",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "cultural-immersion",
+      "photography",
+      "budget-friendly",
+      "local-food"
+    ],
+    "short_description": "Traditional seaside salt beds where salt is still harvested by hand and sold along the highway.",
+    "coordinates": {
+      "latitude": 18.35,
+      "longitude": 120.615
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Pasuquin Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pasuquin-original-soft-biscocho-bakery",
+    "name": "Pasuquin Bakery (Original Soft Biscocho)",
+    "entity_type": "food_establishment",
+    "lgu_code": "pasuquin",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "local-food",
+      "budget-friendly",
+      "family-friendly"
+    ],
+    "short_description": "A long-standing local bakery renowned for its soft, buttery biscocho sold fresh along the highway.",
+    "coordinates": {
+      "latitude": 18.3333,
+      "longitude": 120.6186
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 50,
+      "estimated_meal_cost_max": 150,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 20,
+      "best_time_of_day": "any",
+      "meal_window_compatibility": [
+        "breakfast",
+        "merienda"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Pasuquin Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "dumalneg-isneg-cultural-heritage-center",
+    "name": "Dumalneg Isneg Cultural Heritage Center & Bolo River Eco-Trail",
+    "entity_type": "cultural_experience",
+    "lgu_code": "dumalneg",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "cultural-immersion",
+      "museum",
+      "nature-trail",
+      "hidden-gem"
+    ],
+    "short_description": "A community heritage center preserving Isneg culture, paired with an eco-trail along the Bolo River basin.",
+    "coordinates": {
+      "latitude": 18.5231,
+      "longitude": 120.8225
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Dumalneg Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "dumalneg-araruang-kilang-falls",
+    "name": "Araruang (Kilang) Falls",
+    "entity_type": "attraction",
+    "lgu_code": "dumalneg",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "waterfall",
+      "hiking",
+      "hidden-gem",
+      "nature-trail"
+    ],
+    "short_description": "A remote upland waterfall in Dumalneg reached by a rough trail through forest and river crossings.",
+    "coordinates": {
+      "latitude": 18.545,
+      "longitude": 120.86
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 180,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Dumalneg Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "adams-anuplig-falls",
+    "name": "Anuplig Falls",
+    "entity_type": "attraction",
+    "lgu_code": "adams",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "waterfall",
+      "hiking",
+      "nature-trail",
+      "photography"
+    ],
+    "short_description": "A tall cascade set in the forested mountains of Adams, reached by a guided upland trek.",
+    "coordinates": {
+      "latitude": 18.4668,
+      "longitude": 120.9145
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 180,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Adams Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "adams-lovers-peak-palemlem",
+    "name": "Lovers Peak (Mount Palemlem) Eco-Trail",
+    "entity_type": "attraction",
+    "lgu_code": "adams",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "hiking",
+      "scenic-view",
+      "nature-trail",
+      "sunset-spot"
+    ],
+    "short_description": "A ridge trail and viewpoint above Adams offering panoramic mountain and river-valley scenery.",
+    "coordinates": {
+      "latitude": 18.4545,
+      "longitude": 120.9012
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 150,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Adams Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "adams-bugnay-wine-hanging-bridge",
+    "name": "Adams Bugnay Wine & Hanging Bridge Experience",
+    "entity_type": "cultural_experience",
+    "lgu_code": "adams",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "cultural-immersion",
+      "local-food",
+      "agro-farm",
+      "hidden-gem"
+    ],
+    "short_description": "A community experience featuring native bugnay fruit wine production and a river hanging-bridge crossing.",
+    "coordinates": {
+      "latitude": 18.4628,
+      "longitude": 120.9028
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 100,
+      "estimated_meal_cost_max": 250,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": [
+        "merienda"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Adams Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-la-paz-sand-dunes",
+    "name": "La Paz Sand Dunes (4x4 & Sandboarding)",
+    "entity_type": "activity_hub",
+    "lgu_code": "laoag-city",
+    "category_code": "recreation_adventure",
+    "interest_tags": [
+      "sand-dunes",
+      "photography",
+      "sunset-spot",
+      "family-friendly"
+    ],
+    "short_description": "Coastal sand dunes offering 4x4 rides, sandboarding, and wide sunset views near Laoag City.",
+    "coordinates": {
+      "latitude": 18.2043,
+      "longitude": 120.556
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 500,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 50,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Laoag City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-sinking-bell-tower-st-williams",
+    "name": "Sinking Bell Tower & St. William's Cathedral",
+    "entity_type": "attraction",
+    "lgu_code": "laoag-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "family-friendly",
+      "free-entry"
+    ],
+    "short_description": "Laoag's iconic leaning bell tower and Spanish-era cathedral in the heart of the city center.",
+    "coordinates": {
+      "latitude": 18.198,
+      "longitude": 120.593
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 40,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Laoag City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-museo-ilocos-norte",
+    "name": "Museo Ilocos Norte",
+    "entity_type": "attraction",
+    "lgu_code": "laoag-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "museum",
+      "cultural-immersion",
+      "historical",
+      "family-friendly"
+    ],
+    "short_description": "A provincial museum housed in a historic building, showcasing Ilocano heritage, crafts, and lifeways.",
+    "coordinates": {
+      "latitude": 18.1967,
+      "longitude": 120.5928
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-aurora-park-tobacco-monument",
+    "name": "Aurora Park & Tobacco Monopoly Monument",
+    "entity_type": "attraction",
+    "lgu_code": "laoag-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "A central public plaza anchored by the Tobacco Monopoly Monument, a reminder of the province's colonial economy.",
+    "coordinates": {
+      "latitude": 18.1975,
+      "longitude": 120.5945
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Laoag City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-la-preciosa-restaurant",
+    "name": "La Preciosa Restaurant",
+    "entity_type": "food_establishment",
+    "lgu_code": "laoag-city",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "ilocano-cuisine",
+      "local-food",
+      "bagnet",
+      "family-friendly"
+    ],
+    "short_description": "A well-known Laoag dining institution serving classic Ilocano dishes and local specialties.",
+    "coordinates": {
+      "latitude": 18.1957,
+      "longitude": 120.5931
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 250,
+      "estimated_meal_cost_max": 600,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Verified establishment listing",
+      "source_type": "verified_establishment",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "laoag-dawangs-eatery",
+    "name": "Dawang's Eatery",
+    "entity_type": "food_establishment",
+    "lgu_code": "laoag-city",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "ilocano-cuisine",
+      "local-food",
+      "budget-friendly"
+    ],
+    "short_description": "A casual local eatery serving affordable Ilocano home-style meals favored by residents.",
+    "coordinates": {
+      "latitude": 18.1962,
+      "longitude": 120.5918
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 100,
+      "estimated_meal_cost_max": 250,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Verified establishment listing",
+      "source_type": "verified_establishment",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "san-nicolas-valdes-lardizabal-house",
+    "name": "Valdes-Lardizabal Ancestral House",
+    "entity_type": "attraction",
+    "lgu_code": "san-nicolas",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "museum",
+      "cultural-immersion",
+      "photography"
+    ],
+    "short_description": "A preserved Spanish-era ancestral house showcasing the architecture and heirloom collections of a prominent local family.",
+    "coordinates": {
+      "latitude": 18.1725,
+      "longitude": 120.5956
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "San Nicolas Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "san-nicolas-damili-pottery-village",
+    "name": "San Nicolas Damili (Red Clay Terra Cotta Pottery) Village",
+    "entity_type": "cultural_experience",
+    "lgu_code": "san-nicolas",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "pottery",
+      "cultural-immersion",
+      "hidden-gem",
+      "photography"
+    ],
+    "short_description": "A traditional pottery village where artisans shape red-clay damili cookware and decorative terracotta by hand.",
+    "coordinates": {
+      "latitude": 18.17,
+      "longitude": 120.605
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "San Nicolas Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "san-nicolas-heritage-plaza-dining",
+    "name": "San Nicolas Heritage Plaza & Ilocano Dining",
+    "entity_type": "food_establishment",
+    "lgu_code": "san-nicolas",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "local-food",
+      "ilocano-cuisine",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "A town-center dining stop near the heritage plaza serving local Ilocano plates and merienda.",
+    "coordinates": {
+      "latitude": 18.1735,
+      "longitude": 120.5945
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 100,
+      "estimated_meal_cost_max": 250,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "lunch",
+        "merienda",
+        "dinner"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Verified establishment listing",
+      "source_type": "verified_establishment",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bacarra-domeless-bell-tower-st-andrew",
+    "name": "Bacarra Domeless Bell Tower & St. Andrew Parish Church",
+    "entity_type": "attraction",
+    "lgu_code": "bacarra",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "The famous domeless bell tower of Bacarra, standing beside the Spanish-era St. Andrew Parish Church.",
+    "coordinates": {
+      "latitude": 18.2519,
+      "longitude": 120.6122
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 40,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Bacarra Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bacarra-museo-de-bacarra",
+    "name": "Museo de Bacarra",
+    "entity_type": "attraction",
+    "lgu_code": "bacarra",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "museum",
+      "historical",
+      "cultural-immersion",
+      "family-friendly"
+    ],
+    "short_description": "A small local museum preserving relics, photographs, and artifacts of Bacarra heritage.",
+    "coordinates": {
+      "latitude": 18.2523,
+      "longitude": 120.611
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Bacarra Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "bacarra-traditional-miki-eatery",
+    "name": "Bacarra Traditional Miki Eatery",
+    "entity_type": "food_establishment",
+    "lgu_code": "bacarra",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "ilocano-cuisine",
+      "local-food",
+      "budget-friendly"
+    ],
+    "short_description": "A local eatery serving Bacarra-style miki noodle soup and other Ilocano comfort dishes.",
+    "coordinates": {
+      "latitude": 18.2531,
+      "longitude": 120.6114
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 100,
+      "estimated_meal_cost_max": 200,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "lunch",
+        "merienda"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Verified establishment listing",
+      "source_type": "verified_establishment",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "sarrat-santa-monica-parish-church",
+    "name": "Santa Monica Parish Church & Convent",
+    "entity_type": "attraction",
+    "lgu_code": "sarrat",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "cultural-immersion",
+      "free-entry"
+    ],
+    "short_description": "A red-brick Spanish-era church and convent complex known for its distinctive heritage architecture.",
+    "coordinates": {
+      "latitude": 18.1569,
+      "longitude": 120.6449
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Sarrat Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "sarrat-edralin-ancestral-house",
+    "name": "Edralin Ancestral House (Marcos Sr. Birthplace Museum)",
+    "entity_type": "attraction",
+    "lgu_code": "sarrat",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "museum",
+      "cultural-immersion",
+      "photography"
+    ],
+    "short_description": "The restored ancestral house and birthplace museum of former President Ferdinand E. Marcos Sr.",
+    "coordinates": {
+      "latitude": 18.155,
+      "longitude": 120.646
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Sarrat Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "sarrat-binakol-weaving-riverbank-park",
+    "name": "Sarrat Binakol Weaving & Riverbank Park",
+    "entity_type": "cultural_experience",
+    "lgu_code": "sarrat",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "weaving-craft",
+      "cultural-immersion",
+      "nature-trail",
+      "budget-friendly"
+    ],
+    "short_description": "A community weaving center for Binakol textiles set beside a relaxing riverbank park.",
+    "coordinates": {
+      "latitude": 18.158,
+      "longitude": 120.643
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Sarrat Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "vintar-umok-ni-siwawer-vintar-dam",
+    "name": "Umok ni Siwawer Eco-Adventure Park & Vintar Dam Viewdeck",
+    "entity_type": "activity_hub",
+    "lgu_code": "vintar",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "nature-trail",
+      "hiking",
+      "family-friendly",
+      "scenic-view"
+    ],
+    "short_description": "A riverside eco-adventure park with a dam viewdeck, picnic areas, and gentle nature trails.",
+    "coordinates": {
+      "latitude": 18.24,
+      "longitude": 120.68
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 120,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Vintar Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "vintar-highland-river-picnic-grounds",
+    "name": "Vintar Highland River Picnic Grounds",
+    "entity_type": "activity_hub",
+    "lgu_code": "vintar",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "family-friendly",
+      "budget-friendly",
+      "hidden-gem"
+    ],
+    "short_description": "Cool upland river picnic grounds on the edge of the Vintar highlands, ideal for family outings.",
+    "coordinates": {
+      "latitude": 18.2297,
+      "longitude": 120.6469
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Vintar Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-saint-augustine-church",
+    "name": "Paoay Church (San Agustin Church)",
+    "entity_type": "attraction",
+    "lgu_code": "paoay",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "unesco-heritage",
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "A UNESCO World Heritage Earthquake Baroque church built from coral stone and brick.",
+    "coordinates": {
+      "latitude": 18.0615,
+      "longitude": 120.5215
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "UNESCO World Heritage Registry / Provincial Tourism",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-malacanang-of-the-north",
+    "name": "Malacañang of the North",
+    "entity_type": "attraction",
+    "lgu_code": "paoay",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "museum",
+      "photography",
+      "family-friendly"
+    ],
+    "short_description": "A lakeside former presidential rest house turned museum overlooking Paoay Lake.",
+    "coordinates": {
+      "latitude": 18.0597,
+      "longitude": 120.5247
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-culili-point-sand-dunes",
+    "name": "Culili Point Paoay Sand Dunes",
+    "entity_type": "activity_hub",
+    "lgu_code": "paoay",
+    "category_code": "recreation_adventure",
+    "interest_tags": [
+      "sand-dunes",
+      "photography",
+      "sunset-spot",
+      "hidden-gem"
+    ],
+    "short_description": "Rolling coastal sand dunes offering 4x4 rides, sandboarding, and dramatic sunset photo spots.",
+    "coordinates": {
+      "latitude": 18.09,
+      "longitude": 120.516
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 300,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 50,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-lake-national-park",
+    "name": "Paoay Lake National Park",
+    "entity_type": "attraction",
+    "lgu_code": "paoay",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "scenic-view",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "A protected lake basin with scenic shorelines, birdlife, and views toward the Paoay church.",
+    "coordinates": {
+      "latitude": 18.115,
+      "longitude": 120.54
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-nagbacalan-loomweaving",
+    "name": "Nagbacalan Loomweaving Multi-Purpose Cooperative",
+    "entity_type": "cultural_experience",
+    "lgu_code": "paoay",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "weaving-craft",
+      "cultural-immersion",
+      "hidden-gem",
+      "family-friendly"
+    ],
+    "short_description": "A community cooperative where visitors can watch Abel Iloko handloom weaving and buy textiles.",
+    "coordinates": {
+      "latitude": 18.07,
+      "longitude": 120.53
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "paoay-herencia-cafe",
+    "name": "Herencia Cafe (Pinakbet Pizza)",
+    "entity_type": "food_establishment",
+    "lgu_code": "paoay",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "ilocano-cuisine",
+      "local-food",
+      "coffee-relaxation",
+      "family-friendly"
+    ],
+    "short_description": "A heritage-inspired cafe near Paoay Church known for its Ilocano fusion dishes such as pinakbet pizza.",
+    "coordinates": {
+      "latitude": 18.061,
+      "longitude": 120.523
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 250,
+      "estimated_meal_cost_max": 500,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Verified establishment listing",
+      "source_type": "verified_establishment",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "batac-riverside-empanadaan",
+    "name": "Batac Riverside Empanadaan",
+    "entity_type": "food_establishment",
+    "lgu_code": "batac-city",
+    "category_code": "food_culinary",
+    "interest_tags": [
+      "empanada",
+      "local-food",
+      "budget-friendly",
+      "family-friendly"
+    ],
+    "short_description": "A cluster of riverside stalls serving authentic Batac empanada and miki to locals and visitors.",
+    "coordinates": {
+      "latitude": 18.0553,
+      "longitude": 120.5644
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "10:00",
+        "close_time": "21:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 80,
+      "estimated_meal_cost_max": 200,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "midday",
+      "meal_window_compatibility": [
+        "breakfast",
+        "lunch",
+        "merienda",
+        "dinner"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Batac City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "batac-museo-ni-ferdinand-marcos",
+    "name": "Museo ni Ferdinand E. Marcos",
+    "entity_type": "attraction",
+    "lgu_code": "batac-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "museum",
+      "historical",
+      "cultural-immersion",
+      "family-friendly"
+    ],
+    "short_description": "A museum preserving memorabilia and documents related to former President Ferdinand E. Marcos.",
+    "coordinates": {
+      "latitude": 18.0514,
+      "longitude": 120.5627
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Batac City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "batac-gregorio-aglipay-shrine",
+    "name": "Gregorio Aglipay National Shrine",
+    "entity_type": "attraction",
+    "lgu_code": "batac-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "cultural-immersion"
+    ],
+    "short_description": "A national shrine honoring Gregorio Aglipay, founder of the Philippine Independent Church.",
+    "coordinates": {
+      "latitude": 18.0557,
+      "longitude": 120.556
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Batac City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "batac-artemio-ricarte-shrine-park",
+    "name": "Artemio Ricarte National Shrine & Park",
+    "entity_type": "attraction",
+    "lgu_code": "batac-city",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "A shrine and park commemorating Ilocano revolutionary general Artemio Ricarte.",
+    "coordinates": {
+      "latitude": 18.053,
+      "longitude": 120.566
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Batac City Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "currimao-pangil-coral-rock-gardens",
+    "name": "Pangil Coral Rock Gardens",
+    "entity_type": "attraction",
+    "lgu_code": "currimao",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "photography",
+      "hidden-gem",
+      "family-friendly"
+    ],
+    "short_description": "Tide-exposed coral rock formations and natural pools along the Currimao shoreline.",
+    "coordinates": {
+      "latitude": 18.01,
+      "longitude": 120.48
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Currimao Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "currimao-gaang-beach-cove",
+    "name": "Gaang Beach & Cove",
+    "entity_type": "attraction",
+    "lgu_code": "currimao",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "beach",
+      "photography",
+      "sunset-spot",
+      "budget-friendly"
+    ],
+    "short_description": "A quiet cove with dark sand, rocky outcrops, and sunset views along the southern coast.",
+    "coordinates": {
+      "latitude": 18.02,
+      "longitude": 120.485
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "00:00",
+        "close_time": "23:59",
+        "is_24_hours": true,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 30,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "sunset",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Currimao Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pinili-magdalena-gamayo-weaving-center",
+    "name": "Magdalena Gamayo Inabel Weaving Center",
+    "entity_type": "cultural_experience",
+    "lgu_code": "pinili",
+    "category_code": "artisan_craft_experience",
+    "interest_tags": [
+      "weaving-craft",
+      "cultural-immersion",
+      "hidden-gem",
+      "photography"
+    ],
+    "short_description": "The workshop of National Living Treasure Magdalena Gamayo, showcasing masterful Abel Iloko weaving.",
+    "coordinates": {
+      "latitude": 17.97,
+      "longitude": 120.53
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "pinili-garlic-farmers-trading-monument",
+    "name": "Pinili Garlic Farmers Trading & Monument",
+    "entity_type": "cultural_experience",
+    "lgu_code": "pinili",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "agro-farm",
+      "local-food",
+      "cultural-immersion",
+      "budget-friendly"
+    ],
+    "short_description": "A local garlic trading area and monument celebrating Pinili as a major garlic-producing town.",
+    "coordinates": {
+      "latitude": 17.9539,
+      "longitude": 120.5269
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Pinili Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "badoc-juan-luna-shrine",
+    "name": "Juan Luna Shrine",
+    "entity_type": "attraction",
+    "lgu_code": "badoc",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "museum",
+      "cultural-immersion",
+      "photography"
+    ],
+    "short_description": "A reconstructed ancestral house honoring painter Juan Luna, a national hero of the Philippines.",
+    "coordinates": {
+      "latitude": 17.928,
+      "longitude": 120.476
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": true
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Badoc Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "badoc-la-virgen-milagrosa-viewpoint",
+    "name": "La Virgen Milagrosa Chapel & Badoc Island Viewpoint",
+    "entity_type": "attraction",
+    "lgu_code": "badoc",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "scenic-view",
+      "photography",
+      "free-entry"
+    ],
+    "short_description": "A coastal chapel and viewpoint overlooking Badoc Island and the West Philippine Sea.",
+    "coordinates": {
+      "latitude": 17.92,
+      "longitude": 120.47
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Badoc Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "badoc-saint-john-baptist-parish-church",
+    "name": "Badoc Saint John the Baptist Parish Church",
+    "entity_type": "attraction",
+    "lgu_code": "badoc",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "A Spanish-era parish church in Badoc with notable colonial-era architecture and religious heritage.",
+    "coordinates": {
+      "latitude": 17.9272,
+      "longitude": 120.4755
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Badoc Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "dingras-ruins-san-jose-parish-church",
+    "name": "Ruins of San Jose Parish Church (Bantay Kampana)",
+    "entity_type": "attraction",
+    "lgu_code": "dingras",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "hidden-gem",
+      "free-entry"
+    ],
+    "short_description": "The imposing brick-and-coral ruins of an old parish church, among the largest church ruins in Ilocos.",
+    "coordinates": {
+      "latitude": 18.1,
+      "longitude": 120.7
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "dingras-madongan-dam-rice-granary",
+    "name": "Madongan Dam & Dingras Rice Granary Heritage Plaza",
+    "entity_type": "attraction",
+    "lgu_code": "dingras",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "agro-farm",
+      "scenic-view",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "An irrigation dam and rice-granary heritage plaza highlighting Dingras as the rice bowl of the province.",
+    "coordinates": {
+      "latitude": 18.105,
+      "longitude": 120.69
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Dingras Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "piddig-basi-revolution-shrine-st-anne",
+    "name": "Piddig Basi Revolution Historical Shrine & St. Anne Parish Church",
+    "entity_type": "attraction",
+    "lgu_code": "piddig",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "cultural-immersion",
+      "photography",
+      "free-entry"
+    ],
+    "short_description": "A historical shrine commemorating the 1807 Basi Revolt, beside the Spanish-era St. Anne Parish Church.",
+    "coordinates": {
+      "latitude": 18.1636,
+      "longitude": 120.7158
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Piddig Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "piddig-convergence-organic-coffee",
+    "name": "Piddig Convergence Organic Coffee Plantation",
+    "entity_type": "cultural_experience",
+    "lgu_code": "piddig",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "coffee-relaxation",
+      "agro-farm",
+      "local-food",
+      "hidden-gem"
+    ],
+    "short_description": "A community organic coffee and native delicacy enterprise producing basi and tinubong.",
+    "coordinates": {
+      "latitude": 18.17,
+      "longitude": 120.72
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 100,
+      "estimated_meal_cost_max": 250,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 60,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": [
+        "merienda"
+      ]
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Piddig Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "solsona-apayao-road-scenic-viewdeck",
+    "name": "Solsona-Apayao Road Scenic Highland Viewdeck",
+    "entity_type": "attraction",
+    "lgu_code": "solsona",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "scenic-view",
+      "motorcycle-scenic-ride",
+      "photography",
+      "hidden-gem"
+    ],
+    "short_description": "A mountain viewdeck along the Solsona-Apayao road with sweeping Cordillera foothill panoramas.",
+    "coordinates": {
+      "latitude": 18.12,
+      "longitude": 120.82
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "solsona-karinking-river-picnic-grounds",
+    "name": "Karinking River Picnic Grounds",
+    "entity_type": "activity_hub",
+    "lgu_code": "solsona",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "family-friendly",
+      "budget-friendly",
+      "hidden-gem"
+    ],
+    "short_description": "Cool river picnic grounds with shallow pools and shaded cottages in the Solsona uplands.",
+    "coordinates": {
+      "latitude": 18.1,
+      "longitude": 120.78
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Solsona Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "solsona-eco-agri-tourism-park",
+    "name": "Solsona Eco-Agri Tourism Park",
+    "entity_type": "activity_hub",
+    "lgu_code": "solsona",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "agro-farm",
+      "nature-trail",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "An agri-tourism park featuring farm plots, orchard trails, and upland eco-landscapes.",
+    "coordinates": {
+      "latitude": 18.0956,
+      "longitude": 120.7717
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Solsona Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "carasi-magnuang-highland-ecotrail-durian",
+    "name": "Magnuang Highland Eco-Trail & Durian Agro Farm",
+    "entity_type": "activity_hub",
+    "lgu_code": "carasi",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "hiking",
+      "agro-farm",
+      "nature-trail",
+      "hidden-gem"
+    ],
+    "short_description": "A rugged highland eco-trail through forest and agro-forestry plots in the Cordillera foothills of Carasi.",
+    "coordinates": {
+      "latitude": 18.15,
+      "longitude": 120.82
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 150,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Carasi Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "carasi-municipal-viewdeck",
+    "name": "Carasi Municipal Viewdeck (Cordillera Foothills)",
+    "entity_type": "attraction",
+    "lgu_code": "carasi",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "scenic-view",
+      "photography",
+      "hidden-gem",
+      "motorcycle-scenic-ride"
+    ],
+    "short_description": "A municipal viewpoint overlooking the rolling Cordillera foothills surrounding Carasi.",
+    "coordinates": {
+      "latitude": 18.1464,
+      "longitude": 120.8189
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "06:00",
+        "close_time": "18:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Carasi Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "banna-sinamar-eco-tourism-park",
+    "name": "Sinamar / Banna Eco-Tourism Park",
+    "entity_type": "activity_hub",
+    "lgu_code": "banna",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "nature-trail",
+      "family-friendly",
+      "budget-friendly",
+      "hidden-gem"
+    ],
+    "short_description": "A community eco-tourism park with stream trails, picnic areas, and agro-forestry scenery.",
+    "coordinates": {
+      "latitude": 17.99,
+      "longitude": 120.66
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 30,
+      "entrance_fee_student_senior": 20,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Banna Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "banna-crispina-marcos-valdez-cultural-center",
+    "name": "Crispina Marcos Valdez Cultural Center & Plaza",
+    "entity_type": "cultural_experience",
+    "lgu_code": "banna",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "cultural-immersion",
+      "museum",
+      "historical",
+      "free-entry"
+    ],
+    "short_description": "A local cultural center and plaza preserving the history and community heritage of Banna (Espiritu).",
+    "coordinates": {
+      "latitude": 17.9794,
+      "longitude": 120.6561
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "afternoon",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Banna Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "marcos-agro-forestry-park-daquoag-creek",
+    "name": "Marcos Municipal Agro-Forestry Park & Daquioag Creek Viewpoint",
+    "entity_type": "activity_hub",
+    "lgu_code": "marcos",
+    "category_code": "agro_eco_tourism",
+    "interest_tags": [
+      "agro-farm",
+      "nature-trail",
+      "hidden-gem",
+      "family-friendly"
+    ],
+    "short_description": "An agro-forestry park and creek viewpoint showcasing the upland agricultural landscape of Marcos.",
+    "coordinates": {
+      "latitude": 18.0458,
+      "longitude": 120.6772
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": true,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Marcos Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "marcos-saint-anthony-padua-parish-plaza",
+    "name": "St. Anthony of Padua Parish & Town Plaza",
+    "entity_type": "attraction",
+    "lgu_code": "marcos",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "historical",
+      "photography",
+      "free-entry",
+      "family-friendly"
+    ],
+    "short_description": "The town parish church and central plaza anchoring the civic and religious life of Marcos.",
+    "coordinates": {
+      "latitude": 18.046,
+      "longitude": 120.6765
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "05:00",
+        "close_time": "19:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 30,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "moderate",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Marcos Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "nueva-era-eco-cultural-park-tingguian-museum",
+    "name": "Nueva Era Eco-Cultural Park & Tingguian Tribal Museum/Village",
+    "entity_type": "cultural_experience",
+    "lgu_code": "nueva-era",
+    "category_code": "heritage_cultural",
+    "interest_tags": [
+      "cultural-immersion",
+      "museum",
+      "nature-trail",
+      "hidden-gem"
+    ],
+    "short_description": "A cultural park and tribal museum/village interpreting the heritage of the Tingguian people.",
+    "coordinates": {
+      "latitude": 17.9153,
+      "longitude": 120.6656
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "08:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 50,
+      "entrance_fee_student_senior": 30,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": false
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "rough_patch"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Nueva Era Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  },
+  {
+    "destination_code": "nueva-era-alingking-forest-spring-park",
+    "name": "Alingking Forest Spring Park",
+    "entity_type": "attraction",
+    "lgu_code": "nueva-era",
+    "category_code": "natural_attraction",
+    "interest_tags": [
+      "nature-trail",
+      "hidden-gem",
+      "family-friendly",
+      "budget-friendly"
+    ],
+    "short_description": "A forested spring park in the Nueva Era uplands with cool water and shaded nature trails.",
+    "coordinates": {
+      "latitude": 17.92,
+      "longitude": 120.67
+    },
+    "operating_schedule": [
+      {
+        "day_of_week": 0,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 1,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 2,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 3,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 4,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 5,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      },
+      {
+        "day_of_week": 6,
+        "open_time": "07:00",
+        "close_time": "17:00",
+        "is_24_hours": false,
+        "temporarily_closed": false
+      }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 0,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 90,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "hidden_gem",
+      "highway_accessible": false,
+      "road_condition": "4x4_or_trek_required"
+    },
+    "verification_metadata": {
+      "verification_status": "needs_field_verification",
+      "source_name": "Nueva Era Municipal Tourism Office",
+      "source_type": "lgu_official",
+      "last_verified_date": "2026-11-14"
+    }
+  }
+]
