@@ -4,15 +4,28 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 
+import '../../features/admin/presentation/admin_dashboard_screen.dart';
+import '../../features/auth/domain/models/user.dart';
 import '../../features/auth/presentation/auth_providers.dart';
 import '../../features/auth/presentation/login_screen.dart';
+import '../../features/auth/presentation/profile_screen.dart';
 import '../../features/auth/presentation/register_screen.dart';
 import '../../features/auth/presentation/splash_screen.dart';
 import '../../features/discovery/presentation/screens/discovery_screen.dart';
+import '../../features/preferences/presentation/planner_screen.dart';
+import '../../features/search/presentation/search_screen.dart';
+import '../../shared/widgets/app_shell_scaffold.dart';
 import '../theme/app_colors.dart';
 import 'app_routes.dart';
 
-final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+final _discoveryNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'discovery',
+);
+final _searchNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'search');
+final _plannerNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'planner');
+final _profileNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
+final _adminNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'admin');
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final refreshNotifier = _AuthRefreshNotifier(ref);
@@ -40,10 +53,62 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: AppRoutes.registerName,
         builder: (context, state) => const RegisterScreen(),
       ),
-      GoRoute(
-        path: AppRoutes.discovery,
-        name: AppRoutes.discoveryName,
-        builder: (context, state) => const DiscoveryScreen(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return AppShellScaffold(navigationShell: navigationShell);
+        },
+        branches: [
+          StatefulShellBranch(
+            navigatorKey: _discoveryNavigatorKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.discovery,
+                name: AppRoutes.discoveryName,
+                builder: (context, state) => const DiscoveryScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _searchNavigatorKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.search,
+                name: AppRoutes.searchName,
+                builder: (context, state) => const SearchScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _plannerNavigatorKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.planner,
+                name: AppRoutes.plannerName,
+                builder: (context, state) => const PlannerScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _profileNavigatorKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.profile,
+                name: AppRoutes.profileName,
+                builder: (context, state) => const ProfileScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _adminNavigatorKey,
+            routes: [
+              GoRoute(
+                path: AppRoutes.admin,
+                name: AppRoutes.adminName,
+                builder: (context, state) => const AdminDashboardScreen(),
+              ),
+            ],
+          ),
+        ],
       ),
     ],
     errorBuilder: (context, state) => _RouteErrorScreen(error: state.error),
@@ -63,6 +128,8 @@ String? _redirect(Ref ref, GoRouterState state) {
   final isSplash = location == AppRoutes.splash;
   final isAuthRoute =
       location == AppRoutes.login || location == AppRoutes.register;
+  final isAdminRoute =
+      location == AppRoutes.admin || location.startsWith('${AppRoutes.admin}/');
 
   if (auth.isLoading) {
     return isSplash ? null : AppRoutes.splash;
@@ -80,15 +147,23 @@ String? _redirect(Ref ref, GoRouterState state) {
     return AppRoutes.discovery;
   }
 
+  if (isAdminRoute && auth.value?.role != UserRole.admin) {
+    return AppRoutes.discovery;
+  }
+
   return null;
 }
 
 class _AuthRefreshNotifier extends ChangeNotifier {
   _AuthRefreshNotifier(Ref ref) {
     ref.listen(authNotifierProvider, (previous, next) {
-      final userChanged = previous?.value?.id != next.value?.id;
+      final previousUser = previous?.value;
+      final nextUser = next.value;
+      final identityChanged =
+          previousUser?.id != nextUser?.id ||
+          previousUser?.role != nextUser?.role;
 
-      if (previous?.isLoading != next.isLoading || userChanged) {
+      if (previous?.isLoading != next.isLoading || identityChanged) {
         notifyListeners();
       }
     });

@@ -7,6 +7,8 @@ void main() {
   test('API endpoints match the versioned backend contract', () {
     expect(ApiEndpoints.health, '/health');
     expect(ApiEndpoints.login, '/auth/login');
+    expect(ApiEndpoints.profile, '/auth/profile');
+    expect(ApiEndpoints.password, '/auth/password');
     expect(ApiEndpoints.destinations, '/destinations');
     expect(
       ApiEndpoints.destinationDetail('saud-beach'),
@@ -25,6 +27,10 @@ void main() {
   test('splash route is the application entry point', () {
     expect(AppRoutes.splash, '/');
     expect(AppRoutes.discovery, '/discovery');
+    expect(AppRoutes.search, '/search');
+    expect(AppRoutes.planner, '/planner');
+    expect(AppRoutes.profile, '/profile');
+    expect(AppRoutes.admin, '/admin');
     expect(AppRoutes.login, '/login');
     expect(AppRoutes.register, '/register');
   });

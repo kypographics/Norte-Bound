@@ -29,7 +29,7 @@ class DiscoveryScreen extends StatelessWidget {
                 physics: const BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics(),
                 ),
-                padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
+                padding: const EdgeInsets.fromLTRB(24, 20, 24, 120),
                 children: [
                   Row(
                     children: [

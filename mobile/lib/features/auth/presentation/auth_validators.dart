@@ -40,6 +40,28 @@ abstract final class AuthValidators {
   }
 
   static String? fullName(String? value) {
+    return _validateFullName(value, maxLength: 150);
+  }
+
+  static String? profileFullName(String? value) {
+    return _validateFullName(value, maxLength: 100);
+  }
+
+  static String? inviteCode(String? value) {
+    final inviteCode = value?.trim() ?? '';
+
+    if (inviteCode.isEmpty) {
+      return 'Enter the curator invite code.';
+    }
+
+    if (inviteCode.length > 100) {
+      return 'Use at most 100 characters.';
+    }
+
+    return null;
+  }
+
+  static String? _validateFullName(String? value, {required int maxLength}) {
     final fullName = value?.trim() ?? '';
 
     if (fullName.isEmpty) {
@@ -50,8 +72,8 @@ abstract final class AuthValidators {
       return 'Use at least 2 characters.';
     }
 
-    if (fullName.length > 150) {
-      return 'Use at most 150 characters.';
+    if (fullName.length > maxLength) {
+      return 'Use at most $maxLength characters.';
     }
 
     return null;

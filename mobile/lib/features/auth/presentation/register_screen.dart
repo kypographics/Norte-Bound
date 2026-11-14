@@ -26,6 +26,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _inviteCodeController = TextEditingController();
 
   UserRole _role = UserRole.tourist;
   bool _isSubmitting = false;
@@ -37,6 +38,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     _fullNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _inviteCodeController.dispose();
     super.dispose();
   }
 
@@ -60,6 +62,9 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             email: _emailController.text.trim().toLowerCase(),
             password: _passwordController.text,
             role: _role,
+            adminInviteCode: _role == UserRole.admin
+                ? _inviteCodeController.text.trim()
+                : null,
           );
 
       TextInput.finishAutofillContext();
@@ -181,6 +186,20 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               Text('I am joining as', style: textTheme.labelMedium),
               const SizedBox(height: 8),
               _RoleSelector(selected: _role, onSelected: _selectRole),
+              if (_role == UserRole.admin) ...[
+                const SizedBox(height: 18),
+                AuthTextField(
+                  controller: _inviteCodeController,
+                  label: 'Curator invite code',
+                  hintText: 'NORTE-CURATOR-2026',
+                  icon: CupertinoIcons.lock_shield,
+                  textInputAction: TextInputAction.done,
+                  helperText: 'Required for curator accounts.',
+                  validator: AuthValidators.inviteCode,
+                  onChanged: (_) => _clearError(),
+                  onFieldSubmitted: (_) => _submit(),
+                ),
+              ],
               if (_errorMessage != null) ...[
                 const SizedBox(height: 18),
                 AuthErrorBanner(message: _errorMessage!),

@@ -4,6 +4,7 @@ import '../../../core/network/api_exception.dart';
 import '../../../core/network/network_providers.dart';
 import '../../../core/storage/auth_token_store.dart';
 import '../data/auth_repository.dart';
+import '../domain/models/travel_preferences.dart';
 import '../domain/models/user.dart';
 
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
@@ -76,8 +77,15 @@ class AuthNotifier extends AsyncNotifier<User?> {
     required String email,
     required String password,
     required UserRole role,
+    String? adminInviteCode,
   }) async {
-    final session = await _repository.register(fullName, email, password, role);
+    final session = await _repository.register(
+      fullName,
+      email,
+      password,
+      role,
+      adminInviteCode: adminInviteCode,
+    );
 
     await _tokenStore.saveSession(
       accessToken: session.token,
@@ -86,6 +94,29 @@ class AuthNotifier extends AsyncNotifier<User?> {
 
     state = AsyncData(session.user);
     return session.user;
+  }
+
+  Future<User> updateProfile({
+    String? fullName,
+    TravelPreferences? travelPreferences,
+  }) async {
+    final user = await _repository.updateProfile(
+      fullName: fullName,
+      travelPreferences: travelPreferences,
+    );
+
+    state = AsyncData(user);
+    return user;
+  }
+
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    await _repository.changePassword(
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+    );
   }
 
   Future<void> logout() async {

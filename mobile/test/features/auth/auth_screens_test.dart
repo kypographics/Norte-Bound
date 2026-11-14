@@ -63,4 +63,26 @@ void main() {
     expect(find.text('Enter a valid email address.'), findsOneWidget);
     expect(find.text('Use at least 8 characters.'), findsOneWidget);
   });
+
+  testWidgets('curator registration requires an invite code', (tester) async {
+    await tester.pumpWidget(_wrap(const RegisterScreen()));
+    await tester.pumpAndSettle();
+
+    final curator = find.text('Curator');
+    await tester.ensureVisible(curator);
+    await tester.pumpAndSettle();
+    await tester.tap(curator);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Curator invite code'), findsOneWidget);
+    expect(find.text('NORTE-CURATOR-2026'), findsOneWidget);
+
+    final fields = find.byType(TextField);
+    await tester.enterText(fields.at(0), 'Maria Santos');
+    await tester.enterText(fields.at(1), 'maria@example.com');
+    await tester.enterText(fields.at(2), 'longenough1');
+    await _tapButton(tester, 'Create Account');
+
+    expect(find.text('Enter the curator invite code.'), findsOneWidget);
+  });
 }

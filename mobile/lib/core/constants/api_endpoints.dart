@@ -4,6 +4,8 @@ abstract final class ApiEndpoints {
   static const register = '/auth/register';
   static const login = '/auth/login';
   static const me = '/auth/me';
+  static const profile = '/auth/profile';
+  static const password = '/auth/password';
 
   static const destinations = '/destinations';
   static const lgus = '/destinations/lgus';

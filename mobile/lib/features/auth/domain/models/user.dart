@@ -1,3 +1,5 @@
+import 'travel_preferences.dart';
+
 enum UserRole {
   tourist('tourist', 'Traveler'),
   admin('admin', 'Curator');
@@ -21,6 +23,7 @@ class User {
     required this.email,
     required this.fullName,
     required this.role,
+    this.travelPreferences,
     this.createdAt,
     this.updatedAt,
   });
@@ -29,6 +32,7 @@ class User {
   final String email;
   final String fullName;
   final UserRole role;
+  final TravelPreferences? travelPreferences;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -37,6 +41,7 @@ class User {
     final email = json['email'];
     final fullName = json['fullName'];
     final role = json['role'];
+    final preferences = json['travelPreferences'];
 
     if (id is! num || email is! String || fullName is! String) {
       throw const FormatException('The user payload is incomplete.');
@@ -47,8 +52,32 @@ class User {
       email: email,
       fullName: fullName,
       role: UserRole.fromApi(role is String ? role : null),
+      travelPreferences: preferences is Map<String, dynamic>
+          ? TravelPreferences.fromJson(preferences)
+          : preferences is Map
+          ? TravelPreferences.fromJson(Map<String, dynamic>.from(preferences))
+          : null,
       createdAt: _parseDate(json['createdAt']),
       updatedAt: _parseDate(json['updatedAt']),
+    );
+  }
+
+  User copyWith({
+    String? email,
+    String? fullName,
+    UserRole? role,
+    TravelPreferences? travelPreferences,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) {
+    return User(
+      id: id,
+      email: email ?? this.email,
+      fullName: fullName ?? this.fullName,
+      role: role ?? this.role,
+      travelPreferences: travelPreferences ?? this.travelPreferences,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 

@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import '../../../core/constants/api_endpoints.dart';
 import '../../../core/network/api_exception.dart';
 import '../domain/models/auth_session.dart';
+import '../domain/models/travel_preferences.dart';
 import '../domain/models/user.dart';
 
 class AuthRepository {
@@ -25,18 +26,22 @@ class AuthRepository {
     String fullName,
     String email,
     String password,
-    UserRole role,
-  ) async {
+    UserRole role, {
+    String? adminInviteCode,
+  }) async {
+    final data = <String, dynamic>{
+      'full_name': fullName,
+      'email': email,
+      'password': password,
+      'role': role.apiValue,
+    };
+
+    if (adminInviteCode != null && adminInviteCode.isNotEmpty) {
+      data['adminInviteCode'] = adminInviteCode;
+    }
+
     final response = await _request(
-      () => _dio.post<Map<String, dynamic>>(
-        ApiEndpoints.register,
-        data: {
-          'full_name': fullName,
-          'email': email,
-          'password': password,
-          'role': role.apiValue,
-        },
-      ),
+      () => _dio.post<Map<String, dynamic>>(ApiEndpoints.register, data: data),
     );
 
     return _parseSession(response.data);
@@ -51,6 +56,39 @@ class AuthRepository {
     );
 
     return _parseUser(response.data);
+  }
+
+  Future<User> updateProfile({
+    String? fullName,
+    TravelPreferences? travelPreferences,
+  }) async {
+    final data = <String, dynamic>{};
+
+    if (fullName != null) {
+      data['fullName'] = fullName;
+    }
+
+    if (travelPreferences != null) {
+      data['travelPreferences'] = travelPreferences.toJson();
+    }
+
+    final response = await _request(
+      () => _dio.put<Map<String, dynamic>>(ApiEndpoints.profile, data: data),
+    );
+
+    return _parseUser(response.data);
+  }
+
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    await _request(
+      () => _dio.put<Map<String, dynamic>>(
+        ApiEndpoints.password,
+        data: {'currentPassword': currentPassword, 'newPassword': newPassword},
+      ),
+    );
   }
 
   Future<Response<Map<String, dynamic>>> _request(
