@@ -1,0 +1,59 @@
+{
+  "$schema_note": "Phase 2.1 strict destination record template for Phase 2.2 dataset curation. All factual values must originate from verified sources.",
+  "required_enums": {
+    "entity_type": ["attraction", "food_establishment", "cultural_experience", "activity_hub"],
+    "best_time_of_day": ["morning", "midday", "afternoon", "sunset", "any"],
+    "meal_window_compatibility": ["breakfast", "lunch", "merienda", "dinner"],
+    "popularity_tier": ["iconic_hub", "moderate", "hidden_gem"],
+    "road_condition": ["paved_all_weather", "rough_patch", "4x4_or_trek_required"],
+    "verification_status": ["verified", "needs_field_verification"],
+    "source_type": ["provincial_tourism", "lgu_official", "dot_accredited", "verified_establishment"]
+  },
+  "record_template": {
+    "destination_code": "paoay-st-augustine-church",
+    "name": "Saint Augustine Church of Paoay",
+    "entity_type": "attraction",
+    "lgu_code": "paoay",
+    "category_code": "heritage_cultural",
+    "interest_tags": ["unesco-heritage", "historical", "photography", "family-friendly", "free-entry"],
+    "short_description": "UNESCO World Heritage Earthquake Baroque church constructed from coral stones and bricks.",
+    "coordinates": {
+      "latitude": 18.0615,
+      "longitude": 120.5215
+    },
+    "operating_schedule": [
+      { "day_of_week": 0, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 1, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 2, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 3, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 4, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 5, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false },
+      { "day_of_week": 6, "open_time": "06:00", "close_time": "18:00", "is_24_hours": false, "temporarily_closed": false }
+    ],
+    "financials": {
+      "entrance_fee_adult": 0,
+      "entrance_fee_student_senior": 0,
+      "mandatory_activity_fee": 0,
+      "estimated_meal_cost_min": 0,
+      "estimated_meal_cost_max": 0,
+      "parking_fee": 20,
+      "is_free": true
+    },
+    "duration_and_pacing": {
+      "recommended_duration_minutes": 45,
+      "best_time_of_day": "morning",
+      "meal_window_compatibility": []
+    },
+    "dispersal_and_accessibility": {
+      "popularity_tier": "iconic_hub",
+      "highway_accessible": true,
+      "road_condition": "paved_all_weather"
+    },
+    "verification_metadata": {
+      "verification_status": "verified",
+      "source_name": "Ilocos Norte Provincial Tourism Office / UNESCO World Heritage Registry",
+      "source_type": "provincial_tourism",
+      "last_verified_date": "2026-11-14"
+    }
+  }
+}

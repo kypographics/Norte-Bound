@@ -1,0 +1,244 @@
+{
+  "version": "1.0.0",
+  "province": "Ilocos Norte",
+  "categories": [
+    {
+      "category_code": "natural_attraction",
+      "label": "Natural Attraction",
+      "description": "Beaches, waterfalls, limestone rock formations, mountain viewpoints, and coastal coves.",
+      "default_entity_types": ["attraction"]
+    },
+    {
+      "category_code": "heritage_cultural",
+      "label": "Heritage & Cultural",
+      "description": "Spanish-era churches, bell towers, museums, historical shrines, ancestral structures, and lighthouses.",
+      "default_entity_types": ["attraction", "cultural_experience"]
+    },
+    {
+      "category_code": "food_culinary",
+      "label": "Food & Culinary",
+      "description": "Authentic Ilocano restaurants, empanada and miki stalls, specialty cafes, and regional culinary landmarks.",
+      "default_entity_types": ["food_establishment"]
+    },
+    {
+      "category_code": "agro_eco_tourism",
+      "label": "Agro & Eco-Tourism",
+      "description": "Sustainable farms, wind energy parks, highland eco-parks, botanical sanctuaries, and river basins.",
+      "default_entity_types": ["attraction", "activity_hub"]
+    },
+    {
+      "category_code": "artisan_craft_experience",
+      "label": "Artisan & Craft Experience",
+      "description": "Burnay pottery kilns, Abel Iloko handloom weaving centers, artisanal salt-making, and local agro-craft workshops.",
+      "default_entity_types": ["cultural_experience", "attraction"]
+    },
+    {
+      "category_code": "recreation_adventure",
+      "label": "Recreation & Adventure",
+      "description": "Sandboarding and 4x4 dune rides, surfing camps, ATV trails, kayaking, and zip lines.",
+      "default_entity_types": ["activity_hub", "attraction"]
+    }
+  ],
+  "interest_tags": [
+    {
+      "tag_code": "beach",
+      "label": "Beach & Coastline",
+      "related_categories": ["natural_attraction", "recreation_adventure"],
+      "synonyms": ["swimming", "shore", "ocean", "cove", "white sand"]
+    },
+    {
+      "tag_code": "historical",
+      "label": "Historical Sites",
+      "related_categories": ["heritage_cultural"],
+      "synonyms": ["history", "colonial", "spanish era", "shrine", "monument"]
+    },
+    {
+      "tag_code": "unesco-heritage",
+      "label": "UNESCO Heritage",
+      "related_categories": ["heritage_cultural"],
+      "synonyms": ["baroque church", "paoay church", "world heritage"]
+    },
+    {
+      "tag_code": "local-food",
+      "label": "Local Street & Comfort Food",
+      "related_categories": ["food_culinary"],
+      "synonyms": ["snacks", "merienda", "market food", "street food"]
+    },
+    {
+      "tag_code": "ilocano-cuisine",
+      "label": "Authentic Ilocano Cuisine",
+      "related_categories": ["food_culinary"],
+      "synonyms": ["pinakbet", "dinengdeng", "igado", "poqui-poqui", "miki"]
+    },
+    {
+      "tag_code": "empanada",
+      "label": "Ilocos Empanada",
+      "related_categories": ["food_culinary"],
+      "synonyms": ["batac empanada", "orange empanada", "longganisa empanada"]
+    },
+    {
+      "tag_code": "bagnet",
+      "label": "Bagnet & Crispy Pork",
+      "related_categories": ["food_culinary"],
+      "synonyms": ["crispy pork", "chicharon", "longganisa"]
+    },
+    {
+      "tag_code": "waterfall",
+      "label": "Waterfalls",
+      "related_categories": ["natural_attraction"],
+      "synonyms": ["falls", "cascade", "freshwater pool"]
+    },
+    {
+      "tag_code": "hiking",
+      "label": "Hiking & Trekking",
+      "related_categories": ["natural_attraction", "recreation_adventure"],
+      "synonyms": ["trek", "mountain climb", "ridge", "summit"]
+    },
+    {
+      "tag_code": "sand-dunes",
+      "label": "Sand Dunes & 4x4",
+      "related_categories": ["recreation_adventure", "natural_attraction"],
+      "synonyms": ["sandboarding", "4x4 jeep", "desert", "la paz", "paoay dunes"]
+    },
+    {
+      "tag_code": "surfing",
+      "label": "Surfing & Wave Riding",
+      "related_categories": ["recreation_adventure", "natural_attraction"],
+      "synonyms": ["surf", "paddleboard", "skimboard", "waves"]
+    },
+    {
+      "tag_code": "scenic-view",
+      "label": "Scenic Viewpoints",
+      "related_categories": ["natural_attraction", "agro_eco_tourism"],
+      "synonyms": ["panorama", "overlook", "deck", "vista", "viaduct"]
+    },
+    {
+      "tag_code": "photography",
+      "label": "Photography Spots",
+      "related_categories": ["natural_attraction", "heritage_cultural", "agro_eco_tourism"],
+      "synonyms": ["instagrammable", "picturesque", "landmarks"]
+    },
+    {
+      "tag_code": "family-friendly",
+      "label": "Family-Friendly",
+      "related_categories": ["natural_attraction", "heritage_cultural", "food_culinary", "agro_eco_tourism"],
+      "synonyms": ["kids", "seniors", "easy access", "all ages"]
+    },
+    {
+      "tag_code": "budget-friendly",
+      "label": "Budget-Friendly",
+      "related_categories": ["food_culinary", "natural_attraction", "heritage_cultural"],
+      "synonyms": ["affordable", "cheap", "low cost", "student budget"]
+    },
+    {
+      "tag_code": "free-entry",
+      "label": "Free Entry",
+      "related_categories": ["heritage_cultural", "natural_attraction", "agro_eco_tourism"],
+      "synonyms": ["no entrance fee", "public plaza", "free"]
+    },
+    {
+      "tag_code": "weaving-craft",
+      "label": "Abel Iloko Weaving",
+      "related_categories": ["artisan_craft_experience", "heritage_cultural"],
+      "synonyms": ["inabel", "loom weaving", "textiles", "handwoven"]
+    },
+    {
+      "tag_code": "pottery",
+      "label": "Traditional Pottery",
+      "related_categories": ["artisan_craft_experience"],
+      "synonyms": ["damili", "clay", "burnay", "earthenware"]
+    },
+    {
+      "tag_code": "museum",
+      "label": "Museums & Galleries",
+      "related_categories": ["heritage_cultural"],
+      "synonyms": ["artifacts", "exhibit", "ancestral house", "archive"]
+    },
+    {
+      "tag_code": "nature-trail",
+      "label": "Nature Trails & Eco-Walks",
+      "related_categories": ["natural_attraction", "agro_eco_tourism"],
+      "synonyms": ["forest walk", "boardwalk", "botanical", "birdwatching"]
+    },
+    {
+      "tag_code": "sunset-spot",
+      "label": "Sunset Viewing",
+      "related_categories": ["natural_attraction", "heritage_cultural"],
+      "synonyms": ["golden hour", "west coast", "dusk"]
+    },
+    {
+      "tag_code": "motorcycle-scenic-ride",
+      "label": "Motorcycle Scenic Route",
+      "related_categories": ["natural_attraction", "agro_eco_tourism", "recreation_adventure"],
+      "synonyms": ["motor ride", "twisties", "coastal highway", "patapat"]
+    },
+    {
+      "tag_code": "hidden-gem",
+      "label": "Hidden Gem & Off-Beaten-Path",
+      "related_categories": ["natural_attraction", "agro_eco_tourism", "artisan_craft_experience"],
+      "synonyms": ["less crowded", "quiet", "underrated", "dispersal"]
+    },
+    {
+      "tag_code": "cultural-immersion",
+      "label": "Cultural Immersion",
+      "related_categories": ["artisan_craft_experience", "heritage_cultural"],
+      "synonyms": ["community", "tradition", "heritage workshop", "indigenous"]
+    },
+    {
+      "tag_code": "coffee-relaxation",
+      "label": "Coffee & Slow Relaxation",
+      "related_categories": ["food_culinary", "agro_eco_tourism"],
+      "synonyms": ["cafe", "coffee shop", "chill", "rest stop", "chill vibes"]
+    },
+    {
+      "tag_code": "wind-farm",
+      "label": "Windmills & Renewable Energy",
+      "related_categories": ["agro_eco_tourism", "natural_attraction"],
+      "synonyms": ["wind turbines", "bangui windmills", "burgos wind farm"]
+    },
+    {
+      "tag_code": "lighthouse",
+      "label": "Historic Lighthouses",
+      "related_categories": ["heritage_cultural"],
+      "synonyms": ["faro", "cape bojeador", "tower"]
+    },
+    {
+      "tag_code": "agro-farm",
+      "label": "Agri-Tourism & Orchards",
+      "related_categories": ["agro_eco_tourism", "artisan_craft_experience"],
+      "synonyms": ["dragonfruit", "garlic", "sugarcane", "basi", "farm tour"]
+    }
+  ],
+  "transport_modes": [
+    {
+      "mode_code": "motorcycle",
+      "label": "Motorcycle / Scooter",
+      "avg_speed_kmh": 42,
+      "estimated_cost_per_km_php": 2.20,
+      "base_trip_overhead_php": 0,
+      "requires_highway_accessible": false,
+      "wait_buffer_minutes_per_leg": 3,
+      "notes": "Agile on narrow coastal and mountainous winding roads; lower fuel burn per km."
+    },
+    {
+      "mode_code": "private_car",
+      "label": "Private Car / Van",
+      "avg_speed_kmh": 45,
+      "estimated_cost_per_km_php": 6.50,
+      "base_trip_overhead_php": 0,
+      "requires_highway_accessible": false,
+      "wait_buffer_minutes_per_leg": 5,
+      "notes": "Best suited for families or groups; higher fuel estimate and parking fee considerations."
+    },
+    {
+      "mode_code": "public_commute",
+      "label": "Public Commute (Bus / Jeepney / Tricycle)",
+      "avg_speed_kmh": 28,
+      "estimated_cost_per_km_php": 3.00,
+      "base_trip_overhead_php": 25,
+      "requires_highway_accessible": true,
+      "wait_buffer_minutes_per_leg": 18,
+      "notes": "Restricted primarily to highway-accessible stops or short tricycle transfers; includes deterministic wait/transfer buffer."
+    }
+  ]
+}
