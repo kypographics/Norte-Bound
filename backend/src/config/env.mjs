@@ -15,6 +15,8 @@ const envSchema = z.object({
   DB_PASSWORD: z.string().default(''),
   DB_NAME: z.string().trim().min(1, 'DB_NAME is required'),
   DB_PORT: z.coerce.number().int().positive().default(3306),
+
+  JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters'),
 });
 
 const parsed = envSchema.safeParse(process.env);
