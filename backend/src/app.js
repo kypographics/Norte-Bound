@@ -5,6 +5,7 @@ import { env } from './config/env.mjs';
 import { closePool } from './config/db.mjs';
 import healthRoutes from './routes/health.routes.mjs';
 import authRoutes from './routes/auth.routes.mjs';
+import destinationRoutes from './routes/destination.routes.mjs';
 import { errorHandler, notFoundHandler } from './middlewares/errorHandler.mjs';
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1', healthRoutes);
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/destinations', destinationRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
