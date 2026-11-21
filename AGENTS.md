@@ -23,7 +23,7 @@ The system combines deterministic multi-criteria recommendation scoring, time-wi
 
 ### Backend (`backend/`)
 - **Runtime & Framework:** Node.js (ES Modules, `"type": "module"`) + Express.js
-- **Database Driver:** `mysql2/promise` (**parameterized SQL queries only**)
+- **Database Driver:** `pg` (**Supabase PostgreSQL — parameterized SQL queries only**)
 - **Validation:** `zod` (request payloads, environment config, and AI structured output validation)
 - **Authentication & Security:** `bcrypt` (password hashing), `jsonwebtoken` (JWT RBAC sessions)
 
@@ -36,8 +36,8 @@ The system combines deterministic multi-criteria recommendation scoring, time-wi
 - **Fast Matrix Scoring:** Haversine distance with a road tortuosity multiplier for fast candidate scoring before route refinement.
 
 ### Database (`database/`)
-- **Engine:** MySQL 8.x
-- **Rules:** No Supabase, and no ORMs that obscure SQL queries. Write explicit, clean, parameterized SQL inside `backend/src/models/`.
+- **Engine:** Supabase (PostgreSQL 17)
+- **Rules:** Enable Row-Level Security (RLS) on all public tables, and no ORMs that obscure SQL queries. Write explicit, clean, parameterized SQL inside `backend/src/models/`.
 
 ---
 

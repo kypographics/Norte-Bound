@@ -21,8 +21,12 @@ abstract final class AppRoutes {
   static const planner = '/planner';
   static const plannerName = 'planner';
 
+  static const itinerary = '/itinerary';
+  static const itineraryName = 'itinerary';
+
+  static const itineraryMap = '/itinerary/map';
+  static const itineraryMapName = 'itineraryMap';
+
   static const profile = '/profile';
   static const profileName = 'profile';
-
-
 }

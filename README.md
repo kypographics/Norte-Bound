@@ -35,10 +35,10 @@ NORTE-BOUND-NEW/
 ## 🛠️ Tech Stack
 
 - **Frontend (`mobile/`):** Flutter, Riverpod (`flutter_riverpod`), `go_router`, `dio`, `flutter_map`, `latlong2`.
-- **Backend (`backend/`):** Node.js (ES Modules, `"type": "module"`), Express.js, `mysql2/promise`, `zod`, `bcrypt`, `jsonwebtoken`.
+- **Backend (`backend/`):** Node.js (ES Modules, `"type": "module"`), Express.js, `pg` (Supabase PostgreSQL), `zod`, `bcrypt`, `jsonwebtoken`.
 - **AI Engine:** Google Gemini API (`gemini-2.5-flash`) with Structured Outputs (`responseSchema`).
 - **Routing & Maps:** OpenStreetMap + OSRM / OpenRouteService (with Haversine road tortuosity matrix scoring).
-- **Database (`database/`):** MySQL 8.x (parameterized SQL only, no ORMs hiding queries).
+- **Database (`database/`):** Supabase (PostgreSQL 17 with Row-Level Security and parameterized SQL only, no ORMs hiding queries).
 
 ---
 

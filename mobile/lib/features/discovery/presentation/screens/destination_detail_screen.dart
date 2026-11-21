@@ -13,6 +13,7 @@ import '../../../../shared/widgets/app_card.dart';
 import '../../../../shared/widgets/loading_skeleton.dart';
 import '../../domain/destination_detail.dart';
 import '../../domain/destination_summary.dart';
+import '../../../preferences/presentation/planner_providers.dart';
 import '../discovery_providers.dart';
 import '../widgets/destination_artwork.dart';
 
@@ -177,6 +178,13 @@ class DestinationDetailScreen extends ConsumerWidget {
                         FilledButton.icon(
                           onPressed: () {
                             HapticFeedback.lightImpact();
+                            final resolvedId =
+                                detailAsync.value?.id ?? destination?.id;
+                            if (resolvedId != null && resolvedId > 0) {
+                              ref
+                                  .read(plannerProvider.notifier)
+                                  .addDestinationToDraft(resolvedId);
+                            }
                             final name =
                                 detailAsync.value?.name ??
                                 destination?.name ??
@@ -185,6 +193,12 @@ class DestinationDetailScreen extends ConsumerWidget {
                               SnackBar(
                                 content: Text(
                                   'Added $name to active itinerary draft!',
+                                ),
+                                action: SnackBarAction(
+                                  label: 'Plan',
+                                  textColor: AppColors.skyBlue,
+                                  onPressed: () =>
+                                      context.go(AppRoutes.planner),
                                 ),
                                 backgroundColor: AppColors.deepForest,
                               ),
@@ -492,7 +506,9 @@ class _DestinationDetailBody extends StatelessWidget {
                         Text('7-Day Operating Schedule', style: textTheme.titleSmall),
                         const SizedBox(height: 2),
                         Text(
-                          opStatus.detailText,
+                          detail.verification.isVerified
+                              ? opStatus.detailText
+                              : 'Schedule awaits field check',
                           style: textTheme.bodySmall?.copyWith(
                             color: AppColors.mutedForest,
                             fontFeatures: AppTypography.tabularFigures,
@@ -502,12 +518,16 @@ class _DestinationDetailBody extends StatelessWidget {
                     ),
                   ),
                   _MetaPill(
-                    icon: opStatus.isOpen
-                        ? CupertinoIcons.checkmark_circle_fill
-                        : CupertinoIcons.moon_zzz_fill,
-                    label: opStatus.label.toUpperCase(),
-                    isSkyBlue: opStatus.isOpen,
-                    isTerracotta: !opStatus.isOpen,
+                    icon: !detail.verification.isVerified
+                        ? CupertinoIcons.clock_fill
+                        : opStatus.isOpen
+                            ? CupertinoIcons.checkmark_circle_fill
+                            : CupertinoIcons.moon_zzz_fill,
+                    label: !detail.verification.isVerified
+                        ? 'FIELD CHECK PENDING'
+                        : opStatus.label.toUpperCase(),
+                    isSkyBlue: detail.verification.isVerified && opStatus.isOpen,
+                    isTerracotta: !detail.verification.isVerified || !opStatus.isOpen,
                   ),
                 ],
               ),

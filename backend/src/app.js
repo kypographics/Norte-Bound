@@ -7,6 +7,8 @@ import healthRoutes from './routes/health.routes.mjs';
 import authRoutes from './routes/auth.routes.mjs';
 import destinationRoutes from './routes/destination.routes.mjs';
 import adminDestinationRoutes from './routes/admin.destination.routes.mjs';
+import recommendationRoutes from './routes/recommendation.routes.mjs';
+import itineraryRoutes from './routes/itinerary.routes.mjs';
 import { errorHandler, notFoundHandler } from './middlewares/errorHandler.mjs';
 
 const app = express();
@@ -21,6 +23,8 @@ app.use('/api/v1', healthRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/destinations', destinationRoutes);
 app.use('/api/v1/admin/destinations', adminDestinationRoutes);
+app.use('/api/v1/recommendations', recommendationRoutes);
+app.use('/api/v1/itineraries', itineraryRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

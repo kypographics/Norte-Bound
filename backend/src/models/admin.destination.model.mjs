@@ -32,8 +32,8 @@ function verificationDate(status) {
 }
 
 function normalizeColumnValue(column, value) {
-  if (column === 'highway_accessible') {
-    return value ? 1 : 0;
+  if (column === 'highway_accessible' || column === 'is_community_based') {
+    return Boolean(value);
   }
 
   return value;
@@ -76,8 +76,8 @@ async function replaceOperatingHours(connection, destinationId, operatingHours) 
     slot.day_of_week,
     slot.opening_time ?? null,
     slot.closing_time ?? null,
-    slot.is_24_hours ? 1 : 0,
-    slot.temporarily_closed ? 1 : 0,
+    Boolean(slot.is_24_hours),
+    Boolean(slot.temporarily_closed),
   ]);
 
   await connection.execute(
@@ -113,15 +113,15 @@ async function upsertPricing(connection, destinationId, pricing) {
         is_free,
         currency
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-      ON DUPLICATE KEY UPDATE
-        entrance_fee_adult = VALUES(entrance_fee_adult),
-        entrance_fee_concession = VALUES(entrance_fee_concession),
-        mandatory_activity_fee = VALUES(mandatory_activity_fee),
-        estimated_meal_min = VALUES(estimated_meal_min),
-        estimated_meal_max = VALUES(estimated_meal_max),
-        parking_fee = VALUES(parking_fee),
-        is_free = VALUES(is_free),
-        currency = VALUES(currency)
+      ON CONFLICT (destination_id) DO UPDATE SET
+        entrance_fee_adult = EXCLUDED.entrance_fee_adult,
+        entrance_fee_concession = EXCLUDED.entrance_fee_concession,
+        mandatory_activity_fee = EXCLUDED.mandatory_activity_fee,
+        estimated_meal_min = EXCLUDED.estimated_meal_min,
+        estimated_meal_max = EXCLUDED.estimated_meal_max,
+        parking_fee = EXCLUDED.parking_fee,
+        is_free = EXCLUDED.is_free,
+        currency = EXCLUDED.currency
     `,
     [
       destinationId,
@@ -131,7 +131,7 @@ async function upsertPricing(connection, destinationId, pricing) {
       pricing.estimated_meal_min ?? 0,
       pricing.estimated_meal_max ?? 0,
       pricing.parking_fee ?? 0,
-      pricing.is_free ? 1 : 0,
+      Boolean(pricing.is_free),
       pricing.currency ?? 'PHP',
     ],
   );
@@ -164,6 +164,7 @@ export async function createDestination(data) {
           source_type,
           last_verified_date
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        RETURNING id
       `,
       [
         data.slug,
@@ -177,7 +178,7 @@ export async function createDestination(data) {
         data.longitude,
         data.entity_type,
         data.popularity_tier,
-        data.highway_accessible ? 1 : 0,
+        Boolean(data.highway_accessible),
         data.road_condition ?? 'paved_all_weather',
         data.verification_status,
         data.source_name ?? null,
@@ -186,7 +187,7 @@ export async function createDestination(data) {
       ],
     );
 
-    const destinationId = result.insertId;
+    const destinationId = result.insertId ?? result[0]?.id;
 
     await replaceTags(connection, destinationId, data.tags);
     await replaceOperatingHours(connection, destinationId, data.operatingHours);

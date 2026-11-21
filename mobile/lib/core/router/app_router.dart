@@ -14,6 +14,8 @@ import '../../features/discovery/domain/destination_summary.dart';
 import '../../features/discovery/presentation/screens/destination_detail_screen.dart';
 import '../../features/discovery/presentation/screens/discovery_screen.dart';
 import '../../features/discovery/presentation/screens/search_screen.dart';
+import '../../features/itinerary/presentation/itinerary_screen.dart';
+import '../../features/map/presentation/itinerary_map_screen.dart';
 import '../../features/preferences/presentation/planner_screen.dart';
 import '../../shared/widgets/app_shell_scaffold.dart';
 import '../theme/app_colors.dart';
@@ -64,6 +66,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             destination: destination is DestinationSummary ? destination : null,
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.itinerary,
+        name: AppRoutes.itineraryName,
+        builder: (context, state) => const ItineraryScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.itineraryMap,
+        name: AppRoutes.itineraryMapName,
+        builder: (context, state) => const ItineraryMapScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

@@ -1,7 +1,12 @@
 import { query } from '../config/db.mjs';
 
 const DESTINATION_ORDER = `
-  FIELD(d.popularity_tier, 'iconic_hub', 'moderate', 'hidden_gem'),
+  CASE d.popularity_tier
+    WHEN 'iconic_hub' THEN 1
+    WHEN 'moderate' THEN 2
+    WHEN 'hidden_gem' THEN 3
+    ELSE 4
+  END,
   d.name ASC
 `;
 
@@ -22,6 +27,9 @@ const DESTINATION_COLUMNS = `
   d.popularity_tier,
   d.highway_accessible,
   d.road_condition,
+  d.recommended_duration_minutes,
+  d.best_time_of_day,
+  d.is_community_based,
   d.verification_status,
   d.source_name,
   d.source_type,
@@ -61,8 +69,9 @@ const TAG_AGGREGATE_JOIN = `
   LEFT JOIN (
     SELECT
       dt.destination_id,
-      JSON_ARRAYAGG(
-        JSON_OBJECT('slug', it.tag_slug, 'name', it.display_name)
+      JSON_AGG(
+        JSON_BUILD_OBJECT('slug', it.tag_slug, 'name', it.display_name)
+        ORDER BY it.display_name
       ) AS tags
     FROM destination_tags dt
     INNER JOIN interest_tags it ON it.tag_slug = dt.tag_slug
@@ -107,12 +116,12 @@ function buildFilters(filters = {}) {
 
   if (filters.is_free !== undefined && filters.is_free !== null) {
     conditions.push('p.is_free = ?');
-    params.push(filters.is_free ? 1 : 0);
+    params.push(Boolean(filters.is_free));
   }
 
   if (filters.q) {
     const term = `%${escapeLike(filters.q)}%`;
-    conditions.push("(d.name LIKE ? ESCAPE '!' OR d.description LIKE ? ESCAPE '!')");
+    conditions.push("(d.name ILIKE ? ESCAPE '!' OR d.description ILIKE ? ESCAPE '!')");
     params.push(term, term);
   }
 

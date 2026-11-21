@@ -5,11 +5,11 @@ const USER_COLUMNS =
 
 export async function createUser({ email, passwordHash, fullName, role = 'tourist' }) {
   const result = await query(
-    'INSERT INTO users (email, password_hash, full_name, role) VALUES (?, ?, ?, ?)',
+    'INSERT INTO users (email, password_hash, full_name, role) VALUES (?, ?, ?, ?) RETURNING id',
     [email, passwordHash, fullName, role],
   );
 
-  return findUserById(result.insertId);
+  return findUserById(result.insertId ?? result[0]?.id);
 }
 
 export async function findUserByEmail(email) {
