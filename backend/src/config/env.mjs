@@ -17,6 +17,11 @@ const envSchema = z.object({
   DB_PORT: z.coerce.number().int().positive().default(3306),
 
   JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters'),
+  ADMIN_INVITE_CODE: z
+    .string()
+    .trim()
+    .min(1, 'ADMIN_INVITE_CODE is required')
+    .default('NORTE-CURATOR-2026'),
 });
 
 const parsed = envSchema.safeParse(process.env);

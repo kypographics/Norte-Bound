@@ -1,59 +1,51 @@
 # NORTE BOUND
 
-**An AI-Assisted Context-Aware Tourism Recommendation and Dynamic Itinerary Planning System for Ilocos Norte**
+> **An AI-Assisted Context-Aware Tourism Recommendation and Dynamic Itinerary Planning System for Ilocos Norte, Philippines**
 
-NORTE BOUND helps travelers discover and plan grounded, realistic itineraries across all **22 Local Government Units (LGUs)** (20 municipalities and 2 component cities) of **Ilocos Norte, Philippines**. It pairs bounded natural-language preference extraction (Google Gemini) with a deterministic MySQL-backed multi-criteria scoring and time-window scheduling engine.
+NORTE BOUND covers all **22 Local Government Units (LGUs)** (20 municipalities and 2 component cities: Laoag City and Batac City) of Ilocos Norte. The system combines deterministic multi-criteria recommendation scoring, time-window itinerary scheduling, and interactive mapping with bounded natural-language preference extraction via Google Gemini.
 
 ---
 
-## Monorepo Structure
+## 📂 Monorepo Structure
 
 ```text
-norte-bound/
-├── backend/                 # Node.js (ESM) + Express.js API & planning engine
+NORTE-BOUND-NEW/
+├── backend/                  # Node.js + Express REST API
 │   └── src/
-│       ├── config/          # Environment, MySQL pool, Gemini & routing clients
-│       ├── controllers/     # HTTP handlers
-│       ├── middlewares/     # JWT auth, RBAC guards, Zod validation, error handling
-│       ├── models/          # Parameterized mysql2/promise SQL queries
-│       ├── routes/          # Express route definitions
-│       ├── schemas/         # Zod schemas for requests & AI structured outputs
-│       ├── services/        # Scoring, itinerary scheduler, Gemini NL extraction
-│       └── utils/           # Haversine + tortuosity math, time helpers
-├── mobile/                  # Flutter + Dart client ("Cupertino Nature-First" UI)
-├── database/                # MySQL 8.x schema, migrations, seeds, LGU research
-│   ├── migrations/
-│   ├── seeds/
-│   └── research/
-├── docs/                    # Architecture, requirements, and technical specifications
-├── AGENTS.md                # Permanent engineering & UI/UX rules for contributors/AI
-└── .gitignore
+│       ├── config/           # DB pool, environment config, external API clients
+│       ├── controllers/      # HTTP request/response orchestration
+│       ├── middlewares/      # JWT authentication, RBAC guards, Zod validation
+│       ├── models/           # Parameterized MySQL queries
+│       ├── routes/           # Express route definitions
+│       ├── schemas/          # Zod schemas (request validation & Gemini structured output)
+│       ├── services/         # Recommendation engine, scheduler, Gemini service, auth
+│       └── utils/            # Pure helpers (Haversine distance, time math, formatters)
+├── mobile/                   # Flutter cross-platform client app
+├── database/
+│   ├── migrations/           # MySQL 8.x DDL schema migration scripts
+│   ├── seeds/                # Initial seed data for 22 LGUs and destination records
+│   └── research/             # Tourism metadata research & citation snapshots
+├── docs/                     # Architecture, requirements, and API specifications
+├── AGENTS.md                 # Master OpenCode context & engineering guardrails
+└── README.md
 ```
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Mobile Client (`mobile/`):** Flutter, Dart, `flutter_riverpod`, `go_router`, `dio`, `flutter_map` (OpenStreetMap), `latlong2`
-- **Backend API (`backend/`):** Node.js (ES Modules), Express.js, `mysql2/promise`, `zod`, `bcrypt`, `jsonwebtoken`
-- **AI Preference Extraction:** Google Gemini API (`gemini-2.5-flash`) with Structured Outputs (`responseSchema`)
-- **Maps & Routing:** OpenStreetMap, OSRM / OpenRouteService, Haversine + road tortuosity multiplier
-- **Database:** MySQL 8.x (parameterized SQL queries; no ORM abstraction)
-
----
-
-## Core Design Principles
-
-1. **Zero-Hallucination Grounding:** Gemini is restricted strictly to parsing natural-language preferences into validated JSON. All destinations, coordinates, fees, and operating hours are served exclusively from verified MySQL records.
-2. **Backend-Centralized Intelligence:** All multi-criteria scoring ($S_{total}$), constraint relaxation diagnostics, budget validation, meal injection, and time-window scheduling reside in Node.js services.
-3. **Cupertino Nature-First UI:** Crafted with Deep Forest Green (`#092008`), Warm Sand Beige (`#F5E6D3`), Elevated Ivory Sand (`#FAF4EC`), Sky Blue (`#87CEEB`), and Terracotta Orange (`#E27D5A`) following Apple HIG patterns.
+- **Frontend (`mobile/`):** Flutter, Riverpod (`flutter_riverpod`), `go_router`, `dio`, `flutter_map`, `latlong2`.
+- **Backend (`backend/`):** Node.js (ES Modules, `"type": "module"`), Express.js, `mysql2/promise`, `zod`, `bcrypt`, `jsonwebtoken`.
+- **AI Engine:** Google Gemini API (`gemini-2.5-flash`) with Structured Outputs (`responseSchema`).
+- **Routing & Maps:** OpenStreetMap + OSRM / OpenRouteService (with Haversine road tortuosity matrix scoring).
+- **Database (`database/`):** MySQL 8.x (parameterized SQL only, no ORMs hiding queries).
 
 ---
 
-## Development Roadmap
+## 🗺️ Development Roadmap
 
-- **Phase 1.1 (Current):** Project Foundation, Monorepo Scaffolding, Git Configuration, `AGENTS.md`, and Requirements/Architecture Documentation
-- **Phase 1.2:** MySQL 8.x Schema Design, 22-LGU & Destination Dataset Curation, Migrations & Seed Scripts
-- **Phase 2:** Backend Core API (Auth/RBAC, Discovery Endpoints, Gemini NL Extraction, Recommendation & Dynamic Scheduling Engine)
-- **Phase 3:** Flutter Mobile Application ("Cupertino Nature-First" UI, Interactive `flutter_map`, Preference Confirmation & Stop Swapping)
-- **Phase 4:** Integration Testing, ISO/IEC 25010 Verification, and Polishing
+- **Phase 1: Foundation & Scaffolding** (Monorepo setup, architectural docs, database schema design)
+- **Phase 2: Backend Core Services & MySQL Integration** (Auth, LGU discovery, Gemini preference parser, recommendation engine)
+- **Phase 3: Itinerary Scheduler & REST API Integration** (Time-window greedy scheduler, expense breakdown, Express endpoints)
+- **Phase 4: Flutter Mobile App Development** (Cupertino Nature-First UI, state management, map integration)
+- **Phase 5: Testing, Polish & Deployment** (End-to-end verification, performance tuning, production readiness)

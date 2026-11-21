@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/network_providers.dart';
 import '../data/destination_repository.dart';
+import '../domain/destination_detail.dart';
 import '../domain/destination_filter.dart';
 import '../domain/destination_summary.dart';
 import '../domain/lgu.dart';
@@ -19,6 +20,11 @@ final lgusProvider = FutureProvider<LguDirectory>((ref) {
 
 final taxonomyProvider = FutureProvider<DestinationTaxonomy>((ref) {
   return ref.watch(destinationRepositoryProvider).fetchTaxonomy();
+});
+
+final destinationDetailProvider =
+    FutureProvider.family<DestinationDetail, String>((ref, slug) {
+  return ref.watch(destinationRepositoryProvider).fetchDestinationDetail(slug);
 });
 
 class ExploreFeed {

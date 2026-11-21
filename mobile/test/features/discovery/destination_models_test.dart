@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:norte_bound/features/discovery/domain/destination_detail.dart';
 import 'package:norte_bound/features/discovery/domain/destination_summary.dart';
 import 'package:norte_bound/features/discovery/domain/lgu.dart';
 import 'package:norte_bound/features/discovery/domain/taxonomy.dart';
@@ -187,6 +188,136 @@ void main() {
         () => DestinationPage.fromJson({'pagination': <String, dynamic>{}}),
         throwsFormatException,
       );
+    });
+  });
+
+  group('DestinationDetail', () {
+    test('parses full backend detail contract including verification, pricing, and schedule', () {
+      final detail = DestinationDetail.fromJson({
+        'id': 14,
+        'slug': 'paoay-church',
+        'name': 'Paoay Church',
+        'lgu': {
+          'code': 'paoay',
+          'name': 'Paoay',
+          'cluster': 'southern_heritage_coast',
+          'type': 'municipality',
+        },
+        'category': {
+          'code': 'heritage_cultural',
+          'name': 'Heritage & Cultural',
+          'description': 'Churches and historic landmarks.',
+        },
+        'description': 'A UNESCO-listed Earthquake Baroque church.',
+        'historicalBackground': 'Built in 1710 using coral stones and bricks.',
+        'address': 'Paoay, Ilocos Norte',
+        'coordinates': {'latitude': 18.1216, 'longitude': 120.5223},
+        'entityType': 'attraction',
+        'popularityTier': 'iconic_hub',
+        'highwayAccessible': true,
+        'roadCondition': 'paved_highway',
+        'verification': {
+          'status': 'verified',
+          'sourceName': 'Ilocos Norte Tourism Office',
+          'sourceType': 'lgu_tourism_office',
+          'lastVerifiedDate': '2026-10-01',
+        },
+        'pricing': {
+          'entranceFeeAdult': 50,
+          'entranceFeeConcession': 30,
+          'mandatoryActivityFee': 100,
+          'estimatedMealMin': 150,
+          'estimatedMealMax': 350,
+          'parkingFee': 25,
+          'isFree': false,
+          'currency': 'PHP',
+        },
+        'operatingHours': [
+          {
+            'dayOfWeek': 0,
+            'dayName': 'Sunday',
+            'openingTime': '06:00',
+            'closingTime': '18:00',
+            'is24Hours': false,
+            'temporarilyClosed': false,
+          },
+          {
+            'dayOfWeek': 1,
+            'dayName': 'Monday',
+            'openingTime': '08:00',
+            'closingTime': '17:00',
+            'is24Hours': false,
+            'temporarilyClosed': false,
+          },
+        ],
+        'tags': [
+          {'slug': 'unesco-heritage', 'name': 'UNESCO Heritage'},
+        ],
+      });
+
+      expect(detail.isIconic, isTrue);
+      expect(detail.popularityLabel, 'Iconic Hub');
+      expect(detail.verification.isVerified, isTrue);
+      expect(detail.verification.sourceName, 'Ilocos Norte Tourism Office');
+      expect(detail.verification.sourceTypeLabel, 'Lgu Tourism Office');
+      expect(detail.verification.lastVerifiedDate, '2026-10-01');
+      expect(detail.pricing.adultEntryLabel, '₱50');
+      expect(detail.pricing.concessionEntryLabel, '₱30');
+      expect(detail.pricing.mandatoryActivityLabel, '₱100');
+      expect(detail.pricing.parkingLabel, '₱25');
+      expect(detail.pricing.mealRangeLabel, '₱150–350');
+      expect(detail.historicalBackground, contains('1710'));
+      expect(detail.operatingHours, hasLength(2));
+
+      // Monday (2026-11-16 is a Monday) at 10:30 -> Open Now
+      final openStatus = detail.operationalStatusAt(DateTime(2026, 11, 16, 10, 30));
+      expect(openStatus.isOpen, isTrue);
+      expect(openStatus.label, 'Open Now');
+      expect(openStatus.detailText, 'Closes at 17:00');
+
+      // Monday at 19:00 -> Closed
+      final closedStatus = detail.operationalStatusAt(DateTime(2026, 11, 16, 19, 0));
+      expect(closedStatus.isOpen, isFalse);
+      expect(closedStatus.label, 'Closed');
+      expect(closedStatus.detailText, 'Closed for today');
+    });
+
+    test('computes 24-hour and temporarily closed operational statuses', () {
+      final detail = DestinationDetail.fromJson({
+        'id': 20,
+        'slug': 'bangui-windmills',
+        'name': 'Bangui Windmills',
+        'lgu': {'code': 'bangui', 'name': 'Bangui', 'cluster': 'northern_coast'},
+        'category': {'code': 'agro_eco_tourism', 'name': 'Agro & Eco-Tourism'},
+        'popularityTier': 'hidden_gem',
+        'verification': {'status': 'verified'},
+        'pricing': {'isFree': true},
+        'operatingHours': [
+          {
+            'dayOfWeek': 0,
+            'dayName': 'Sunday',
+            'is24Hours': true,
+            'temporarilyClosed': false,
+          },
+          {
+            'dayOfWeek': 1,
+            'dayName': 'Monday',
+            'openingTime': '08:00',
+            'closingTime': '17:00',
+            'is24Hours': false,
+            'temporarilyClosed': true,
+          },
+        ],
+      });
+
+      final sundayStatus = detail.operationalStatusAt(DateTime(2026, 11, 15, 22, 0));
+      expect(sundayStatus.isOpen, isTrue);
+      expect(sundayStatus.detailText, 'Open 24 hours');
+
+      final mondayStatus = detail.operationalStatusAt(DateTime(2026, 11, 16, 10, 0));
+      expect(mondayStatus.isOpen, isFalse);
+      expect(mondayStatus.isTemporarilyClosed, isTrue);
+      expect(mondayStatus.detailText, 'Temporarily closed today');
     });
   });
 }

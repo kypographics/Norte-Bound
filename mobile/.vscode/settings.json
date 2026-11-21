@@ -1,0 +1,24 @@
+{
+  "dart.flutterSdkPath": "C:\\Users\\Kypo\\src\\flutter",
+  "dart.sdkPath": "C:\\Users\\Kypo\\src\\flutter\\bin\\cache\\dart-sdk",
+  "dart.flutterCreatePlatforms": [
+    "android",
+    "ios",
+    "web"
+  ],
+  "dart.getFlutterSdkCommand": null,
+  "jdk.telemetry.enabled": true,
+  "terminal.integrated.initialHint": false,
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Users\\Kypo\\src\\flutter\\bin;C:\\Users\\Kypo\\src\\flutter\\bin\\cache\\dart-sdk\\bin;C:\\Users\\Kypo\\AppData\\Local\\Android\\Sdk\\platform-tools;${env:PATH}",
+    "ANDROID_HOME": "C:\\Users\\Kypo\\AppData\\Local\\Android\\Sdk"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  }
+}

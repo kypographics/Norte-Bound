@@ -35,8 +35,24 @@ const DEFAULTS = {
   DB_NAME: 'norte_bound_db',
   DB_PORT: '3306',
   JWT_SECRET: 'super_secret_jwt_key_change_in_production',
-  GEMINI_API_KEY: 'your_gemini_api_key_here'
+  GEMINI_API_KEY: 'your_gemini_api_key_here',
+  ADMIN_INVITE_CODE: 'NORTE-CURATOR-2026'
 };
+
+const SEEDED_USERS = [
+  {
+    email: 'admin@nortebound.ph',
+    password: 'AdminPass123!',
+    fullName: 'Norte Bound Curator',
+    role: 'admin'
+  },
+  {
+    email: 'tourist@nortebound.ph',
+    password: 'TouristPass123!',
+    fullName: 'Norte Bound Traveler',
+    role: 'tourist'
+  }
+];
 
 function log(icon, message) {
   console.log(`${icon}  ${message}`);
@@ -92,6 +108,25 @@ async function loadMysql() {
   }
   throw new Error(
     'mysql2 is not installed. Run `npm install mysql2` inside backend/ before running this script.'
+  );
+}
+
+async function loadBcrypt() {
+  const candidates = [
+    pathToFileURL(path.join(ROOT, 'backend/node_modules/bcrypt/bcrypt.js')).href,
+    'bcrypt'
+  ];
+  for (const candidate of candidates) {
+    try {
+      const mod = await import(candidate);
+      const bcrypt = mod?.default?.hash ? mod.default : mod;
+      if (bcrypt?.hash) return bcrypt;
+    } catch {
+      /* try next candidate */
+    }
+  }
+  throw new Error(
+    'bcrypt is not installed. Run `npm install bcrypt` inside backend/ before running this script.'
   );
 }
 
@@ -364,9 +399,33 @@ async function seedDestinations(conn, destinations) {
   return counts;
 }
 
+async function seedUsers(conn, bcrypt) {
+  const sql = `
+    INSERT INTO users (email, password_hash, full_name, role)
+    VALUES (?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE
+      password_hash = VALUES(password_hash),
+      full_name = VALUES(full_name),
+      role = VALUES(role)
+  `;
+
+  for (const user of SEEDED_USERS) {
+    const passwordHash = await bcrypt.hash(user.password, 10);
+    await conn.query(sql, [
+      user.email,
+      passwordHash,
+      user.fullName,
+      user.role
+    ]);
+  }
+
+  return SEEDED_USERS.length;
+}
+
 async function main() {
   const { config, envSource } = loadConfig();
   const mysql = await loadMysql();
+  const bcrypt = await loadBcrypt();
 
   const dbName = config.DB_NAME;
   if (!/^[A-Za-z0-9_]+$/.test(dbName)) {
@@ -425,6 +484,9 @@ async function main() {
       log('✅', `Seeded destination tags: ${destCounts.tags}`);
       log('✅', `Seeded operating hours: ${destCounts.hours}`);
       log('✅', `Seeded pricing tiers: ${destCounts.pricing}`);
+
+      const userCount = await seedUsers(conn, bcrypt);
+      log('✅', `Seeded default accounts: ${userCount}`);
 
       await conn.commit();
       log('✅', 'Seed transaction committed.');

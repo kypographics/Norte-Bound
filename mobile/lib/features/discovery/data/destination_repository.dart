@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../../../core/constants/api_endpoints.dart';
 import '../../../core/network/api_exception.dart';
+import '../domain/destination_detail.dart';
 import '../domain/destination_filter.dart';
 import '../domain/destination_summary.dart';
 import '../domain/lgu.dart';
@@ -72,6 +73,27 @@ class DestinationRepository {
     } on FormatException {
       throw const ApiException(
         message: 'The destination response contained invalid records.',
+      );
+    }
+  }
+
+  Future<DestinationDetail> fetchDestinationDetail(String slug) async {
+    final response = await _request(
+      () => _dio.get<Map<String, dynamic>>(ApiEndpoints.destinationDetail(slug)),
+    );
+    final data = response.data?['data'];
+
+    if (data is! Map<String, dynamic>) {
+      throw const ApiException(
+        message: 'The destination detail response did not include valid records.',
+      );
+    }
+
+    try {
+      return DestinationDetail.fromJson(data);
+    } on FormatException {
+      throw const ApiException(
+        message: 'The destination detail record was malformed.',
       );
     }
   }
