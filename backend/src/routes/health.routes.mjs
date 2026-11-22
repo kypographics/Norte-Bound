@@ -4,6 +4,13 @@ import { pingDatabase } from '../config/db.mjs';
 
 const router = Router();
 
+router.get('/live', (req, res) => {
+  return res.status(200).json({
+    status: 'ok',
+    service: 'norte-bound-backend',
+  });
+});
+
 router.get('/health', async (req, res) => {
   const uptimeSeconds = Math.round(process.uptime());
   const payload = {
@@ -24,6 +31,7 @@ router.get('/health', async (req, res) => {
     await pingDatabase();
     return res.status(200).json(payload);
   } catch (error) {
+    console.error('[health] Database ping failed:', error.message);
     payload.status = 'degraded';
     payload.database = {
       status: 'disconnected',

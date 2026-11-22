@@ -35,7 +35,7 @@ app.use('/api/v1/itineraries', itineraryRoutes);
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-const server = app.listen(env.PORT, () => {
+const server = app.listen(env.PORT, '0.0.0.0', () => {
   console.log(`[norte-bound] API listening on port ${env.PORT} (${env.NODE_ENV})`);
   console.log(`[norte-bound] Health check: http://localhost:${env.PORT}/api/v1/health`);
 });
