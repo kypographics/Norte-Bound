@@ -49,7 +49,15 @@ function resolveApiBase() {
     localStorage.setItem('nb_api_base', cleaned);
     return cleaned;
   }
-  return (localStorage.getItem('nb_api_base') || DEFAULT_API_BASE).replace(/\/+$/, '');
+  const stored = localStorage.getItem('nb_api_base');
+  if (stored) {
+    return stored.replace(/\/+$/, '');
+  }
+  const host = window.location.hostname;
+  if (host && host !== 'localhost' && host !== '127.0.0.1') {
+    return `${window.location.origin}/api/v1`;
+  }
+  return DEFAULT_API_BASE;
 }
 
 const API_BASE = resolveApiBase();

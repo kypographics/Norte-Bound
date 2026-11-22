@@ -8,6 +8,19 @@ NORTE BOUND combines deterministic multi-criteria recommendation scoring, time-w
 
 ## Running Locally (Active Terminals Required)
 
+### One-Command Launcher (Recommended)
+Run the launcher at the repository root to start the Backend API (`:5000`), Admin Web (`:5173`), and Flutter with the right `API_BASE_URL` automatically:
+
+```bash
+.\start.bat        # Windows (uses python start.py, or falls back to node start.mjs)
+# Or run directly:
+node start.mjs
+python start.py
+```
+
+- Pick `usb` (recommended for physical Android phones — runs `adb reverse tcp:5000 tcp:5000` so your phone connects over USB without Windows Firewall blocking LAN traffic) or `wifi` (automatically injects your PC's LAN IP via `--dart-define=API_BASE_URL=...`), `emulator`, `web`, or `servers`.
+
+### Manual Terminals (Alternative)
 Keep **Terminal 1** active at all times because both the Flutter app and the Curator Admin Web Portal communicate with the Express API on port `5000`.
 
 ### Terminal 1 — Backend API (Required for both App & Admin Web)
