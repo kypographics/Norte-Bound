@@ -2,12 +2,19 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/network/api_exception.dart';
+import '../../../core/router/app_routes.dart';
+import '../../../core/storage/traveler_local_store.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_typography.dart';
 import '../../../shared/widgets/app_card.dart';
 import '../../../shared/widgets/primary_button.dart';
+import '../../discovery/presentation/discovery_providers.dart';
+import '../../discovery/presentation/widgets/destination_artwork.dart';
+import '../../preferences/domain/trip_plan_models.dart';
+import '../../preferences/presentation/planner_providers.dart';
 import '../domain/models/travel_preferences.dart';
 import '../domain/models/user.dart';
 import 'auth_providers.dart';
@@ -53,6 +60,11 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
   void initState() {
     super.initState();
     _hydratePreferences();
+    Future.microtask(() {
+      if (mounted) {
+        ref.read(plannerProvider.notifier).loadSavedItineraries();
+      }
+    });
   }
 
   void _hydratePreferences() {
@@ -223,6 +235,11 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final savedPlans = ref.watch(
+      plannerProvider.select((s) => s.savedItineraries),
+    );
+    final localStore = ref.watch(travelerLocalStoreProvider);
+    final isAdmin = widget.user.role == UserRole.admin;
 
     return Scaffold(
       body: DecoratedBox(
@@ -278,6 +295,16 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
                   ),
                   const SizedBox(height: 28),
                   _buildIdentityCard(context),
+                  if (isAdmin) ...[
+                    const SizedBox(height: 18),
+                    _buildCuratorCard(context),
+                  ],
+                  const SizedBox(height: 18),
+                  _buildSavedPlansCard(context, savedPlans, localStore),
+                  const SizedBox(height: 18),
+                  _buildFavoritesCard(context, localStore),
+                  const SizedBox(height: 18),
+                  _buildPassportCard(context, localStore),
                   const SizedBox(height: 18),
                   _buildTravelDefaults(context),
                   const SizedBox(height: 18),
@@ -406,6 +433,413 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
                 ),
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCuratorCard(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return AppCard(
+      onTap: () {
+        HapticFeedback.lightImpact();
+        GoRouter.maybeOf(context)?.push(AppRoutes.admin);
+      },
+      padding: const EdgeInsets.all(18),
+      child: Row(
+        children: [
+          Container(
+            width: 42,
+            height: 42,
+            decoration: ShapeDecoration(
+              color: AppColors.terracottaWash,
+              shape: const ContinuousRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+            ),
+            child: const Icon(
+              CupertinoIcons.slider_horizontal_3,
+              size: 19,
+              color: AppColors.terracotta,
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Curator Console', style: textTheme.titleMedium),
+                const SizedBox(height: 3),
+                Text(
+                  'Verify spots, toggle closures, edit fees & photos.',
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.mutedForest,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Icon(
+            CupertinoIcons.chevron_right,
+            size: 17,
+            color: AppColors.mutedForest,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSavedPlansCard(
+    BuildContext context,
+    List<SavedItinerarySummary> plans,
+    TravelerLocalState localStore,
+  ) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return AppCard(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: ShapeDecoration(
+                  color: AppColors.terracottaWash,
+                  shape: const ContinuousRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                child: const Icon(
+                  CupertinoIcons.bookmark_fill,
+                  size: 19,
+                  color: AppColors.terracotta,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Saved plans', style: textTheme.titleLarge),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Your saved Ilocos Norte itineraries.',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.mutedForest,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              IconButton(
+                tooltip: 'Refresh saved plans',
+                onPressed: () {
+                  HapticFeedback.lightImpact();
+                  ref.read(plannerProvider.notifier).loadSavedItineraries();
+                },
+                icon: const Icon(CupertinoIcons.refresh, size: 17),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          if (plans.isEmpty)
+            Text(
+              'No saved plans yet. Build an itinerary and tap "Save plan" to keep it here.',
+              style: textTheme.bodySmall?.copyWith(color: AppColors.mutedForest),
+            )
+          else
+            for (final plan in plans)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                dense: true,
+                leading: const Icon(
+                  CupertinoIcons.map_pin_ellipse,
+                  size: 18,
+                  color: AppColors.terracotta,
+                ),
+                title: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        plan.title,
+                        style: textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    if (localStore.hasOfflinePlan(plan.id))
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 7,
+                          vertical: 2,
+                        ),
+                        decoration: const ShapeDecoration(
+                          color: AppColors.skyBlueWash,
+                          shape: StadiumBorder(),
+                        ),
+                        child: Text(
+                          'Offline ready',
+                          style: textTheme.labelSmall?.copyWith(
+                            fontSize: 8.5,
+                            color: AppColors.deepForest,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+                subtitle: Text(
+                  '${plan.totalDays}d · ${plan.stopCount} stops · ₱${plan.totalEstimatedCost.round()}',
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.mutedForest,
+                    fontFeatures: AppTypography.tabularFigures,
+                  ),
+                ),
+                trailing: IconButton(
+                  tooltip: 'Delete saved plan',
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    ref
+                        .read(plannerProvider.notifier)
+                        .deleteSavedItinerary(plan.id);
+                  },
+                  icon: const Icon(CupertinoIcons.trash, size: 17),
+                ),
+                onTap: () async {
+                  HapticFeedback.lightImpact();
+                  final router = GoRouter.maybeOf(context);
+                  final ok = await ref
+                      .read(plannerProvider.notifier)
+                      .openSavedItinerary(plan.id);
+                  if (ok && mounted) {
+                    router?.push(AppRoutes.itinerary);
+                  }
+                },
+              ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFavoritesCard(
+    BuildContext context,
+    TravelerLocalState localStore,
+  ) {
+    final textTheme = Theme.of(context).textTheme;
+    final favs = localStore.favorites;
+
+    return AppCard(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: ShapeDecoration(
+                  color: AppColors.terracottaWash,
+                  shape: const ContinuousRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                child: const Icon(
+                  CupertinoIcons.heart_fill,
+                  size: 19,
+                  color: AppColors.terracotta,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Favorites', style: textTheme.titleLarge),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Places you saved for your next trip north.',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.mutedForest,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          if (favs.isEmpty)
+            Text(
+              'No favorites yet. Tap the heart icon on any destination to save it here.',
+              style: textTheme.bodySmall?.copyWith(color: AppColors.mutedForest),
+            )
+          else ...[
+            for (final fav in favs)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                dense: true,
+                leading: SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: DestinationArtwork(
+                    categoryCode: fav.categoryCode,
+                    slug: fav.slug,
+                    name: fav.name,
+                    imageUrl: fav.imageUrl,
+                    borderRadius: 12,
+                    iconSize: 18,
+                  ),
+                ),
+                title: Text(
+                  fav.name,
+                  style: textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                subtitle: Text(
+                  fav.lguName,
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.mutedForest,
+                  ),
+                ),
+                trailing: IconButton(
+                  tooltip: 'Remove favorite',
+                  onPressed: () => ref
+                      .read(travelerLocalStoreProvider.notifier)
+                      .toggleFavorite(fav),
+                  icon: const Icon(
+                    CupertinoIcons.heart_fill,
+                    size: 17,
+                    color: AppColors.terracotta,
+                  ),
+                ),
+                onTap: () => GoRouter.maybeOf(context)?.push(
+                  '${AppRoutes.destinationDetail}/${fav.slug}',
+                ),
+              ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () {
+                HapticFeedback.lightImpact();
+                ref
+                    .read(plannerProvider.notifier)
+                    .loadFavoritesIntoPlanner(favs);
+                GoRouter.maybeOf(context)?.go(AppRoutes.planner);
+              },
+              icon: const Icon(CupertinoIcons.sparkles, size: 15),
+              label: const Text('Plan from favorites'),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPassportCard(
+    BuildContext context,
+    TravelerLocalState localStore,
+  ) {
+    final textTheme = Theme.of(context).textTheme;
+    final stamped = localStore.stampedLgus;
+    final lguDir = ref.watch(lgusProvider).value;
+    final lgus = lguDir?.clusters.expand((c) => c.lgus).toList() ?? const [];
+
+    return AppCard(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: const ShapeDecoration(
+                  color: AppColors.skyBlueWash,
+                  shape: ContinuousRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                child: const Icon(
+                  CupertinoIcons.rosette,
+                  size: 20,
+                  color: AppColors.deepForest,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('22-LGU Stamp Passport', style: textTheme.titleLarge),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${stamped.length} / 22 LGUs explored',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.mutedForest,
+                        fontFeatures: AppTypography.tabularFigures,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: LinearProgressIndicator(
+              value: (stamped.length / 22).clamp(0.0, 1.0),
+              minHeight: 7,
+              backgroundColor: AppColors.warmSand,
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                AppColors.terracotta,
+              ),
+            ),
+          ),
+          if (stamped.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 6,
+              runSpacing: 6,
+              children: [
+                for (final code in stamped)
+                  Chip(
+                    label: Text(
+                      lguDir?.lguByCode(code)?.name ?? code,
+                      style: textTheme.labelSmall?.copyWith(
+                        color: AppColors.deepForest,
+                      ),
+                    ),
+                    backgroundColor: AppColors.skyBlueWash,
+                    side: BorderSide.none,
+                  ),
+              ],
+            ),
+          ],
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            onPressed: lgus.isEmpty
+                ? null
+                : () async {
+                    HapticFeedback.lightImpact();
+                    final res = await ref
+                        .read(travelerLocalStoreProvider.notifier)
+                        .checkInNearestLgu(lgus);
+                    if (!mounted) return;
+                    if (res.lguName != null) {
+                      _showFeedback(
+                        'Stamped ${res.lguName} into your Ilocos Norte Passport!',
+                      );
+                    }
+                  },
+            icon: const Icon(CupertinoIcons.location_fill, size: 15),
+            label: const Text('Check in via GPS'),
           ),
         ],
       ),

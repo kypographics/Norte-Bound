@@ -14,8 +14,8 @@ export const parseIntentSchema = z.object({
   originLguCode: z.string().trim().min(1).optional(),
   currentLocation: z
     .object({
-      latitude: z.number().min(17.5).max(19.0),
-      longitude: z.number().min(120.0).max(121.5),
+      latitude: z.number().min(4.0).max(22.0),
+      longitude: z.number().min(116.0).max(127.5),
     })
     .optional(),
 });
@@ -34,12 +34,14 @@ export const tripPreferencesBodySchema = z.object({
   startTime: z.string().regex(timeRegex, 'startTime must be HH:mm').default('08:00'),
   endTime: z.string().regex(timeRegex, 'endTime must be HH:mm').default('18:00'),
   originLguCode: z.string().trim().min(1).default('laoag-city'),
+  originName: z.string().trim().min(1).max(120).optional(),
   originCoordinates: z
     .object({
       latitude: z.number(),
       longitude: z.number(),
     })
     .optional(),
+  overnightLguCode: z.string().trim().min(1).nullable().optional(),
   groupSize: z.coerce.number().int().min(1).max(50).default(1),
   transportMode: z
     .enum(['motorcycle', 'privateCar', 'publicCommute'])

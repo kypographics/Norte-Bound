@@ -118,6 +118,7 @@ const destinationFields = {
     .number()
     .min(120.4, 'Longitude must be within Ilocos Norte.')
     .max(121.05, 'Longitude must be within Ilocos Norte.'),
+  image_url: optionalNullableString(1000),
   entity_type: z.enum(ENTITY_TYPES),
   popularity_tier: z.enum(POPULARITY_TIERS),
   verification_status: z.enum(VERIFICATION_STATUSES),

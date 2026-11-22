@@ -1,9 +1,15 @@
 import {
+  classifyDestinationScenery,
   enforceThirtyPercentQuota,
   loadVerifiedCatalog,
   scoreAndFilterDestinations,
 } from './recommendation.service.mjs';
-import { estimateTravelLeg, formatMinutes, toMinutes } from '../utils/geo.matrix.mjs';
+import {
+  estimateTravelLeg,
+  formatMinutes,
+  haversineKm,
+  toMinutes,
+} from '../utils/geo.matrix.mjs';
 import { formatTime, toBoolean, toNumber } from '../utils/destination.mapper.mjs';
 
 function isStopOpenAt(dest, dayOfWeek, arrivalMin, departureMin) {
@@ -68,29 +74,25 @@ export async function generateFeasibleItinerary(preferences) {
     ...rankedPool.filter((d) => !lockedIds.has(d.id)),
   ];
 
-  // Fallback pool of lesser-known verified stops in the requested area (if quota needs an extra stop)
-  const areaLgus = new Set(preferences.preferredLgus ?? []);
-  const areaClusters = new Set(preferences.preferredClusters ?? []);
-  const extraAreaLesserKnown = catalog.destinations.filter(
-    (d) =>
-      d.verificationStatus === 'verified' &&
-      d.isLesserKnown &&
-      !candidatePool.some((c) => c.id === d.id) &&
-      (areaLgus.size === 0 || areaLgus.has(d.lguCode)) &&
-      (areaClusters.size === 0 || areaClusters.has(d.tourismCluster)),
+  // Add remaining lesser-known candidates from viable (already preference-filtered)
+  const extraViableLesserKnown = viable.filter(
+    (d) => d.isLesserKnown && !candidatePool.some((c) => c.id === d.id),
   );
-  for (const extra of extraAreaLesserKnown) {
-    candidatePool.push({
-      ...extra,
-      scoreBreakdown: { total: 0.62 },
-    });
-  }
+  candidatePool.push(...extraViableLesserKnown);
 
-  const foodPool = catalog.destinations.filter(
-    (d) =>
-      d.verificationStatus === 'verified' &&
-      (d.categoryCode === 'food_culinary' || d.entityType === 'food_establishment'),
-  );
+  const wantCategories = new Set(preferences.categories ?? []);
+  const wantScenery = new Set(preferences.preferredScenery ?? []);
+  const allowSeparateFoodStop =
+    wantCategories.size === 0 || wantCategories.has('food_culinary');
+  const foodPool = allowSeparateFoodStop
+    ? catalog.destinations.filter(
+        (d) =>
+          d.verificationStatus === 'verified' &&
+          (d.categoryCode === 'food_culinary' || d.entityType === 'food_establishment') &&
+          (wantScenery.size === 0 ||
+            (d.sceneryTypes ?? classifyDestinationScenery(d)).some((s) => wantScenery.has(s))),
+      )
+    : [];
 
   const totalBudget =
     preferences.budgetAmount === null || preferences.budgetAmount === undefined
@@ -123,16 +125,27 @@ export async function generateFeasibleItinerary(preferences) {
   let allRoutesCalculable = true;
   let scheduledCount = 0;
   let scheduledLesserKnownCount = 0;
-  let multiDayCursor = origin.coordinates;
+  const routingOrigin = origin.gatewayCoordinates ?? origin.coordinates;
+  let multiDayCursor = routingOrigin;
 
   for (let dayNum = 1; dayNum <= preferences.availableDays; dayNum += 1) {
     const dayOfWeek = ((preferences.dayOfWeek ?? new Date().getDay()) + (dayNum - 1)) % 7;
     let cursorTime = dayStartMin;
     let cursorCoords = multiDayCursor;
+    if (dayNum > 1 && preferences.overnightLguCode) {
+      const overnightLgu = catalog.lguByCode.get(preferences.overnightLguCode);
+      const oLat = toNumber(overnightLgu?.center_latitude);
+      const oLon = toNumber(overnightLgu?.center_longitude);
+      if (oLat !== null && oLon !== null) {
+        cursorCoords = { latitude: oLat, longitude: oLon };
+      }
+    }
+    const dayStartCoords = cursorCoords;
     let lunchInjected = false;
     let dinnerInjected = false;
     let activityStopsToday = 0;
     const dayItems = [];
+    const candById = new Map();
 
     const tryPickBestNext = (candidates, enforceBudget, maxDistanceKm = Infinity) => {
       let best = null;
@@ -162,10 +175,14 @@ export async function generateFeasibleItinerary(preferences) {
         const runningSpend = entranceAndActivityCost + parkingCost + mealsCost + transportCost + stopSpend;
         if (enforceBudget && runningSpend > totalBudget) continue;
 
-        // Balance candidate relevance score with proximity and 30% dispersal target
-        const baseScore = cand.isLocked ? 2.0 : (cand.scoreBreakdown?.total ?? 0.65);
-        const quotaBoost = needsDispersalQuota && cand.isLesserKnown ? 0.9 : 0;
-        const proximityPenalty = Math.min(0.45, leg.distanceKm / 120);
+        // Prioritize preference match while keeping nearest-to-furthest progression and 30% dispersal
+        const baseScore = cand.isLocked
+          ? 2.5
+          : (cand.scoreBreakdown?.total ?? 0.65) * 1.35;
+        const quotaBoost = needsDispersalQuota && cand.isLesserKnown ? 0.35 : 0;
+        const distFromOrigin = haversineKm(routingOrigin, cand.coordinates);
+        const proximityPenalty =
+          Math.min(0.35, leg.distanceKm / 85) + Math.min(0.2, distFromOrigin / 140);
         const combo = baseScore + quotaBoost - proximityPenalty;
         if (combo > bestCostScore) {
           bestCostScore = combo;
@@ -184,6 +201,7 @@ export async function generateFeasibleItinerary(preferences) {
         if (lunchChoice) {
           const { cand, leg, arrival, departure, duration, openCheck } = lunchChoice;
           usedIds.add(cand.id);
+          candById.set(cand.id, cand);
           const pax = Math.max(1, preferences.groupSize);
           const mealEst = mealCostForStop(cand, pax);
           const entry = (cand.pricing.entranceFeeAdult + cand.pricing.mandatoryActivityFee) * pax;
@@ -206,6 +224,7 @@ export async function generateFeasibleItinerary(preferences) {
             categoryCode: cand.categoryCode,
             categoryName: cand.categoryName,
             coordinates: cand.coordinates,
+            imageUrl: cand.imageUrl ?? null,
             popularityTier: cand.popularityTier,
             isCommunityBased: cand.isCommunityBased,
             isLesserKnown: cand.isLesserKnown,
@@ -248,6 +267,7 @@ export async function generateFeasibleItinerary(preferences) {
 
       const { cand, leg, arrival, departure, duration, openCheck } = picked;
       usedIds.add(cand.id);
+      candById.set(cand.id, cand);
       activityStopsToday += 1;
 
       const pax = Math.max(1, preferences.groupSize);
@@ -275,6 +295,7 @@ export async function generateFeasibleItinerary(preferences) {
         categoryCode: cand.categoryCode,
         categoryName: cand.categoryName,
         coordinates: cand.coordinates,
+        imageUrl: cand.imageUrl ?? null,
         popularityTier: cand.popularityTier,
         isCommunityBased: cand.isCommunityBased,
         isLesserKnown: cand.isLesserKnown,
@@ -304,6 +325,7 @@ export async function generateFeasibleItinerary(preferences) {
       if (dinnerChoice) {
         const { cand, leg, arrival, departure, duration, openCheck } = dinnerChoice;
         usedIds.add(cand.id);
+        candById.set(cand.id, cand);
         const pax = Math.max(1, preferences.groupSize);
         const mealEst = mealCostForStop(cand, pax);
         const entry = (cand.pricing.entranceFeeAdult + cand.pricing.mandatoryActivityFee) * pax;
@@ -326,6 +348,7 @@ export async function generateFeasibleItinerary(preferences) {
           categoryCode: cand.categoryCode,
           categoryName: cand.categoryName,
           coordinates: cand.coordinates,
+          imageUrl: cand.imageUrl ?? null,
           popularityTier: cand.popularityTier,
           isCommunityBased: cand.isCommunityBased,
           isLesserKnown: cand.isLesserKnown,
@@ -344,6 +367,89 @@ export async function generateFeasibleItinerary(preferences) {
         multiDayCursor = cand.coordinates;
         scheduledCount += 1;
         if (cand.isLesserKnown) scheduledLesserKnownCount += 1;
+      }
+    }
+
+    // Re-sequence stops from nearest to furthest from origin when timing, hours, and budget permit
+    for (const item of dayItems) {
+      item.distanceFromOriginKm = Number(
+        haversineKm(routingOrigin, item.coordinates).toFixed(2),
+      );
+    }
+
+    if (dayItems.length > 1) {
+      const remaining = [...dayItems].sort(
+        (a, b) => a.distanceFromOriginKm - b.distanceFromOriginKm,
+      );
+      let simTime = dayStartMin;
+      let simCoords = dayStartCoords;
+      let simOk = true;
+      const rebuilt = [];
+
+      while (remaining.length > 0) {
+        let pickedCandidate = null;
+        let pickedIdx = -1;
+
+        for (let idx = 0; idx < remaining.length; idx += 1) {
+          const oldItem = remaining[idx];
+          const cand = candById.get(oldItem.destinationId);
+          if (!cand) continue;
+          const leg = estimateTravelLeg(
+            simCoords,
+            cand.coordinates,
+            cand.tortuosityMultiplier,
+            preferences.transportMode,
+            preferences.groupSize,
+          );
+          const arrival = simTime + leg.travelMinutes;
+          const departure = arrival + oldItem.estimatedDurationMinutes;
+          const openCheck = isStopOpenAt(cand, dayOfWeek, arrival, departure);
+          if (departure <= dayEndMin && openCheck.ok && Number.isFinite(leg.distanceKm)) {
+            pickedCandidate = { oldItem, cand, leg, arrival, departure, openCheck };
+            pickedIdx = idx;
+            break;
+          }
+        }
+
+        if (!pickedCandidate) {
+          simOk = false;
+          break;
+        }
+
+        remaining.splice(pickedIdx, 1);
+        const { oldItem, cand, leg, arrival, departure, openCheck } = pickedCandidate;
+        rebuilt.push({
+          ...oldItem,
+          sequenceOrder: rebuilt.length + 1,
+          mealWindow: oldItem.mealWindow != null ? (arrival >= 990 ? 'dinner' : 'lunch') : null,
+          startTime: formatMinutes(arrival),
+          endTime: formatMinutes(departure),
+          travelTimeFromPrevMinutes: leg.travelMinutes,
+          distanceFromPrevKm: leg.distanceKm,
+          legTransportCostPhp: leg.transportCostPhp,
+          operatingWindowLabel: openCheck.windowLabel,
+        });
+        simTime = departure;
+        simCoords = cand.coordinates;
+      }
+
+      if (simOk) {
+        const oldTransport = dayItems.reduce((s, item) => s + item.legTransportCostPhp, 0);
+        const newTransport = rebuilt.reduce((s, item) => s + item.legTransportCostPhp, 0);
+        const oldTravel = dayItems.reduce((s, item) => s + item.travelTimeFromPrevMinutes, 0);
+        const newTravel = rebuilt.reduce((s, item) => s + item.travelTimeFromPrevMinutes, 0);
+        const oldDist = dayItems.reduce((s, item) => s + item.distanceFromPrevKm, 0);
+        const newDist = rebuilt.reduce((s, item) => s + item.distanceFromPrevKm, 0);
+        const prevTotalSpend = entranceAndActivityCost + parkingCost + mealsCost + transportCost;
+        const nextTotalSpend = prevTotalSpend - oldTransport + newTransport;
+
+        if (nextTotalSpend <= totalBudget || prevTotalSpend > totalBudget) {
+          dayItems.splice(0, dayItems.length, ...rebuilt);
+          transportCost = transportCost - oldTransport + newTransport;
+          totalTravelMinutes = totalTravelMinutes - oldTravel + newTravel;
+          totalDistanceKm = Math.max(0, totalDistanceKm - oldDist + newDist);
+          multiDayCursor = rebuilt[rebuilt.length - 1].coordinates;
+        }
       }
     }
 

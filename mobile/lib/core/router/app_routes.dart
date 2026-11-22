@@ -29,4 +29,7 @@ abstract final class AppRoutes {
 
   static const profile = '/profile';
   static const profileName = 'profile';
+
+  static const admin = '/admin';
+  static const adminName = 'admin';
 }

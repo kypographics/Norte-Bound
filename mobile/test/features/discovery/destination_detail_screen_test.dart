@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
+import 'package:norte_bound/core/router/app_routes.dart';
 import 'package:norte_bound/core/theme/app_theme.dart';
 import 'package:norte_bound/features/discovery/domain/destination_detail.dart';
 import 'package:norte_bound/features/discovery/domain/destination_summary.dart';
@@ -199,5 +201,68 @@ void main() {
 
     expect(find.text('Could not load full profile'), findsOneWidget);
     expect(find.text('Retry'), findsOneWidget);
+  });
+
+  testWidgets('Plan snackbar action navigates safely after detail screen pops', (
+    tester,
+  ) async {
+    final detail = buildSampleDetail();
+    final router = GoRouter(
+      initialLocation: '/home',
+      routes: [
+        GoRoute(
+          path: '/home',
+          builder: (context, state) => Scaffold(
+            body: Center(
+              child: FilledButton(
+                onPressed: () => context.push('/detail'),
+                child: const Text('Open detail'),
+              ),
+            ),
+          ),
+        ),
+        GoRoute(
+          path: '/detail',
+          builder: (context, state) =>
+              const DestinationDetailScreen(slug: 'anuplig-falls'),
+        ),
+        GoRoute(
+          path: AppRoutes.planner,
+          builder: (context, state) =>
+              const Scaffold(body: Text('Planner Target')),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          destinationDetailProvider('anuplig-falls').overrideWith(
+            (ref) async => detail,
+          ),
+        ],
+        child: MaterialApp.router(
+          theme: AppTheme.light,
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Open detail'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Add to Itinerary'));
+    await tester.pump();
+    expect(find.text('Plan'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Back to discovery'));
+    await tester.pumpAndSettle();
+    expect(find.text('Open detail'), findsOneWidget);
+
+    await tester.tap(find.text('Plan'));
+    await tester.pumpAndSettle();
+    expect(find.text('Planner Target'), findsOneWidget);
   });
 }

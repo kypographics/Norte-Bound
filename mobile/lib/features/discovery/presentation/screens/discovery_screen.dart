@@ -104,6 +104,8 @@ class DiscoveryScreen extends ConsumerWidget {
     final clusters = directory.orderedClusters;
 
     return [
+      const _FestivalsAndAdvisoriesStrip(),
+      const SizedBox(height: 24),
       _SectionHeader(
         eyebrow: 'TOURISM CIRCUITS',
         title: 'Explore by circuit',
@@ -806,4 +808,133 @@ String _errorMessage(Object error) {
 
   return 'Check your connection and try loading the destination directory '
       'again.';
+}
+
+class _FestivalsAndAdvisoriesStrip extends StatelessWidget {
+  const _FestivalsAndAdvisoriesStrip();
+
+  static const _events = [
+    (
+      'FEBRUARY · LAOAG',
+      'Pamulinawen Festival',
+      'City fiestas, cultural street parades & local craft fairs.',
+      false,
+    ),
+    (
+      'FEBRUARY · PROVINCE-WIDE',
+      'Tan-ok ni Ilocano',
+      'Festival of festivals gathering all 22 LGUs.',
+      false,
+    ),
+    (
+      'MARCH · PAOAY & PINILI',
+      'Abel / Inabel Fair',
+      'Handloom weaving markets and artisan showcases.',
+      false,
+    ),
+    (
+      'SEPTEMBER · PIDDIG',
+      'Basi Festival',
+      'Sugarcane wine harvest & highland heritage week.',
+      false,
+    ),
+    (
+      'DECEMBER · BATAC',
+      'Empanada Festival',
+      'Riverside culinary showcase & heritage walk.',
+      false,
+    ),
+    (
+      'TRAVEL ADVISORY',
+      'Coast & Highland Check',
+      'Watch Pagudpud winds and afternoon upland showers.',
+      true,
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'FESTIVALS & ADVISORIES',
+          style: textTheme.labelSmall?.copyWith(
+            color: AppColors.terracotta,
+            letterSpacing: 1.2,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Seasonal highlights across Ilocos Norte',
+          style: textTheme.titleLarge,
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          height: 102,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemCount: _events.length,
+            separatorBuilder: (_, _) => const SizedBox(width: 10),
+            itemBuilder: (context, index) {
+              final (eyebrow, title, subtitle, isAdvisory) = _events[index];
+              return SizedBox(
+                width: 236,
+                child: AppCard(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 12,
+                  ),
+                  color: isAdvisory
+                      ? AppColors.terracottaWash
+                      : AppColors.ivorySand,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        eyebrow,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.labelSmall?.copyWith(
+                          color: isAdvisory
+                              ? AppColors.terracotta
+                              : AppColors.mutedForest,
+                          fontSize: 8.5,
+                          letterSpacing: 0.7,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const Spacer(),
+                      Text(
+                        subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.bodySmall?.copyWith(
+                          color: AppColors.mutedForest,
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
 }

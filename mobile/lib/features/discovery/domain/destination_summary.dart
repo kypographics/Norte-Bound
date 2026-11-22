@@ -1,3 +1,4 @@
+import '../../../core/utils/json_parse.dart';
 import 'lgu.dart';
 
 class DestinationPricing {
@@ -35,14 +36,14 @@ class DestinationPricing {
 
   factory DestinationPricing.fromJson(Map<String, dynamic> json) {
     return DestinationPricing(
-      isFree: _bool(json['isFree'] ?? json['is_free']),
-      entranceFeeAdult: _double(
+      isFree: jsonBool(json['isFree'] ?? json['is_free']),
+      entranceFeeAdult: jsonDouble(
         json['entranceFeeAdult'] ?? json['entrance_fee_adult'],
       ),
-      estimatedMealMin: _double(
+      estimatedMealMin: jsonDouble(
         json['estimatedMealMin'] ?? json['estimated_meal_min'],
       ),
-      estimatedMealMax: _double(
+      estimatedMealMax: jsonDouble(
         json['estimatedMealMax'] ?? json['estimated_meal_max'],
       ),
     );
@@ -57,8 +58,8 @@ class DestinationTagRef {
 
   factory DestinationTagRef.fromJson(Map<String, dynamic> json) {
     return DestinationTagRef(
-      slug: _string(json['slug'] ?? json['tagSlug']),
-      name: _string(json['name'] ?? json['displayName']),
+      slug: jsonString(json['slug'] ?? json['tagSlug']),
+      name: jsonString(json['name'] ?? json['displayName']),
     );
   }
 }
@@ -77,6 +78,7 @@ class DestinationSummary {
     required this.address,
     this.latitude,
     this.longitude,
+    this.imageUrl,
     required this.entityType,
     required this.popularityTier,
     required this.highwayAccessible,
@@ -97,6 +99,7 @@ class DestinationSummary {
   final String address;
   final double? latitude;
   final double? longitude;
+  final String? imageUrl;
   final String entityType;
   final String popularityTier;
   final bool highwayAccessible;
@@ -121,47 +124,48 @@ class DestinationSummary {
     final rawTags = json['tags'];
 
     return DestinationSummary(
-      id: _int(json['id']),
-      slug: _string(json['slug']),
-      name: _string(json['name']),
-      lguCode: _string(
+      id: jsonInt(json['id']),
+      slug: jsonString(json['slug']),
+      name: jsonString(json['name']),
+      lguCode: jsonString(
         json['lguCode'] ?? (lgu is Map<String, dynamic> ? lgu['code'] : null),
       ),
-      lguName: _string(
+      lguName: jsonString(
         json['lguName'] ?? (lgu is Map<String, dynamic> ? lgu['name'] : null),
       ),
-      tourismCluster: _string(
+      tourismCluster: jsonString(
         json['tourismCluster'] ??
             (lgu is Map<String, dynamic> ? lgu['cluster'] : null),
       ),
-      categoryCode: _string(
+      categoryCode: jsonString(
         json['categoryCode'] ??
             (category is Map<String, dynamic> ? category['code'] : null),
       ),
-      categoryName: _string(
+      categoryName: jsonString(
         json['categoryName'] ??
             (category is Map<String, dynamic> ? category['name'] : null),
       ),
-      description: _string(json['description']),
-      address: _string(json['address']),
-      latitude: _double(
+      description: jsonString(json['description']),
+      address: jsonString(json['address']),
+      latitude: jsonDouble(
         json['latitude'] ??
             (coordinates is Map<String, dynamic>
                 ? coordinates['latitude']
                 : null),
       ),
-      longitude: _double(
+      longitude: jsonDouble(
         json['longitude'] ??
             (coordinates is Map<String, dynamic>
                 ? coordinates['longitude']
                 : null),
       ),
-      entityType: _string(json['entityType']),
-      popularityTier: _string(json['popularityTier'], fallback: 'moderate'),
-      highwayAccessible: _bool(
+      imageUrl: jsonStringNullable(json['imageUrl'] ?? json['image_url']),
+      entityType: jsonString(json['entityType']),
+      popularityTier: jsonString(json['popularityTier'], fallback: 'moderate'),
+      highwayAccessible: jsonBool(
         json['highwayAccessible'] ?? json['highway_accessible'],
       ),
-      verificationStatus: _string(
+      verificationStatus: jsonString(
         json['verificationStatus'] ??
             (verification is Map<String, dynamic>
                 ? verification['status']
@@ -171,14 +175,14 @@ class DestinationSummary {
       pricing: pricing is Map<String, dynamic>
           ? DestinationPricing.fromJson(pricing)
           : DestinationPricing(
-              isFree: _bool(json['isFree'] ?? json['is_free']),
-              entranceFeeAdult: _double(
+              isFree: jsonBool(json['isFree'] ?? json['is_free']),
+              entranceFeeAdult: jsonDouble(
                 json['entranceFeeAdult'] ?? json['entrance_fee_adult'],
               ),
-              estimatedMealMin: _double(
+              estimatedMealMin: jsonDouble(
                 json['estimatedMealMin'] ?? json['estimated_meal_min'],
               ),
-              estimatedMealMax: _double(
+              estimatedMealMax: jsonDouble(
                 json['estimatedMealMax'] ?? json['estimated_meal_max'],
               ),
             ),
@@ -245,62 +249,18 @@ class DestinationPage {
 
     return DestinationPage(
       items: items,
-      total: _int(pagination['total'], fallback: items.length),
-      page: _int(pagination['page'], fallback: 1),
-      limit: _int(
+      total: jsonInt(pagination['total'], fallback: items.length),
+      page: jsonInt(pagination['page'], fallback: 1),
+      limit: jsonInt(
         pagination['limit'],
         fallback: items.isEmpty ? 20 : items.length,
       ),
-      totalPages: _int(
+      totalPages: jsonInt(
         pagination['totalPages'],
         fallback: items.isEmpty ? 0 : 1,
       ),
     );
   }
-}
-
-String _string(Object? value, {String fallback = ''}) {
-  if (value is String && value.trim().isNotEmpty) {
-    return value.trim();
-  }
-
-  if (value is num || value is bool) {
-    return value.toString();
-  }
-
-  return fallback;
-}
-
-int _int(Object? value, {int fallback = 0}) {
-  if (value is int) {
-    return value;
-  }
-
-  if (value is num) {
-    return value.toInt();
-  }
-
-  if (value is String) {
-    return int.tryParse(value) ?? fallback;
-  }
-
-  return fallback;
-}
-
-double? _double(Object? value) {
-  if (value is num) {
-    return value.toDouble();
-  }
-
-  if (value is String) {
-    return double.tryParse(value);
-  }
-
-  return null;
-}
-
-bool _bool(Object? value) {
-  return value == true || value == 1 || value == '1';
 }
 
 String _money(double value) {

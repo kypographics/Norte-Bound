@@ -33,6 +33,9 @@ class DestinationCompactTile extends StatelessWidget {
             height: 100,
             child: DestinationArtwork(
               categoryCode: destination.categoryCode,
+              slug: destination.slug,
+              name: destination.name,
+              imageUrl: destination.imageUrl,
               borderRadius: 18,
               iconSize: 32,
             ),

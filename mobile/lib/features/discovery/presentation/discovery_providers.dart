@@ -47,13 +47,13 @@ final exploreFeedProvider = FutureProvider<ExploreFeed>((ref) async {
 
   final responses = await Future.wait([
     repository.fetchDestinations(
-      const DestinationFilter(popularityTier: 'iconic_hub', limit: 100),
+      const DestinationFilter(popularityTier: 'iconic_hub', limit: 12),
     ),
     repository.fetchDestinations(
-      const DestinationFilter(popularityTier: 'hidden_gem', limit: 100),
+      const DestinationFilter(popularityTier: 'hidden_gem', limit: 12),
     ),
     repository.fetchDestinations(
-      const DestinationFilter(categoryCode: 'food_culinary', limit: 100),
+      const DestinationFilter(categoryCode: 'food_culinary', limit: 12),
     ),
   ]);
 

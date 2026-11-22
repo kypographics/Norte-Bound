@@ -1,3 +1,5 @@
+import '../../../core/utils/json_parse.dart';
+
 class TripPreferenceInput {
   const TripPreferenceInput({
     this.categories = const [],
@@ -13,8 +15,10 @@ class TripPreferenceInput {
     this.startTime = '08:00',
     this.endTime = '18:00',
     this.originLguCode = 'laoag-city',
+    this.originName,
     this.originLatitude,
     this.originLongitude,
+    this.overnightLguCode,
     this.groupSize = 1,
     this.transportMode = 'motorcycle',
     this.pacing = 'moderate',
@@ -35,8 +39,10 @@ class TripPreferenceInput {
   final String startTime;
   final String endTime;
   final String originLguCode;
+  final String? originName;
   final double? originLatitude;
   final double? originLongitude;
+  final String? overnightLguCode;
   final int groupSize;
   final String transportMode;
   final String pacing;
@@ -48,24 +54,27 @@ class TripPreferenceInput {
     String? originLguCode,
   }) {
     return TripPreferenceInput(
-      categories: _stringList(json['categories']),
-      interestTags: _stringList(json['interestTags']),
-      preferredScenery: _stringList(json['preferredScenery']),
-      preferredLgus: _stringList(json['preferredLgus']),
-      preferredClusters: _stringList(json['preferredClusters']),
-      budgetAmount: _doubleNullable(json['budgetAmount']) ?? 2500,
-      budgetLevel: _string(json['budgetLevel'], fallback: 'moderate'),
-      budgetScope: _string(json['budgetScope'], fallback: 'perPerson'),
-      availableDays: _int(json['availableDays'], fallback: 1).clamp(1, 7),
-      availableHoursPerDay:
-          (_doubleNullable(json['availableHoursPerDay']) ?? 9).clamp(2, 14),
-      startTime: _string(json['startTime'], fallback: '08:00'),
-      endTime: _string(json['endTime'], fallback: '18:00'),
+      categories: jsonStringList(json['categories']),
+      interestTags: jsonStringList(json['interestTags']),
+      preferredScenery: jsonStringList(json['preferredScenery']),
+      preferredLgus: jsonStringList(json['preferredLgus']),
+      preferredClusters: jsonStringList(json['preferredClusters']),
+      budgetAmount: jsonDouble(json['budgetAmount']) ?? 2500,
+      budgetLevel: jsonString(json['budgetLevel'], fallback: 'moderate'),
+      budgetScope: jsonString(json['budgetScope'], fallback: 'perPerson'),
+      availableDays: jsonInt(json['availableDays'], fallback: 1).clamp(1, 7),
+      availableHoursPerDay: (jsonDouble(json['availableHoursPerDay']) ?? 9)
+          .clamp(2, 14),
+      startTime: jsonString(json['startTime'], fallback: '08:00'),
+      endTime: jsonString(json['endTime'], fallback: '18:00'),
       originLguCode:
-          originLguCode ?? _string(json['originLguCode'], fallback: 'laoag-city'),
-      groupSize: _int(json['groupSize'], fallback: 1).clamp(1, 50),
-      transportMode: _string(json['transportMode'], fallback: 'motorcycle'),
-      pacing: _string(json['pacing'], fallback: 'moderate'),
+          originLguCode ??
+          jsonString(json['originLguCode'], fallback: 'laoag-city'),
+      originName: jsonStringNullable(json['originName']),
+      overnightLguCode: jsonStringNullable(json['overnightLguCode']),
+      groupSize: jsonInt(json['groupSize'], fallback: 1).clamp(1, 50),
+      transportMode: jsonString(json['transportMode'], fallback: 'motorcycle'),
+      pacing: jsonString(json['pacing'], fallback: 'moderate'),
     );
   }
 
@@ -84,11 +93,15 @@ class TripPreferenceInput {
       'startTime': startTime,
       'endTime': endTime,
       'originLguCode': originLguCode,
+      if (originName != null && originName!.isNotEmpty)
+        'originName': originName,
       if (originLatitude != null && originLongitude != null)
         'originCoordinates': {
           'latitude': originLatitude,
           'longitude': originLongitude,
         },
+      if (overnightLguCode != null && overnightLguCode!.isNotEmpty)
+        'overnightLguCode': overnightLguCode,
       'groupSize': groupSize,
       'transportMode': transportMode,
       'pacing': pacing,
@@ -113,9 +126,13 @@ class TripPreferenceInput {
     String? startTime,
     String? endTime,
     String? originLguCode,
+    String? originName,
+    bool clearOriginName = false,
     double? originLatitude,
     double? originLongitude,
     bool clearOriginCoords = false,
+    String? overnightLguCode,
+    bool clearOvernightLgu = false,
     int? groupSize,
     String? transportMode,
     String? pacing,
@@ -136,10 +153,16 @@ class TripPreferenceInput {
       startTime: startTime ?? this.startTime,
       endTime: endTime ?? this.endTime,
       originLguCode: originLguCode ?? this.originLguCode,
-      originLatitude:
-          clearOriginCoords ? null : (originLatitude ?? this.originLatitude),
-      originLongitude:
-          clearOriginCoords ? null : (originLongitude ?? this.originLongitude),
+      originName: clearOriginName ? null : (originName ?? this.originName),
+      originLatitude: clearOriginCoords
+          ? null
+          : (originLatitude ?? this.originLatitude),
+      originLongitude: clearOriginCoords
+          ? null
+          : (originLongitude ?? this.originLongitude),
+      overnightLguCode: clearOvernightLgu
+          ? null
+          : (overnightLguCode ?? this.overnightLguCode),
       groupSize: groupSize ?? this.groupSize,
       transportMode: transportMode ?? this.transportMode,
       pacing: pacing ?? this.pacing,
@@ -164,10 +187,10 @@ class ParsedIntentResult {
   final bool requiresUserConfirmation;
 
   factory ParsedIntentResult.fromJson(Map<String, dynamic> json) {
-    final origin = _string(json['originLguCode'], fallback: 'laoag-city');
+    final origin = jsonString(json['originLguCode'], fallback: 'laoag-city');
     final extracted = json['extractedPreferences'];
     return ParsedIntentResult(
-      source: _string(json['source'], fallback: 'deterministic-rule-parser'),
+      source: jsonString(json['source'], fallback: 'deterministic-rule-parser'),
       originLguCode: origin,
       extractedPreferences: TripPreferenceInput.fromJson(
         extracted is Map<String, dynamic> ? extracted : const {},
@@ -193,9 +216,9 @@ class DispersalSummary {
 
   factory DispersalSummary.fromJson(Map<String, dynamic> json) {
     return DispersalSummary(
-      lesserKnownCount: _int(json['lesserKnownCount']),
-      totalCount: _int(json['totalCount']),
-      lesserKnownRatio: _doubleNullable(json['lesserKnownRatio']) ?? 0,
+      lesserKnownCount: jsonInt(json['lesserKnownCount']),
+      totalCount: jsonInt(json['totalCount']),
+      lesserKnownRatio: jsonDouble(json['lesserKnownRatio']) ?? 0,
       meetsThirtyPercentTarget: json['meetsThirtyPercentTarget'] == true,
     );
   }
@@ -215,8 +238,8 @@ class RelaxationSuggestion {
   factory RelaxationSuggestion.fromJson(Map<String, dynamic> json) {
     final rawPatch = json['patch'];
     return RelaxationSuggestion(
-      type: _string(json['type']),
-      label: _string(json['label']),
+      type: jsonString(json['type']),
+      label: jsonString(json['label']),
       patch: rawPatch is Map<String, dynamic> ? rawPatch : const {},
     );
   }
@@ -244,6 +267,7 @@ class RecommendedStop {
     required this.explanationReasons,
     this.latitude,
     this.longitude,
+    this.imageUrl,
   });
 
   final int id;
@@ -266,6 +290,7 @@ class RecommendedStop {
   final List<String> explanationReasons;
   final double? latitude;
   final double? longitude;
+  final String? imageUrl;
 
   String get entryLabel => isFree || entryFeePhp <= 0
       ? 'Free entry'
@@ -275,38 +300,41 @@ class RecommendedStop {
     final pricing = json['pricing'];
     final coords = json['coordinates'];
     final entryFee = pricing is Map<String, dynamic>
-        ? (_doubleNullable(pricing['singleVisitPerPersonCost']) ??
-            _doubleNullable(pricing['entranceFeeAdult']) ??
-            0)
+        ? (jsonDouble(pricing['singleVisitPerPersonCost']) ??
+              jsonDouble(pricing['entranceFeeAdult']) ??
+              0)
         : 0.0;
     final isFree = pricing is Map<String, dynamic> && pricing['isFree'] == true;
 
     return RecommendedStop(
-      id: _int(json['id']),
-      slug: _string(json['slug']),
-      name: _string(json['name']),
-      lguCode: _string(json['lguCode']),
-      lguName: _string(json['lguName']),
-      tourismCluster: _string(json['tourismCluster']),
-      categoryCode: _string(json['categoryCode']),
-      categoryName: _string(json['categoryName']),
-      popularityTier: _string(json['popularityTier'], fallback: 'moderate'),
+      id: jsonInt(json['id']),
+      slug: jsonString(json['slug']),
+      name: jsonString(json['name']),
+      lguCode: jsonString(json['lguCode']),
+      lguName: jsonString(json['lguName']),
+      tourismCluster: jsonString(json['tourismCluster']),
+      categoryCode: jsonString(json['categoryCode']),
+      categoryName: jsonString(json['categoryName']),
+      popularityTier: jsonString(json['popularityTier'], fallback: 'moderate'),
       isCommunityBased: json['isCommunityBased'] == true,
       isLesserKnown: json['isLesserKnown'] == true,
-      recommendedDurationMinutes:
-          _int(json['recommendedDurationMinutes'], fallback: 60),
-      matchPercentage: _int(json['matchPercentage'], fallback: 80),
-      distanceKm: _doubleNullable(json['distanceKm']) ?? 0,
-      estimatedTravelMinutes: _int(json['estimatedTravelMinutes']),
+      recommendedDurationMinutes: jsonInt(
+        json['recommendedDurationMinutes'],
+        fallback: 60,
+      ),
+      matchPercentage: jsonInt(json['matchPercentage'], fallback: 80),
+      distanceKm: jsonDouble(json['distanceKm']) ?? 0,
+      estimatedTravelMinutes: jsonInt(json['estimatedTravelMinutes']),
       entryFeePhp: entryFee,
       isFree: isFree,
-      explanationReasons: _stringList(json['explanationReasons']),
+      explanationReasons: jsonStringList(json['explanationReasons']),
       latitude: coords is Map<String, dynamic>
-          ? _doubleNullable(coords['latitude'])
+          ? jsonDouble(coords['latitude'])
           : null,
       longitude: coords is Map<String, dynamic>
-          ? _doubleNullable(coords['longitude'])
+          ? jsonDouble(coords['longitude'])
           : null,
+      imageUrl: jsonStringNullable(json['imageUrl'] ?? json['image_url']),
     );
   }
 }
@@ -334,23 +362,23 @@ class RecommendationResponse {
 
     return RecommendationResponse(
       originName: origin is Map<String, dynamic>
-          ? _string(origin['name'], fallback: 'Laoag City')
+          ? jsonString(origin['name'], fallback: 'Laoag City')
           : 'Laoag City',
-      totalMatches: _int(json['totalMatches']),
+      totalMatches: jsonInt(json['totalMatches']),
       dispersalSummary: DispersalSummary.fromJson(
         dispersal is Map<String, dynamic> ? dispersal : const {},
       ),
       relaxationSuggestions: relax is List
           ? relax
-              .whereType<Map<String, dynamic>>()
-              .map(RelaxationSuggestion.fromJson)
-              .toList(growable: false)
+                .whereType<Map<String, dynamic>>()
+                .map(RelaxationSuggestion.fromJson)
+                .toList(growable: false)
           : const [],
       items: rawItems is List
           ? rawItems
-              .whereType<Map<String, dynamic>>()
-              .map(RecommendedStop.fromJson)
-              .toList(growable: false)
+                .whereType<Map<String, dynamic>>()
+                .map(RecommendedStop.fromJson)
+                .toList(growable: false)
           : const [],
     );
   }
@@ -382,6 +410,7 @@ class ItineraryStopItem {
     required this.isOpenCompliant,
     this.latitude,
     this.longitude,
+    this.imageUrl,
   });
 
   final int sequenceOrder;
@@ -408,40 +437,117 @@ class ItineraryStopItem {
   final bool isOpenCompliant;
   final double? latitude;
   final double? longitude;
+  final String? imageUrl;
+
+  ItineraryStopItem copyWith({
+    int? sequenceOrder,
+    String? mealWindow,
+    String? startTime,
+    String? endTime,
+    int? travelTimeFromPrevMinutes,
+    double? distanceFromPrevKm,
+    double? legTransportCostPhp,
+  }) {
+    return ItineraryStopItem(
+      sequenceOrder: sequenceOrder ?? this.sequenceOrder,
+      destinationId: destinationId,
+      slug: slug,
+      name: name,
+      lguCode: lguCode,
+      lguName: lguName,
+      categoryCode: categoryCode,
+      categoryName: categoryName,
+      popularityTier: popularityTier,
+      isCommunityBased: isCommunityBased,
+      isLesserKnown: isLesserKnown,
+      mealWindow: mealWindow ?? this.mealWindow,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+      estimatedDurationMinutes: estimatedDurationMinutes,
+      travelTimeFromPrevMinutes:
+          travelTimeFromPrevMinutes ?? this.travelTimeFromPrevMinutes,
+      distanceFromPrevKm: distanceFromPrevKm ?? this.distanceFromPrevKm,
+      legTransportCostPhp: legTransportCostPhp ?? this.legTransportCostPhp,
+      entryCostPhp: entryCostPhp,
+      estimatedMealCostPhp: estimatedMealCostPhp,
+      operatingWindowLabel: operatingWindowLabel,
+      isOpenCompliant: isOpenCompliant,
+      latitude: latitude,
+      longitude: longitude,
+      imageUrl: imageUrl,
+    );
+  }
 
   factory ItineraryStopItem.fromJson(Map<String, dynamic> json) {
     final coords = json['coordinates'];
     return ItineraryStopItem(
-      sequenceOrder: _int(json['sequenceOrder'], fallback: 1),
-      destinationId: _int(json['destinationId']),
-      slug: _string(json['slug']),
-      name: _string(json['name']),
-      lguCode: _string(json['lguCode']),
-      lguName: _string(json['lguName']),
-      categoryCode: _string(json['categoryCode']),
-      categoryName: _string(json['categoryName']),
-      popularityTier: _string(json['popularityTier'], fallback: 'moderate'),
+      sequenceOrder: jsonInt(json['sequenceOrder'], fallback: 1),
+      destinationId: jsonInt(json['destinationId']),
+      slug: jsonString(json['slug']),
+      name: jsonString(json['name']),
+      lguCode: jsonString(json['lguCode']),
+      lguName: jsonString(json['lguName']),
+      categoryCode: jsonString(json['categoryCode']),
+      categoryName: jsonString(json['categoryName']),
+      popularityTier: jsonString(json['popularityTier'], fallback: 'moderate'),
       isCommunityBased: json['isCommunityBased'] == true,
       isLesserKnown: json['isLesserKnown'] == true,
-      mealWindow: json['mealWindow'] is String ? json['mealWindow'] as String : null,
-      startTime: _string(json['startTime'], fallback: '08:00'),
-      endTime: _string(json['endTime'], fallback: '09:00'),
-      estimatedDurationMinutes: _int(json['estimatedDurationMinutes'], fallback: 60),
-      travelTimeFromPrevMinutes: _int(json['travelTimeFromPrevMinutes']),
-      distanceFromPrevKm: _doubleNullable(json['distanceFromPrevKm']) ?? 0,
-      legTransportCostPhp: _doubleNullable(json['legTransportCostPhp']) ?? 0,
-      entryCostPhp: _doubleNullable(json['entryCostPhp']) ?? 0,
-      estimatedMealCostPhp: _doubleNullable(json['estimatedMealCostPhp']) ?? 0,
-      operatingWindowLabel: _string(json['operatingWindowLabel'], fallback: 'Open'),
+      mealWindow: json['mealWindow'] is String
+          ? json['mealWindow'] as String
+          : null,
+      startTime: jsonString(json['startTime'], fallback: '08:00'),
+      endTime: jsonString(json['endTime'], fallback: '09:00'),
+      estimatedDurationMinutes: jsonInt(
+        json['estimatedDurationMinutes'],
+        fallback: 60,
+      ),
+      travelTimeFromPrevMinutes: jsonInt(json['travelTimeFromPrevMinutes']),
+      distanceFromPrevKm: jsonDouble(json['distanceFromPrevKm']) ?? 0,
+      legTransportCostPhp: jsonDouble(json['legTransportCostPhp']) ?? 0,
+      entryCostPhp: jsonDouble(json['entryCostPhp']) ?? 0,
+      estimatedMealCostPhp: jsonDouble(json['estimatedMealCostPhp']) ?? 0,
+      operatingWindowLabel: jsonString(
+        json['operatingWindowLabel'],
+        fallback: 'Open',
+      ),
       isOpenCompliant: json['isOpenCompliant'] != false,
       latitude: coords is Map<String, dynamic>
-          ? _doubleNullable(coords['latitude'])
+          ? jsonDouble(coords['latitude'])
           : null,
       longitude: coords is Map<String, dynamic>
-          ? _doubleNullable(coords['longitude'])
+          ? jsonDouble(coords['longitude'])
           : null,
+      imageUrl: jsonStringNullable(json['imageUrl'] ?? json['image_url']),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'sequenceOrder': sequenceOrder,
+    'destinationId': destinationId,
+    'slug': slug,
+    'name': name,
+    'lguCode': lguCode,
+    'lguName': lguName,
+    'categoryCode': categoryCode,
+    'categoryName': categoryName,
+    'popularityTier': popularityTier,
+    'isCommunityBased': isCommunityBased,
+    'isLesserKnown': isLesserKnown,
+    'mealWindow': mealWindow,
+    'startTime': startTime,
+    'endTime': endTime,
+    'estimatedDurationMinutes': estimatedDurationMinutes,
+    'travelTimeFromPrevMinutes': travelTimeFromPrevMinutes,
+    'distanceFromPrevKm': distanceFromPrevKm,
+    'legTransportCostPhp': legTransportCostPhp,
+    'entryCostPhp': entryCostPhp,
+    'estimatedMealCostPhp': estimatedMealCostPhp,
+    'operatingWindowLabel': operatingWindowLabel,
+    'isOpenCompliant': isOpenCompliant,
+    'imageUrl': imageUrl,
+    if (latitude != null && longitude != null)
+      'coordinates': {'latitude': latitude, 'longitude': longitude},
+  };
 }
 
 class ItineraryDayPlan {
@@ -459,21 +565,43 @@ class ItineraryDayPlan {
   final String endTime;
   final List<ItineraryStopItem> stops;
 
+  ItineraryDayPlan copyWith({
+    String? startTime,
+    String? endTime,
+    List<ItineraryStopItem>? stops,
+  }) {
+    return ItineraryDayPlan(
+      dayNumber: dayNumber,
+      dayOfWeek: dayOfWeek,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+      stops: stops ?? this.stops,
+    );
+  }
+
   factory ItineraryDayPlan.fromJson(Map<String, dynamic> json) {
     final rawStops = json['stops'];
     return ItineraryDayPlan(
-      dayNumber: _int(json['dayNumber'], fallback: 1),
-      dayOfWeek: _int(json['dayOfWeek']),
-      startTime: _string(json['startTime'], fallback: '08:00'),
-      endTime: _string(json['endTime'], fallback: '18:00'),
+      dayNumber: jsonInt(json['dayNumber'], fallback: 1),
+      dayOfWeek: jsonInt(json['dayOfWeek']),
+      startTime: jsonString(json['startTime'], fallback: '08:00'),
+      endTime: jsonString(json['endTime'], fallback: '18:00'),
       stops: rawStops is List
           ? rawStops
-              .whereType<Map<String, dynamic>>()
-              .map(ItineraryStopItem.fromJson)
-              .toList(growable: false)
+                .whereType<Map<String, dynamic>>()
+                .map(ItineraryStopItem.fromJson)
+                .toList(growable: false)
           : const [],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'dayNumber': dayNumber,
+    'dayOfWeek': dayOfWeek,
+    'startTime': startTime,
+    'endTime': endTime,
+    'stops': stops.map((s) => s.toJson()).toList(growable: false),
+  };
 }
 
 class ItineraryExpenseBreakdown {
@@ -497,16 +625,25 @@ class ItineraryExpenseBreakdown {
 
   factory ItineraryExpenseBreakdown.fromJson(Map<String, dynamic> json) {
     return ItineraryExpenseBreakdown(
-      entranceAndActivityCost:
-          _doubleNullable(json['entranceAndActivityCost']) ?? 0,
-      parkingCost: _doubleNullable(json['parkingCost']) ?? 0,
-      mealsCost: _doubleNullable(json['mealsCost']) ?? 0,
-      transportCost: _doubleNullable(json['transportCost']) ?? 0,
-      totalEstimatedCost: _doubleNullable(json['totalEstimatedCost']) ?? 0,
-      budgetAmount: _doubleNullable(json['budgetAmount']),
-      remainingBudget: _doubleNullable(json['remainingBudget']),
+      entranceAndActivityCost: jsonDouble(json['entranceAndActivityCost']) ?? 0,
+      parkingCost: jsonDouble(json['parkingCost']) ?? 0,
+      mealsCost: jsonDouble(json['mealsCost']) ?? 0,
+      transportCost: jsonDouble(json['transportCost']) ?? 0,
+      totalEstimatedCost: jsonDouble(json['totalEstimatedCost']) ?? 0,
+      budgetAmount: jsonDouble(json['budgetAmount']),
+      remainingBudget: jsonDouble(json['remainingBudget']),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'entranceAndActivityCost': entranceAndActivityCost,
+    'parkingCost': parkingCost,
+    'mealsCost': mealsCost,
+    'transportCost': transportCost,
+    'totalEstimatedCost': totalEstimatedCost,
+    'budgetAmount': budgetAmount,
+    'remainingBudget': remainingBudget,
+  };
 }
 
 class FeasibilityReport {
@@ -538,7 +675,9 @@ class FeasibilityReport {
 
   factory FeasibilityReport.fromJson(Map<String, dynamic> json) {
     final checks = json['checks'];
-    final map = checks is Map<String, dynamic> ? checks : const <String, dynamic>{};
+    final map = checks is Map<String, dynamic>
+        ? checks
+        : const <String, dynamic>{};
     return FeasibilityReport(
       isFeasible: json['isFeasible'] == true,
       timeBudgetCompliant: map['timeBudgetCompliant'] == true,
@@ -546,9 +685,21 @@ class FeasibilityReport {
       financialBudgetCompliant: map['financialBudgetCompliant'] == true,
       timeWindowCompliant: map['timeWindowCompliant'] == true,
       routesCalculable: map['routesCalculable'] == true,
-      violatedConstraints: _stringList(json['violatedConstraints']),
+      violatedConstraints: jsonStringList(json['violatedConstraints']),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'isFeasible': isFeasible,
+    'violatedConstraints': violatedConstraints,
+    'checks': {
+      'timeBudgetCompliant': timeBudgetCompliant,
+      'operatingHoursCompliant': operatingHoursCompliant,
+      'financialBudgetCompliant': financialBudgetCompliant,
+      'timeWindowCompliant': timeWindowCompliant,
+      'routesCalculable': routesCalculable,
+    },
+  };
 }
 
 class GeneratedItinerary {
@@ -588,30 +739,31 @@ class GeneratedItinerary {
 
   factory GeneratedItinerary.fromJson(Map<String, dynamic> json) {
     final origin = json['origin'];
-    final originCoords =
-        origin is Map<String, dynamic> ? origin['coordinates'] : null;
+    final originCoords = origin is Map<String, dynamic>
+        ? origin['coordinates']
+        : null;
     final rawDays = json['days'];
     final expense = json['expenseBreakdown'];
     final feasibility = json['feasibilityReport'];
 
     return GeneratedItinerary(
       originName: origin is Map<String, dynamic>
-          ? _string(origin['name'], fallback: 'Laoag City')
+          ? jsonString(origin['name'], fallback: 'Laoag City')
           : 'Laoag City',
       originLatitude: originCoords is Map<String, dynamic>
-          ? _doubleNullable(originCoords['latitude'])
+          ? jsonDouble(originCoords['latitude'])
           : null,
       originLongitude: originCoords is Map<String, dynamic>
-          ? _doubleNullable(originCoords['longitude'])
+          ? jsonDouble(originCoords['longitude'])
           : null,
-      totalDays: _int(json['totalDays'], fallback: 1),
-      totalStops: _int(json['totalStops']),
-      totalDistanceKm: _doubleNullable(json['totalDistanceKm']) ?? 0,
-      totalTravelMinutes: _int(json['totalTravelMinutes']),
-      totalVisitMinutes: _int(json['totalVisitMinutes']),
-      recalculationTimeMs: _int(json['recalculationTimeMs'], fallback: 1),
-      lesserKnownCount: _int(json['lesserKnownCount']),
-      lesserKnownRatio: _doubleNullable(json['lesserKnownRatio']) ?? 0,
+      totalDays: jsonInt(json['totalDays'], fallback: 1),
+      totalStops: jsonInt(json['totalStops']),
+      totalDistanceKm: jsonDouble(json['totalDistanceKm']) ?? 0,
+      totalTravelMinutes: jsonInt(json['totalTravelMinutes']),
+      totalVisitMinutes: jsonInt(json['totalVisitMinutes']),
+      recalculationTimeMs: jsonInt(json['recalculationTimeMs'], fallback: 1),
+      lesserKnownCount: jsonInt(json['lesserKnownCount']),
+      lesserKnownRatio: jsonDouble(json['lesserKnownRatio']) ?? 0,
       expenseBreakdown: ItineraryExpenseBreakdown.fromJson(
         expense is Map<String, dynamic> ? expense : const {},
       ),
@@ -620,32 +772,60 @@ class GeneratedItinerary {
       ),
       days: rawDays is List
           ? rawDays
-              .whereType<Map<String, dynamic>>()
-              .map(ItineraryDayPlan.fromJson)
-              .toList(growable: false)
+                .whereType<Map<String, dynamic>>()
+                .map(ItineraryDayPlan.fromJson)
+                .toList(growable: false)
           : const [],
     );
   }
 
-  GeneratedItinerary copyWith({int? savedId}) {
+  GeneratedItinerary copyWith({
+    List<ItineraryDayPlan>? days,
+    double? totalDistanceKm,
+    int? totalTravelMinutes,
+    ItineraryExpenseBreakdown? expenseBreakdown,
+    int? savedId,
+  }) {
     return GeneratedItinerary(
       originName: originName,
       originLatitude: originLatitude,
       originLongitude: originLongitude,
       totalDays: totalDays,
       totalStops: totalStops,
-      totalDistanceKm: totalDistanceKm,
-      totalTravelMinutes: totalTravelMinutes,
+      totalDistanceKm: totalDistanceKm ?? this.totalDistanceKm,
+      totalTravelMinutes: totalTravelMinutes ?? this.totalTravelMinutes,
       totalVisitMinutes: totalVisitMinutes,
       recalculationTimeMs: recalculationTimeMs,
       lesserKnownCount: lesserKnownCount,
       lesserKnownRatio: lesserKnownRatio,
-      expenseBreakdown: expenseBreakdown,
+      expenseBreakdown: expenseBreakdown ?? this.expenseBreakdown,
       feasibilityReport: feasibilityReport,
-      days: days,
+      days: days ?? this.days,
       savedId: savedId ?? this.savedId,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'origin': {
+      'name': originName,
+      if (originLatitude != null && originLongitude != null)
+        'coordinates': {
+          'latitude': originLatitude,
+          'longitude': originLongitude,
+        },
+    },
+    'totalDays': totalDays,
+    'totalStops': totalStops,
+    'totalDistanceKm': totalDistanceKm,
+    'totalTravelMinutes': totalTravelMinutes,
+    'totalVisitMinutes': totalVisitMinutes,
+    'recalculationTimeMs': recalculationTimeMs,
+    'lesserKnownCount': lesserKnownCount,
+    'lesserKnownRatio': lesserKnownRatio,
+    'expenseBreakdown': expenseBreakdown.toJson(),
+    'feasibilityReport': feasibilityReport.toJson(),
+    'days': days.map((d) => d.toJson()).toList(growable: false),
+  };
 }
 
 class SavedItinerarySummary {
@@ -667,36 +847,14 @@ class SavedItinerarySummary {
 
   factory SavedItinerarySummary.fromJson(Map<String, dynamic> json) {
     return SavedItinerarySummary(
-      id: _int(json['id']),
-      title: _string(json['title'], fallback: 'Saved trip'),
-      totalDays: _int(json['totalDays'], fallback: 1),
-      totalEstimatedCost: _doubleNullable(json['totalEstimatedCost']) ?? 0,
-      stopCount: _int(json['stopCount']),
-      updatedAt: json['updatedAt'] is String ? json['updatedAt'] as String : null,
+      id: jsonInt(json['id']),
+      title: jsonString(json['title'], fallback: 'Saved trip'),
+      totalDays: jsonInt(json['totalDays'], fallback: 1),
+      totalEstimatedCost: jsonDouble(json['totalEstimatedCost']) ?? 0,
+      stopCount: jsonInt(json['stopCount']),
+      updatedAt: json['updatedAt'] is String
+          ? json['updatedAt'] as String
+          : null,
     );
   }
-}
-
-String _string(Object? value, {String fallback = ''}) {
-  if (value is String && value.trim().isNotEmpty) return value.trim();
-  if (value is num || value is bool) return value.toString();
-  return fallback;
-}
-
-int _int(Object? value, {int fallback = 0}) {
-  if (value is int) return value;
-  if (value is num) return value.toInt();
-  if (value is String) return int.tryParse(value) ?? fallback;
-  return fallback;
-}
-
-double? _doubleNullable(Object? value) {
-  if (value is num) return value.toDouble();
-  if (value is String) return double.tryParse(value);
-  return null;
-}
-
-List<String> _stringList(Object? value) {
-  if (value is! List) return const [];
-  return value.whereType<String>().map((s) => s.trim()).where((s) => s.isNotEmpty).toList(growable: false);
 }

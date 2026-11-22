@@ -75,7 +75,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Curator invite code'), findsOneWidget);
-    expect(find.text('NORTE-CURATOR-2026'), findsOneWidget);
+    expect(find.text('Enter curator invite code'), findsOneWidget);
 
     final fields = find.byType(TextField);
     await tester.enterText(fields.at(0), 'Maria Santos');

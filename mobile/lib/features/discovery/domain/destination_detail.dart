@@ -1,3 +1,4 @@
+import '../../../core/utils/json_parse.dart';
 import 'destination_summary.dart';
 
 class DestinationVerificationInfo {
@@ -22,10 +23,10 @@ class DestinationVerificationInfo {
 
   factory DestinationVerificationInfo.fromJson(Map<String, dynamic> json) {
     return DestinationVerificationInfo(
-      status: _string(json['status'] ?? json['verificationStatus'], fallback: 'verified'),
-      sourceName: _stringNullable(json['sourceName'] ?? json['source_name']),
-      sourceType: _stringNullable(json['sourceType'] ?? json['source_type']),
-      lastVerifiedDate: _stringNullable(json['lastVerifiedDate'] ?? json['last_verified_date']),
+      status: jsonString(json['status'] ?? json['verificationStatus'], fallback: 'verified'),
+      sourceName: jsonStringNullable(json['sourceName'] ?? json['source_name']),
+      sourceType: jsonStringNullable(json['sourceType'] ?? json['source_type']),
+      lastVerifiedDate: jsonStringNullable(json['lastVerifiedDate'] ?? json['last_verified_date']),
     );
   }
 }
@@ -53,14 +54,14 @@ class DestinationDetailPricing {
 
   factory DestinationDetailPricing.fromJson(Map<String, dynamic> json) {
     return DestinationDetailPricing(
-      isFree: _bool(json['isFree'] ?? json['is_free']),
-      entranceFeeAdult: _double(json['entranceFeeAdult'] ?? json['entrance_fee_adult']),
-      entranceFeeConcession: _double(json['entranceFeeConcession'] ?? json['entrance_fee_concession']),
-      mandatoryActivityFee: _double(json['mandatoryActivityFee'] ?? json['mandatory_activity_fee']),
-      estimatedMealMin: _double(json['estimatedMealMin'] ?? json['estimated_meal_min']),
-      estimatedMealMax: _double(json['estimatedMealMax'] ?? json['estimated_meal_max']),
-      parkingFee: _double(json['parkingFee'] ?? json['parking_fee']),
-      currency: _string(json['currency'], fallback: 'PHP'),
+      isFree: jsonBool(json['isFree'] ?? json['is_free']),
+      entranceFeeAdult: jsonDouble(json['entranceFeeAdult'] ?? json['entrance_fee_adult']),
+      entranceFeeConcession: jsonDouble(json['entranceFeeConcession'] ?? json['entrance_fee_concession']),
+      mandatoryActivityFee: jsonDouble(json['mandatoryActivityFee'] ?? json['mandatory_activity_fee']),
+      estimatedMealMin: jsonDouble(json['estimatedMealMin'] ?? json['estimated_meal_min']),
+      estimatedMealMax: jsonDouble(json['estimatedMealMax'] ?? json['estimated_meal_max']),
+      parkingFee: jsonDouble(json['parkingFee'] ?? json['parking_fee']),
+      currency: jsonString(json['currency'], fallback: 'PHP'),
     );
   }
 
@@ -138,12 +139,12 @@ class DestinationOperatingHour {
 
   factory DestinationOperatingHour.fromJson(Map<String, dynamic> json) {
     return DestinationOperatingHour(
-      dayOfWeek: _int(json['dayOfWeek'] ?? json['day_of_week']),
-      dayName: _stringNullable(json['dayName'] ?? json['day_name']),
-      openingTime: _stringNullable(json['openingTime'] ?? json['opening_time']),
-      closingTime: _stringNullable(json['closingTime'] ?? json['closing_time']),
-      is24Hours: _bool(json['is24Hours'] ?? json['is_24_hours']),
-      temporarilyClosed: _bool(json['temporarilyClosed'] ?? json['temporarily_closed']),
+      dayOfWeek: jsonInt(json['dayOfWeek'] ?? json['day_of_week']),
+      dayName: jsonStringNullable(json['dayName'] ?? json['day_name']),
+      openingTime: jsonStringNullable(json['openingTime'] ?? json['opening_time']),
+      closingTime: jsonStringNullable(json['closingTime'] ?? json['closing_time']),
+      is24Hours: jsonBool(json['is24Hours'] ?? json['is_24_hours']),
+      temporarilyClosed: jsonBool(json['temporarilyClosed'] ?? json['temporarily_closed']),
     );
   }
 }
@@ -165,6 +166,7 @@ class DestinationDetail {
     required this.address,
     this.latitude,
     this.longitude,
+    this.imageUrl,
     required this.entityType,
     required this.popularityTier,
     required this.highwayAccessible,
@@ -192,6 +194,7 @@ class DestinationDetail {
   final String address;
   final double? latitude;
   final double? longitude;
+  final String? imageUrl;
   final String entityType;
   final String popularityTier;
   final bool highwayAccessible;
@@ -320,20 +323,22 @@ class DestinationDetail {
       name: summary.name,
       lguCode: summary.lguCode,
       lguName: summary.lguName,
-      lguType: lgu is Map<String, dynamic> ? _stringNullable(lgu['type']) : null,
+      lguType: lgu is Map<String, dynamic> ? jsonStringNullable(lgu['type']) : null,
       tourismCluster: summary.tourismCluster,
       categoryCode: summary.categoryCode,
       categoryName: summary.categoryName,
-      categoryDescription: category is Map<String, dynamic> ? _stringNullable(category['description']) : null,
+      categoryDescription: category is Map<String, dynamic> ? jsonStringNullable(category['description']) : null,
       description: summary.description,
-      historicalBackground: _stringNullable(json['historicalBackground'] ?? json['historical_background']),
+      historicalBackground: jsonStringNullable(json['historicalBackground'] ?? json['historical_background']),
       address: summary.address,
       latitude: summary.latitude,
       longitude: summary.longitude,
+      imageUrl: summary.imageUrl ??
+          jsonStringNullable(json['imageUrl'] ?? json['image_url']),
       entityType: summary.entityType,
       popularityTier: summary.popularityTier,
       highwayAccessible: summary.highwayAccessible,
-      roadCondition: _stringNullable(json['roadCondition'] ?? json['road_condition']),
+      roadCondition: jsonStringNullable(json['roadCondition'] ?? json['road_condition']),
       verification: verification is Map<String, dynamic>
           ? DestinationVerificationInfo.fromJson(verification)
           : DestinationVerificationInfo(status: summary.verificationStatus),
@@ -349,38 +354,10 @@ class DestinationDetail {
           ? rawHours.whereType<Map<String, dynamic>>().map(DestinationOperatingHour.fromJson).toList(growable: false)
           : const [],
       tags: summary.tags,
-      createdAt: _stringNullable(json['createdAt'] ?? json['created_at']),
-      updatedAt: _stringNullable(json['updatedAt'] ?? json['updated_at']),
+      createdAt: jsonStringNullable(json['createdAt'] ?? json['created_at']),
+      updatedAt: jsonStringNullable(json['updatedAt'] ?? json['updated_at']),
     );
   }
-}
-
-String _string(Object? value, {String fallback = ''}) {
-  if (value is String && value.trim().isNotEmpty) return value.trim();
-  if (value is num || value is bool) return value.toString();
-  return fallback;
-}
-
-String? _stringNullable(Object? value) {
-  if (value is String && value.trim().isNotEmpty) return value.trim();
-  return null;
-}
-
-int _int(Object? value, {int fallback = 0}) {
-  if (value is int) return value;
-  if (value is num) return value.toInt();
-  if (value is String) return int.tryParse(value) ?? fallback;
-  return fallback;
-}
-
-double? _double(Object? value) {
-  if (value is num) return value.toDouble();
-  if (value is String) return double.tryParse(value);
-  return null;
-}
-
-bool _bool(Object? value) {
-  return value == true || value == 1 || value == '1';
 }
 
 int? _parseMinutes(String? time) {

@@ -1,3 +1,5 @@
+import '../../../core/utils/json_parse.dart';
+
 abstract final class TourismClusterInfo {
   static const northernCoast = 'northern_coast';
   static const centralUrbanHeritage = 'central_urban_heritage';
@@ -79,35 +81,35 @@ class Lgu {
     final coordinates = json['coordinates'];
 
     return Lgu(
-      lguCode: _string(json['lguCode'] ?? json['code']),
-      name: _string(json['name']),
-      lguType: _string(
+      lguCode: jsonString(json['lguCode'] ?? json['code']),
+      name: jsonString(json['name']),
+      lguType: jsonString(
         json['lguType'] ?? json['type'],
         fallback: 'municipality',
       ),
-      tourismCluster: _string(
+      tourismCluster: jsonString(
         json['tourismCluster'] ?? json['cluster'],
         fallback: cluster,
       ),
-      centerLatitude: _double(
+      centerLatitude: jsonDouble(
         json['centerLatitude'] ??
             (coordinates is Map<String, dynamic>
                 ? coordinates['latitude']
                 : null),
       ),
-      centerLongitude: _double(
+      centerLongitude: jsonDouble(
         json['centerLongitude'] ??
             (coordinates is Map<String, dynamic>
                 ? coordinates['longitude']
                 : null),
       ),
-      terrainType: _string(
+      terrainType: jsonString(
         json['terrainType'] ?? json['terrain_type'],
         fallback: 'rolling_inland',
       ),
-      isMajorHub: _bool(json['isMajorHub'] ?? json['is_major_hub']),
+      isMajorHub: jsonBool(json['isMajorHub'] ?? json['is_major_hub']),
       baselineDispersalBonus:
-          _double(
+          jsonDouble(
             json['baselineDispersalBonus'] ?? json['baseline_dispersal_bonus'],
           ) ??
           0,
@@ -129,7 +131,7 @@ class LguCluster {
   int get total => lgus.length;
 
   factory LguCluster.fromJson(Map<String, dynamic> json) {
-    final cluster = _string(json['cluster']);
+    final cluster = jsonString(json['cluster']);
     final rawLgus = json['lgus'];
 
     return LguCluster(
@@ -191,28 +193,4 @@ class LguDirectory {
           .toList(growable: false),
     );
   }
-}
-
-String _string(Object? value, {String fallback = ''}) {
-  if (value is String && value.trim().isNotEmpty) {
-    return value.trim();
-  }
-
-  return fallback;
-}
-
-double? _double(Object? value) {
-  if (value is num) {
-    return value.toDouble();
-  }
-
-  if (value is String) {
-    return double.tryParse(value);
-  }
-
-  return null;
-}
-
-bool _bool(Object? value) {
-  return value == true || value == 1 || value == '1';
 }

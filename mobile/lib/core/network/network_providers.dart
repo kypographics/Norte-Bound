@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../features/auth/presentation/auth_providers.dart';
 import '../constants/app_config.dart';
 import '../storage/auth_token_store.dart';
 import 'auth_interceptor.dart';
@@ -25,7 +28,14 @@ final dioProvider = Provider<Dio>((ref) {
     ),
   );
 
-  dio.interceptors.add(AuthInterceptor(ref.watch(authTokenStoreProvider)));
+  dio.interceptors.add(
+    AuthInterceptor(
+      ref.watch(authTokenStoreProvider),
+      onUnauthorized: () {
+        unawaited(ref.read(authNotifierProvider.notifier).logout());
+      },
+    ),
+  );
 
   ref.onDispose(() => dio.close(force: true));
 

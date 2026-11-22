@@ -23,6 +23,7 @@ const DESTINATION_COLUMNS = `
   d.address,
   d.latitude,
   d.longitude,
+  d.image_url,
   d.entity_type,
   d.popularity_tier,
   d.highway_accessible,

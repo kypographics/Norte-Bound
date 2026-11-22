@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 
 
+import '../../features/admin/presentation/admin_curator_screen.dart';
+import '../../features/auth/domain/models/user.dart';
 import '../../features/auth/presentation/auth_providers.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/profile_screen.dart';
@@ -76,6 +78,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.itineraryMap,
         name: AppRoutes.itineraryMapName,
         builder: (context, state) => const ItineraryMapScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.admin,
+        name: AppRoutes.adminName,
+        builder: (context, state) => const AdminCuratorScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
@@ -156,6 +163,10 @@ String? _redirect(Ref ref, GoRouterState state) {
   }
 
   if (isSplash || isAuthRoute) {
+    return AppRoutes.discovery;
+  }
+
+  if (location == AppRoutes.admin && auth.value?.role != UserRole.admin) {
     return AppRoutes.discovery;
   }
 

@@ -1,20 +1,88 @@
 import { query } from '../config/db.mjs';
 import { formatTime, toBoolean, toNumber } from '../utils/destination.mapper.mjs';
-import { estimateTravelLeg, toMinutes } from '../utils/geo.matrix.mjs';
+import { estimateTravelLeg, haversineKm, toMinutes } from '../utils/geo.matrix.mjs';
 
-const SCENERY_TERRAIN_MAP = {
-  coastal: ['flat_coastal'],
-  highland: ['mountainous_winding'],
-  heritage_urban: ['flat_coastal', 'rolling_inland'],
-  rural_agro: ['rolling_inland', 'mountainous_winding'],
+const PHILIPPINE_ORIGINS = {
+  manila: { name: 'Metro Manila', latitude: 14.5995, longitude: 120.9842, entryGatewayLgu: 'badoc' },
+  'quezon-city': { name: 'Quezon City', latitude: 14.676, longitude: 121.0437, entryGatewayLgu: 'badoc' },
+  'baguio-city': { name: 'Baguio City', latitude: 16.4023, longitude: 120.596, entryGatewayLgu: 'badoc' },
+  'vigan-city': { name: 'Vigan City', latitude: 17.5747, longitude: 120.3869, entryGatewayLgu: 'badoc' },
+  'la-union': { name: 'San Fernando, La Union', latitude: 16.6159, longitude: 120.3209, entryGatewayLgu: 'badoc' },
+  pangasinan: { name: 'Dagupan, Pangasinan', latitude: 16.0433, longitude: 120.3333, entryGatewayLgu: 'badoc' },
+  'clark-pampanga': { name: 'Clark / Angeles, Pampanga', latitude: 15.1859, longitude: 120.56, entryGatewayLgu: 'badoc' },
+  'tuguegarao-city': { name: 'Tuguegarao City', latitude: 17.6132, longitude: 121.727, entryGatewayLgu: 'pagudpud' },
+  'claveria-cagayan': { name: 'Claveria / Sanchez Mira', latitude: 18.6067, longitude: 121.0831, entryGatewayLgu: 'pagudpud' },
+  'cebu-city': { name: 'Cebu City', latitude: 10.3157, longitude: 123.8854, entryGatewayLgu: 'laoag-city' },
+  'davao-city': { name: 'Davao City', latitude: 7.1907, longitude: 125.4553, entryGatewayLgu: 'laoag-city' },
 };
 
+const SCENERY_LABELS = {
+  coastal: 'Coastal scenery',
+  highland: 'Highland scenery',
+  heritage_urban: 'Heritage setting',
+  rural_agro: 'Rural & agro setting',
+};
+
+const SCENERY_PATTERNS = {
+  coastal: /\b(beach|cove|lagoon|coast|coastal|island|sea|ocean|bay|viaduct|rock formation|kapurpurawan|salt-making|salinas|coral|sand dunes|windmill|cliff)\b/i,
+  highland: /\b(highland|mountain|peak|mount|falls|waterfall|ridge|hill|cordillera|viewdeck|dam|forest|spring|creek|eco-trail|riverbank|picnic grounds|upland|plantation)\b/i,
+  heritage_urban: /\b(church|cathedral|chapel|bell tower|museum|museo|shrine|ancestral|heritage|monument|plaza|convent|ruins|colonial|malacañang)\b/i,
+  rural_agro: /\b(farm|agri|agro|plantation|organic|weaving|inabel|binakol|pottery|damili|loom|loomweaving|cooperative|village|rice|garlic|dragonfruit|bugnay|wine|coffee|salt-making|salinas)\b/i,
+};
+
+export function classifyDestinationScenery(dest) {
+  const text = `${dest.name ?? ''} ${dest.slug ?? ''} ${dest.description ?? ''}`;
+  const tagSlugs = new Set((dest.tags ?? []).map((t) => t.slug));
+  const scenery = [];
+
+  if (
+    ['beach', 'surfing', 'lighthouse', 'sand-dunes', 'wind-farm'].some((s) => tagSlugs.has(s)) ||
+    SCENERY_PATTERNS.coastal.test(text) ||
+    (dest.terrainType === 'flat_coastal' && tagSlugs.has('sunset-spot'))
+  ) {
+    scenery.push('coastal');
+  }
+
+  if (
+    dest.terrainType === 'mountainous_winding' ||
+    ['waterfall', 'hiking', 'motorcycle-scenic-ride'].some((s) => tagSlugs.has(s)) ||
+    SCENERY_PATTERNS.highland.test(text)
+  ) {
+    scenery.push('highland');
+  }
+
+  if (
+    dest.categoryCode === 'heritage_cultural' ||
+    ['historical', 'unesco-heritage', 'museum', 'lighthouse'].some((s) => tagSlugs.has(s)) ||
+    SCENERY_PATTERNS.heritage_urban.test(text)
+  ) {
+    scenery.push('heritage_urban');
+  }
+
+  if (
+    dest.categoryCode === 'agro_eco_tourism' ||
+    dest.categoryCode === 'artisan_craft_experience' ||
+    ['agro-farm', 'weaving-craft', 'pottery', 'cultural-immersion'].some((s) => tagSlugs.has(s)) ||
+    SCENERY_PATTERNS.rural_agro.test(text)
+  ) {
+    scenery.push('rural_agro');
+  }
+
+  if (scenery.length === 0) {
+    if (dest.terrainType === 'flat_coastal') scenery.push('coastal');
+    else if (dest.terrainType === 'rolling_inland') scenery.push('rural_agro');
+    else scenery.push('highland');
+  }
+
+  return scenery;
+}
+
 const WEIGHTS = {
-  interest: 0.34,
-  budget: 0.2,
-  proximity: 0.22,
-  duration: 0.08,
-  dispersal: 0.16,
+  interest: 0.48,
+  budget: 0.16,
+  proximity: 0.16,
+  duration: 0.06,
+  dispersal: 0.14,
 };
 
 export async function loadVerifiedCatalog(dayOfWeek) {
@@ -41,6 +109,7 @@ export async function loadVerifiedCatalog(dayOfWeek) {
         d.address,
         d.latitude,
         d.longitude,
+        d.image_url,
         d.entity_type,
         d.popularity_tier,
         d.highway_accessible,
@@ -65,7 +134,7 @@ export async function loadVerifiedCatalog(dayOfWeek) {
     query('SELECT lgu_code, name, tourism_cluster, center_latitude, center_longitude, road_tortuosity_multiplier FROM lgus'),
     query('SELECT destination_id, day_of_week, opening_time, closing_time, is_24_hours, temporarily_closed FROM operating_hours'),
     query(`
-      SELECT dt.destination_id, it.tag_slug, it.display_name
+      SELECT dt.destination_id, it.tag_slug, it.display_name, it.category_code
       FROM destination_tags dt
       INNER JOIN interest_tags it ON it.tag_slug = dt.tag_slug
     `),
@@ -86,7 +155,11 @@ export async function loadVerifiedCatalog(dayOfWeek) {
   const tagsMap = new Map();
   for (const t of tagRows) {
     if (!tagsMap.has(t.destination_id)) tagsMap.set(t.destination_id, []);
-    tagsMap.get(t.destination_id).push({ slug: t.tag_slug, name: t.display_name });
+    tagsMap.get(t.destination_id).push({
+      slug: t.tag_slug,
+      name: t.display_name,
+      categoryCode: t.category_code,
+    });
   }
 
   const lguByCode = new Map(lguRows.map((l) => [l.lgu_code, l]));
@@ -99,7 +172,7 @@ export async function loadVerifiedCatalog(dayOfWeek) {
     const mandatoryFee = toNumber(row.mandatory_activity_fee) ?? 0;
     const parkingFee = toNumber(row.parking_fee) ?? 0;
 
-    return {
+    const dest = {
       id: row.id,
       slug: row.slug,
       name: row.name,
@@ -118,6 +191,7 @@ export async function loadVerifiedCatalog(dayOfWeek) {
         latitude: toNumber(row.latitude),
         longitude: toNumber(row.longitude),
       },
+      imageUrl: row.image_url ?? null,
       entityType: row.entity_type,
       popularityTier: row.popularity_tier,
       highwayAccessible: toBoolean(row.highway_accessible),
@@ -142,32 +216,89 @@ export async function loadVerifiedCatalog(dayOfWeek) {
       todaySchedule,
       tags,
     };
+    dest.sceneryTypes = classifyDestinationScenery(dest);
+    return dest;
   });
 
   return { destinations, lguByCode, targetDay };
 }
 
 export function resolveOrigin(preferences, lguByCode) {
+  const code = preferences.originLguCode || 'laoag-city';
+  const internalLgu = lguByCode.get(code);
+  const externalHub = PHILIPPINE_ORIGINS[code];
+
+  let resolved;
   if (
     preferences.originCoordinates &&
     Number.isFinite(preferences.originCoordinates.latitude) &&
     Number.isFinite(preferences.originCoordinates.longitude)
   ) {
-    return {
-      lguCode: preferences.originLguCode || 'laoag-city',
-      name: lguByCode.get(preferences.originLguCode)?.name ?? 'Current GPS Location',
+    resolved = {
+      lguCode: code,
+      name:
+        preferences.originName ||
+        internalLgu?.name ||
+        externalHub?.name ||
+        'Current GPS Location',
       coordinates: preferences.originCoordinates,
+    };
+  } else if (externalHub) {
+    resolved = {
+      lguCode: code,
+      name: preferences.originName || externalHub.name,
+      coordinates: {
+        latitude: externalHub.latitude,
+        longitude: externalHub.longitude,
+      },
+    };
+  } else {
+    const originLgu = internalLgu ?? lguByCode.get('laoag-city');
+    resolved = {
+      lguCode: originLgu?.lgu_code ?? code,
+      name: preferences.originName || originLgu?.name || 'Laoag City',
+      coordinates: {
+        latitude: toNumber(originLgu?.center_latitude) ?? 18.1978,
+        longitude: toNumber(originLgu?.center_longitude) ?? 120.5936,
+      },
     };
   }
 
-  const originLgu = lguByCode.get(preferences.originLguCode) ?? lguByCode.get('laoag-city');
+  const { latitude, longitude } = resolved.coordinates;
+  const outsideProvince =
+    latitude < 17.85 || latitude > 18.68 || longitude < 120.4 || longitude > 121.05;
+
+  if (!outsideProvince) {
+    return resolved;
+  }
+
+  let gatewayLgu = externalHub?.entryGatewayLgu
+    ? lguByCode.get(externalHub.entryGatewayLgu)
+    : null;
+  if (!gatewayLgu && latitude < 12.5) {
+    gatewayLgu = lguByCode.get('laoag-city');
+  }
+  if (!gatewayLgu) {
+    let bestDist = Infinity;
+    for (const candidate of lguByCode.values()) {
+      const cLat = toNumber(candidate.center_latitude);
+      const cLon = toNumber(candidate.center_longitude);
+      if (cLat === null || cLon === null) continue;
+      const d = haversineKm(resolved.coordinates, { latitude: cLat, longitude: cLon });
+      if (d < bestDist) {
+        bestDist = d;
+        gatewayLgu = candidate;
+      }
+    }
+  }
+
+  const gwLat = toNumber(gatewayLgu?.center_latitude) ?? 18.1978;
+  const gwLon = toNumber(gatewayLgu?.center_longitude) ?? 120.5936;
   return {
-    lguCode: originLgu?.lgu_code ?? 'laoag-city',
-    name: originLgu?.name ?? 'Laoag City',
-    coordinates: {
-      latitude: toNumber(originLgu?.center_latitude) ?? 18.1978,
-      longitude: toNumber(originLgu?.center_longitude) ?? 120.5936,
-    },
+    ...resolved,
+    isExternalOrigin: true,
+    entryGatewayName: gatewayLgu?.name ?? 'Laoag City',
+    gatewayCoordinates: { latitude: gwLat, longitude: gwLon },
   };
 }
 
@@ -208,8 +339,9 @@ export function scoreAndFilterDestinations(catalog, preferences) {
   const wantTags = new Set(preferences.interestTags ?? []);
   const wantScenery = new Set(preferences.preferredScenery ?? []);
 
-  const filteredOut = { unverified: 0, closed: 0, budget: 0, area: 0 };
-  const viable = [];
+  const filteredOut = { unverified: 0, closed: 0, budget: 0, area: 0, preference: 0 };
+  const primaryMatches = [];
+  const relatedMatches = [];
 
   for (const dest of destinations) {
     if (excludedSet.has(dest.id)) continue;
@@ -239,28 +371,43 @@ export function scoreAndFilterDestinations(catalog, preferences) {
       continue;
     }
 
-    // Score components in [0, 1]
-    const catMatch = wantCategories.size === 0 ? 0.6 : wantCategories.has(dest.categoryCode) ? 1.0 : 0.1;
-    const matchedTags = dest.tags.filter((t) => wantTags.has(t.slug));
-    const tagMatch = wantTags.size === 0 ? 0.5 : Math.min(1, matchedTags.length / Math.min(3, wantTags.size));
+    // Strict preference alignment: exclude destinations that miss selected filters
+    const sceneryTypes = dest.sceneryTypes ?? classifyDestinationScenery(dest);
+    const matchedScenery = [...wantScenery].filter((s) => sceneryTypes.includes(s));
+    const hasSceneryMatch = wantScenery.size === 0 || matchedScenery.length > 0;
 
-    let sceneryMatch = wantScenery.size === 0 ? 0.5 : 0.1;
-    if (wantScenery.size > 0) {
-      const matchedTerrain = [...wantScenery].some((s) =>
-        (SCENERY_TERRAIN_MAP[s] ?? []).includes(dest.terrainType) ||
-        (s === 'coastal' && dest.tags.some((t) => ['beach', 'sunset-spot', 'lighthouse'].includes(t.slug))) ||
-        (s === 'highland' && dest.tags.some((t) => ['waterfall', 'mountain-view', 'nature-trek'].includes(t.slug))),
-      );
-      if (matchedTerrain) sceneryMatch = 1.0;
+    const directCatMatch = wantCategories.size === 0 || wantCategories.has(dest.categoryCode);
+    const matchedCatTags = dest.tags.filter((t) => wantCategories.has(t.categoryCode));
+    const relatedCatMatch = directCatMatch || matchedCatTags.length > 0;
+
+    const matchedTags = dest.tags.filter((t) => wantTags.has(t.slug));
+    const hasTagMatch = wantTags.size === 0 || matchedTags.length > 0;
+
+    if (!hasSceneryMatch || !relatedCatMatch || !hasTagMatch) {
+      filteredOut.preference += 1;
+      continue;
     }
-    const sInterest = Number((catMatch * 0.5 + tagMatch * 0.3 + sceneryMatch * 0.2).toFixed(4));
+
+    // Score components in [0, 1]
+    const catMatch = wantCategories.size === 0 ? 0.65 : directCatMatch ? 1.0 : 0.45;
+    const tagMatch =
+      wantTags.size === 0
+        ? wantCategories.size > 0
+          ? matchedCatTags.length > 0
+            ? 1.0
+            : 0.55
+          : 0.6
+        : Math.min(1, matchedTags.length / Math.min(3, wantTags.size));
+    const sceneryMatch = wantScenery.size === 0 ? 0.6 : 1.0;
+    const sInterest = Number((catMatch * 0.5 + tagMatch * 0.25 + sceneryMatch * 0.25).toFixed(4));
 
     const sBudget = Number.isFinite(budgetCap) && budgetCap > 0
       ? Math.max(0, Math.min(1, 1 - dest.pricing.singleVisitPerPersonCost / Math.max(budgetCap, 1)))
       : 1.0;
 
+    const scoringOrigin = origin.gatewayCoordinates ?? origin.coordinates;
     const leg = estimateTravelLeg(
-      origin.coordinates,
+      scoringOrigin,
       dest.coordinates,
       dest.tortuosityMultiplier,
       preferences.transportMode,
@@ -293,8 +440,13 @@ export function scoreAndFilterDestinations(catalog, preferences) {
     const reasons = [];
     if (wantCategories.has(dest.categoryCode)) {
       reasons.push(`Matches ${dest.categoryName}`);
+    } else if (matchedCatTags.length > 0) {
+      reasons.push(`Includes ${matchedCatTags[0].name}`);
     } else if (matchedTags.length > 0) {
       reasons.push(`Matches ${matchedTags[0].name}`);
+    }
+    if (matchedScenery.length > 0 && SCENERY_LABELS[matchedScenery[0]]) {
+      reasons.push(SCENERY_LABELS[matchedScenery[0]]);
     }
     if (dest.todaySchedule?.is24Hours) {
       reasons.push('Open 24 hours');
@@ -308,7 +460,7 @@ export function scoreAndFilterDestinations(catalog, preferences) {
       reasons.push(dest.pricing.isFree ? 'Free entry' : `₱${Math.round(dest.pricing.singleVisitPerPersonCost)} entry fits budget`);
     }
 
-    viable.push({
+    const scored = {
       ...dest,
       matchPercentage: Math.min(99, Math.max(55, Math.round(sTotal * 100))),
       scoreBreakdown: {
@@ -322,8 +474,20 @@ export function scoreAndFilterDestinations(catalog, preferences) {
       distanceKm: leg.distanceKm,
       estimatedTravelMinutes: leg.travelMinutes,
       explanationReasons: reasons.slice(0, 2),
-    });
+    };
+
+    if (directCatMatch) {
+      primaryMatches.push(scored);
+    } else {
+      relatedMatches.push(scored);
+    }
   }
+
+  // Only include tag-related cross-category matches when direct matches are sparse (< 4).
+  const viable =
+    primaryMatches.length >= 4
+      ? primaryMatches
+      : [...primaryMatches, ...relatedMatches];
 
   viable.sort((a, b) => b.scoreBreakdown.total - a.scoreBreakdown.total);
 
@@ -385,6 +549,13 @@ export async function getRecommendations(preferences) {
         type: 'time',
         label: 'Expand daily hours (08:00–18:00)',
         patch: { startTime: '08:00', endTime: '18:00', availableHoursPerDay: 10 },
+      });
+    }
+    if (filteredOut.preference > 0) {
+      relaxationSuggestions.push({
+        type: 'preference',
+        label: 'Broaden scenery or category filters',
+        patch: { preferredScenery: [] },
       });
     }
   }

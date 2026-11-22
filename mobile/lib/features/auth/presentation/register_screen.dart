@@ -191,7 +191,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 AuthTextField(
                   controller: _inviteCodeController,
                   label: 'Curator invite code',
-                  hintText: 'NORTE-CURATOR-2026',
+                  hintText: 'Enter curator invite code',
                   icon: CupertinoIcons.lock_shield,
                   textInputAction: TextInputAction.done,
                   helperText: 'Required for curator accounts.',

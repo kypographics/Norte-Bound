@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_routes.dart';
+import '../../../../core/storage/traveler_local_store.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../shared/widgets/app_card.dart';
@@ -70,6 +71,57 @@ class DestinationDetailScreen extends ConsumerWidget {
                         letterSpacing: 1.2,
                         fontWeight: FontWeight.w700,
                       ),
+                    ),
+                    const SizedBox(width: 10),
+                    Builder(
+                      builder: (context) {
+                        final id = detailAsync.value?.id ?? destination?.id;
+                        final slugVal =
+                            detailAsync.value?.slug ?? destination?.slug ?? slug;
+                        final nameVal =
+                            detailAsync.value?.name ?? destination?.name ?? slug;
+                        final lguVal =
+                            detailAsync.value?.lguName ??
+                            destination?.lguName ??
+                            'Ilocos Norte';
+                        final catVal =
+                            detailAsync.value?.categoryCode ??
+                            destination?.categoryCode ??
+                            'natural_attraction';
+                        final imgVal =
+                            detailAsync.value?.imageUrl ?? destination?.imageUrl;
+                        final isFav = id != null &&
+                            ref.watch(
+                              travelerLocalStoreProvider.select(
+                                (s) => s.isFavorite(id),
+                              ),
+                            );
+                        return _CircleButton(
+                          icon: isFav
+                              ? CupertinoIcons.heart_fill
+                              : CupertinoIcons.heart,
+                          tooltip: isFav
+                              ? 'Remove from favorites'
+                              : 'Save to favorites',
+                          onTap: id == null || id <= 0
+                              ? () {}
+                              : () {
+                                  HapticFeedback.lightImpact();
+                                  ref
+                                      .read(travelerLocalStoreProvider.notifier)
+                                      .toggleFavorite(
+                                        FavoriteDestination(
+                                          id: id,
+                                          slug: slugVal,
+                                          name: nameVal,
+                                          lguName: lguVal,
+                                          categoryCode: catVal,
+                                          imageUrl: imgVal,
+                                        ),
+                                      );
+                                },
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -178,31 +230,38 @@ class DestinationDetailScreen extends ConsumerWidget {
                         FilledButton.icon(
                           onPressed: () {
                             HapticFeedback.lightImpact();
+                            final router = GoRouter.maybeOf(context);
+                            final messenger = ScaffoldMessenger.of(context);
                             final resolvedId =
                                 detailAsync.value?.id ?? destination?.id;
-                            if (resolvedId != null && resolvedId > 0) {
-                              ref
-                                  .read(plannerProvider.notifier)
-                                  .addDestinationToDraft(resolvedId);
-                            }
                             final name =
                                 detailAsync.value?.name ??
                                 destination?.name ??
                                 slug;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Added $name to active itinerary draft!',
+                            if (resolvedId != null && resolvedId > 0) {
+                              ref
+                                  .read(plannerProvider.notifier)
+                                  .addDestinationToDraft(
+                                    resolvedId,
+                                    name: name,
+                                  );
+                            }
+                            messenger
+                              ..hideCurrentSnackBar()
+                              ..showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Added $name to active itinerary draft!',
+                                  ),
+                                  action: SnackBarAction(
+                                    label: 'Plan',
+                                    textColor: AppColors.skyBlue,
+                                    onPressed: () =>
+                                        router?.go(AppRoutes.planner),
+                                  ),
+                                  backgroundColor: AppColors.deepForest,
                                 ),
-                                action: SnackBarAction(
-                                  label: 'Plan',
-                                  textColor: AppColors.skyBlue,
-                                  onPressed: () =>
-                                      context.go(AppRoutes.planner),
-                                ),
-                                backgroundColor: AppColors.deepForest,
-                              ),
-                            );
+                              );
                           },
                           style: FilledButton.styleFrom(
                             backgroundColor: AppColors.terracotta,
@@ -253,6 +312,9 @@ class _DestinationDetailBody extends StatelessWidget {
           height: 260,
           child: DestinationArtwork(
             categoryCode: detail.categoryCode,
+            slug: detail.slug,
+            name: detail.name,
+            imageUrl: detail.imageUrl,
             borderRadius: 24,
             iconSize: 68,
           ),
@@ -629,6 +691,9 @@ class _DestinationDetailBodyFromSummary extends StatelessWidget {
           height: 260,
           child: DestinationArtwork(
             categoryCode: summary.categoryCode,
+            slug: summary.slug,
+            name: summary.name,
+            imageUrl: summary.imageUrl,
             borderRadius: 24,
             iconSize: 68,
           ),
@@ -737,10 +802,10 @@ class _CircleButton extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: onTap,
-          child: const SizedBox(
+          child: SizedBox(
             width: 42,
             height: 42,
-            child: Icon(CupertinoIcons.chevron_left, size: 18),
+            child: Icon(icon, size: 18),
           ),
         ),
       ),

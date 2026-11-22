@@ -16,21 +16,6 @@ const SEEDS_DIR = path.join(ROOT, 'database/seeds');
 const ENV_PATH = path.join(ROOT, 'backend/.env');
 const ENV_EXAMPLE_PATH = path.join(ROOT, 'backend/.env.example');
 
-const SEEDED_USERS = [
-  {
-    email: 'admin@nortebound.ph',
-    password: 'AdminPass123!',
-    fullName: 'Norte Bound Curator',
-    role: 'admin',
-  },
-  {
-    email: 'tourist@nortebound.ph',
-    password: 'TouristPass123!',
-    fullName: 'Norte Bound Traveler',
-    role: 'tourist',
-  },
-];
-
 function log(icon, message) {
   console.log(`${icon}  ${message}`);
 }
@@ -84,22 +69,6 @@ async function loadPg() {
     }
   }
   throw new Error('pg is not installed. Run `npm install pg` inside backend/.');
-}
-
-async function loadBcrypt() {
-  const candidates = [
-    pathToFileURL(path.join(ROOT, 'backend/node_modules/bcrypt/bcrypt.js')).href,
-    'bcrypt',
-  ];
-  for (const candidate of candidates) {
-    try {
-      const mod = await import(candidate);
-      return mod.default ?? mod;
-    } catch {
-      /* try next */
-    }
-  }
-  throw new Error('bcrypt is not installed. Run `npm install bcrypt` inside backend/.');
 }
 
 function isCommunityBasedDestination(dest) {
@@ -345,28 +314,9 @@ async function seedDestinations(client, destinations) {
   return counts;
 }
 
-async function seedUsers(client, bcrypt) {
-  for (const user of SEEDED_USERS) {
-    const passwordHash = await bcrypt.hash(user.password, 10);
-    await client.query(
-      `
-        INSERT INTO public.users (email, password_hash, full_name, role)
-        VALUES ($1, $2, $3, $4)
-        ON CONFLICT (email) DO UPDATE SET
-          password_hash = EXCLUDED.password_hash,
-          full_name = EXCLUDED.full_name,
-          role = EXCLUDED.role
-      `,
-      [user.email, passwordHash, user.fullName, user.role],
-    );
-  }
-  return SEEDED_USERS.length;
-}
-
 async function main() {
   const { config, envSource } = loadConfig();
   const pg = await loadPg();
-  const bcrypt = await loadBcrypt();
 
   const clientConfig = config.DATABASE_URL
     ? { connectionString: config.DATABASE_URL, ssl: { rejectUnauthorized: false } }
@@ -410,9 +360,6 @@ async function main() {
       log('✅', `Seeded destination tags: ${destCounts.tags}`);
       log('✅', `Seeded operating hours: ${destCounts.hours}`);
       log('✅', `Seeded pricing tiers: ${destCounts.pricing}`);
-
-      const userCount = await seedUsers(client, bcrypt);
-      log('✅', `Seeded default accounts: ${userCount}`);
 
       await client.query('COMMIT');
       log('✅', 'Seed transaction committed.');

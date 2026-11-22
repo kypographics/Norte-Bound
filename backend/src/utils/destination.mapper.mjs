@@ -149,6 +149,7 @@ export function toDestinationSummary(row) {
       latitude: toNumber(row.latitude),
       longitude: toNumber(row.longitude),
     },
+    imageUrl: row.image_url ?? null,
     entityType: row.entity_type,
     popularityTier: row.popularity_tier,
     highwayAccessible: toBoolean(row.highway_accessible),

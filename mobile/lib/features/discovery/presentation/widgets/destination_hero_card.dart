@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/storage/traveler_local_store.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../domain/destination_summary.dart';
 import 'destination_artwork.dart';
 
-class DestinationHeroCard extends StatelessWidget {
+class DestinationHeroCard extends ConsumerWidget {
   const DestinationHeroCard({
     super.key,
     required this.destination,
@@ -19,8 +21,11 @@ class DestinationHeroCard extends StatelessWidget {
   final double width;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
+    final isFav = ref.watch(
+      travelerLocalStoreProvider.select((s) => s.isFavorite(destination.id)),
+    );
     final shape = const ContinuousRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(24)),
       side: BorderSide(color: AppColors.hairline, width: 0.5),
@@ -46,6 +51,9 @@ class DestinationHeroCard extends StatelessWidget {
             children: [
               DestinationArtwork(
                 categoryCode: destination.categoryCode,
+                slug: destination.slug,
+                name: destination.name,
+                imageUrl: destination.imageUrl,
                 borderRadius: 24,
                 iconSize: 56,
               ),
@@ -87,6 +95,49 @@ class DestinationHeroCard extends StatelessWidget {
                             highlighted: true,
                           ),
                         ],
+                        const SizedBox(width: 6),
+                        InkWell(
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            ref
+                                .read(travelerLocalStoreProvider.notifier)
+                                .toggleFavorite(
+                                  FavoriteDestination(
+                                    id: destination.id,
+                                    slug: destination.slug,
+                                    name: destination.name,
+                                    lguName: destination.lguName,
+                                    categoryCode: destination.categoryCode,
+                                    imageUrl: destination.imageUrl,
+                                  ),
+                                );
+                          },
+                          borderRadius: BorderRadius.circular(999),
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: ShapeDecoration(
+                              color: AppColors.ivorySand.withValues(
+                                alpha: 0.16,
+                              ),
+                              shape: const CircleBorder(
+                                side: BorderSide(
+                                  color: Color(0x3DFAF4EC),
+                                  width: 0.5,
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              isFav
+                                  ? CupertinoIcons.heart_fill
+                                  : CupertinoIcons.heart,
+                              size: 14,
+                              color: isFav
+                                  ? AppColors.terracotta
+                                  : AppColors.ivorySand,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                     const Spacer(),

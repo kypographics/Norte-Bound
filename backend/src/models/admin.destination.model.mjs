@@ -10,6 +10,7 @@ const UPDATABLE_COLUMNS = [
   'address',
   'latitude',
   'longitude',
+  'image_url',
   'entity_type',
   'popularity_tier',
   'highway_accessible',
@@ -155,6 +156,7 @@ export async function createDestination(data) {
           address,
           latitude,
           longitude,
+          image_url,
           entity_type,
           popularity_tier,
           highway_accessible,
@@ -163,7 +165,7 @@ export async function createDestination(data) {
           source_name,
           source_type,
           last_verified_date
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         RETURNING id
       `,
       [
@@ -176,6 +178,7 @@ export async function createDestination(data) {
         data.address,
         data.latitude,
         data.longitude,
+        data.image_url ?? null,
         data.entity_type,
         data.popularity_tier,
         Boolean(data.highway_accessible),

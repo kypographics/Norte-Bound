@@ -1,54 +1,41 @@
-# NORTE BOUND — Web Admin Portal
+# NORTE BOUND — Curator Admin Portal
 
-An isolated, responsive web-based administration portal for curators and administrators of **NORTE BOUND: Ilocos Norte Tourism Recommendation & Itinerary Planning System**.
+Static, zero-bundler administration web portal for curators and administrators of **NORTE BOUND: Ilocos Norte Tourism Recommendation & Itinerary Planning System**.
 
----
+## Design System
+Follows the **Cupertino Nature-First** specification:
+- **Canvas:** Warm Sand (`#F5E6D3`)
+- **Cards & Modals:** Elevated Ivory Sand (`#FAF4EC`)
+- **Primary Ink & Frosted Header:** Deep Forest Green (`#092008`)
+- **Category Pills:** 25% Sky Blue (`#87CEEB`) paired strictly with `#092008` text
+- **Primary Actions & Dispersal Highlight:** Terracotta Orange (`#E27D5A`)
+- **Numeric Precision:** `Inter` with `tabular-nums` for PHP fees, coordinates, KPI counts, and hours
 
-## 🎨 Design System
-Adheres strictly to the **Cupertino Nature-First** design system:
-- **Background:** Warm Sand (`#F5E6D3`)
-- **Cards & Surfaces:** Elevated Ivory Sand (`#FAF4EC`)
-- **Headers & Typography:** Deep Forest Green (`#092008`)
-- **CTA Actions & Accents:** Terracotta Orange (`#E27D5A`)
-- **Status Badges & Pills:** Sky Blue (`#87CEEB`)
+## Capabilities
+1. **RBAC Curator Authentication (`POST /api/v1/auth/login`):**
+   - Enforces `role === 'admin'` before unlocking the dashboard.
+2. **Province-Wide Registry & Live Filtering:**
+   - Displays all curated destinations across all 23 Ilocos Norte LGUs (`Table` and `Photo Grid` views) with instant search, Cluster, LGU, Category, and Verification Status filters.
+   - Summary KPIs track Total Places, Verified count, Pending Check count, Hidden Gem dispersal percentage (`>=30%` target), and LGU coverage.
+3. **1-Tap Verification Toggle (`PATCH /api/v1/admin/destinations/:id/status`):**
+   - Toggles destinations between `verified` and `needs_field_verification`.
+4. **Full Curator Editor (`POST / PUT /api/v1/admin/destinations`):**
+   - Edits destination photos (`image_url` with live preview), road access, verified PHP pricing, provenance metadata, interest tags, and 7-day operating hours including temporary closure controls.
+5. **Protected Delete Guard (`DELETE /api/v1/admin/destinations/:id`):**
+   - Custom confirmation dialog before removing unreferenced records.
 
----
-
-## 🚀 Key Features
-
-1. **Secure Admin Authentication:**
-   - Authenticates via `POST /api/v1/auth/login`.
-   - Enforces RBAC: blocks non-admin users (tourist accounts) with a `403` error message.
-   - Stores JWT session securely in `localStorage`.
-
-2. **Destination Management Table:**
-   - Lists seeded destinations across all 23 LGUs in Ilocos Norte.
-   - Filterable by keyword, LGU, and verification status.
-   - Summary metric counters for Total Destinations, Verified Records, and Hidden Gems.
-
-3. **Quick Status Toggle:**
-   - Instant patch toggle between `verified` and `needs_field_verification` via `PATCH /api/v1/admin/destinations/:id/status`.
-
-4. **Add / Edit Destination Modal:**
-   - Comprehensive form supporting all metadata fields (name, slug, LGU code, cluster, category, coordinates, entity type, popularity tier, pricing summary, highway accessibility, and tags).
-
-5. **Delete Destination Guard:**
-   - Confirms deletion before issuing `DELETE /api/v1/admin/destinations/:id`.
-
----
-
-## ⚙️ How to Run
-
-1. Start the backend server (ensure MySQL is running and migrations/seeds are applied):
+## Running Locally
+1. Ensure the backend API is running on `http://localhost:5000/api/v1`:
    ```bash
    cd backend
-   npm install
    npm run dev
    ```
-2. Open `admin-web/index.html` in any modern web browser or serve it via a local static server:
+2. Serve `admin-web/` over HTTP:
    ```bash
-   npx serve admin-web
+   npx serve admin-web -l 5173
    ```
-3. Sign in using curator credentials:
-   - **Email:** `admin@nortebound.ph`
-   - **Password:** `AdminPass123!`
+   Or with Python:
+   ```bash
+   python -m http.server 5173 --directory admin-web
+   ```
+3. Open `http://localhost:5173` and sign in with an administrator account. You can override the API base URL if needed via `?api=http://localhost:5000/api/v1`.

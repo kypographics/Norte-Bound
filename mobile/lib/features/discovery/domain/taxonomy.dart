@@ -1,3 +1,5 @@
+import '../../../core/utils/json_parse.dart';
+
 class CategoryItem {
   const CategoryItem({
     required this.categoryCode,
@@ -11,9 +13,9 @@ class CategoryItem {
 
   factory CategoryItem.fromJson(Map<String, dynamic> json) {
     return CategoryItem(
-      categoryCode: _string(json['categoryCode'] ?? json['code']),
-      name: _string(json['name'] ?? json['label']),
-      description: _string(json['description']),
+      categoryCode: jsonString(json['categoryCode'] ?? json['code']),
+      name: jsonString(json['name'] ?? json['label']),
+      description: jsonString(json['description']),
     );
   }
 }
@@ -35,11 +37,11 @@ class InterestTag {
     final synonyms = json['aiSynonyms'] ?? json['synonyms'];
 
     return InterestTag(
-      tagSlug: _string(json['tagSlug'] ?? json['slug'] ?? json['tag_code']),
-      displayName: _string(
+      tagSlug: jsonString(json['tagSlug'] ?? json['slug'] ?? json['tag_code']),
+      displayName: jsonString(
         json['displayName'] ?? json['name'] ?? json['label'],
       ),
-      categoryCode: _string(json['categoryCode'] ?? json['category_code']),
+      categoryCode: jsonString(json['categoryCode'] ?? json['category_code']),
       aiSynonyms: synonyms is List
           ? synonyms.whereType<String>().toList(growable: false)
           : const [],
@@ -91,8 +93,4 @@ class DestinationTaxonomy {
           : const [],
     );
   }
-}
-
-String _string(Object? value) {
-  return value is String ? value.trim() : '';
 }
